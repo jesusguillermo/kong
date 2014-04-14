@@ -17,6 +17,7 @@ public class GameScreen extends Screens {
 	boolean jump;
 	
 	
+	
 	public GameScreen(MainShoppu game) {
 		super(game);
 			oWorld = new WorldGame();

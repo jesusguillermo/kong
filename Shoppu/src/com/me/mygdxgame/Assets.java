@@ -22,6 +22,7 @@ public class Assets {
 	public static AtlasRegion Plataforma;
 	public static AtlasRegion Moneda;
 	public static AtlasRegion Cerro;
+	public static AtlasRegion PisoAlcantarilla;
 	
 	public static AtlasRegion Fondo;
 	
@@ -53,6 +54,7 @@ public class Assets {
 		
 		Panadilla = new Animation(0.20f, P1,P2,P3,P4,P5);
 		
+		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");
 		Nubes = atlas.findRegion("nubes");
 		Poste = atlas.findRegion("poste");

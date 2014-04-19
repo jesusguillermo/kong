@@ -105,7 +105,7 @@ public WorldGame()
     crearPandilla();
     crearPiso(0.5f);
     crearPiso(HEIGHT);
-    crearPlataforma(WIDTH+2,1.5f,true);
+  //  crearPlataforma(WIDTH+2,1.5f,true);
 }
 
 
@@ -119,7 +119,7 @@ private void crearPlataforma(float x, float y, boolean estado) {
 			Body oBody = oWorldBox.createBody(bd);
 
 			PolygonShape shape = new PolygonShape();
-			shape.setAsBox(.4f,  .1f);
+			shape.setAsBox(.7f,  .1f);
 
 			FixtureDef fixDef = new FixtureDef();
 			fixDef.shape = shape;
@@ -171,7 +171,7 @@ private void crearGato() {
 	
 	//haremos un rectangulo
 	PolygonShape shape = new PolygonShape();
-	shape.setAsBox(0.3f, 0.15f);
+	shape.setAsBox(.3f, .2f);
 	//necestamos una fixture
 	FixtureDef fixture = new FixtureDef();
 	fixture.shape = shape;
@@ -210,7 +210,7 @@ private void crearPandilla() {
 
 private void crearRejillas() {
 	float x = WIDTH + 3;
-	float y = 0.5f;
+	float y = 0.7f;
 
 	Rejillas oReji = new Rejillas(x, y);
 	
@@ -224,7 +224,7 @@ private void crearRejillas() {
 	Body oBody = oWorldBox.createBody(bd);
 
 	PolygonShape shape = new PolygonShape();
-	shape.setAsBox(.1f, .1f);
+	shape.setAsBox(.36f, .1f);
 
 	FixtureDef fixDef = new FixtureDef();
 	fixDef.shape = shape;
@@ -239,7 +239,7 @@ private void crearRejillas() {
 
 private void crearPoste() {
 	float x = WIDTH + 3;
-	float y = 0.5f;
+	float y = 1.6f;
 
 	Poste oPos = new Poste(x, y);
 	
@@ -253,7 +253,7 @@ private void crearPoste() {
 	Body oBody = oWorldBox.createBody(bd);
 
 	PolygonShape shape = new PolygonShape();
-	shape.setAsBox(.1f, .1f);
+	shape.setAsBox(.07f, .39f);
 
 	FixtureDef fixDef = new FixtureDef();
 	fixDef.shape = shape;
@@ -268,7 +268,7 @@ private void crearPoste() {
 
 private void crearPaisaje() {
 	float x = WIDTH + 5;
-	float y = 0.5f;
+	float y = 1.05f;
 
 	Paisaje oPais = new Paisaje(x, y);
 	
@@ -282,7 +282,7 @@ private void crearPaisaje() {
 	Body oBody = oWorldBox.createBody(bd);
 
 	PolygonShape shape = new PolygonShape();
-	shape.setAsBox(.1f, .1f);
+	shape.setAsBox(.8f, .23f);
 
 	FixtureDef fixDef = new FixtureDef();
 	fixDef.shape = shape;
@@ -324,7 +324,7 @@ private void crearMonedas() {
 
 private void crearNubes() {
 	float x = WIDTH + 5;
-	float y = 0.5f;
+	float y = 3.5f;
 
 	Nubes oNube = new Nubes(x, y);
 	
@@ -338,7 +338,7 @@ private void crearNubes() {
 	Body oBody = oWorldBox.createBody(bd);
 
 	PolygonShape shape = new PolygonShape();
-	shape.setAsBox(.1f, .1f);
+	shape.setAsBox(.76f, .13f);
 
 	FixtureDef fixDef = new FixtureDef();
 	fixDef.shape = shape;
@@ -353,7 +353,7 @@ private void crearNubes() {
 
 private void crearCerros() {
 	float x = WIDTH + 3;
-	float y = 0.5f;
+	float y = 1.5f;
 
 	Cerros oCerro = new Cerros(x, y);
 	
@@ -367,7 +367,7 @@ private void crearCerros() {
 	Body oBody = oWorldBox.createBody(bd);
 
 	PolygonShape shape = new PolygonShape();
-	shape.setAsBox(.1f, .1f);
+	shape.setAsBox(.26f, .27f);
 
 	FixtureDef fixDef = new FixtureDef();
 	fixDef.shape = shape;
@@ -415,7 +415,13 @@ public void update(float delta, boolean jump) {
 	timeToSpawnPLATAFORMAS += delta;
 	if (timeToSpawnPLATAFORMAS>= TIME_TO_SPAWN_PLATAFORMAS) {
 		timeToSpawnPLATAFORMAS-= TIME_TO_SPAWN_PLATAFORMAS;
-		crearPlataforma(WIDTH + 2,1.5f, true);
+		float y = Oran.nextInt(4);
+		if(y == 0)
+		{
+			y = 1;
+		}
+		crearPlataforma(WIDTH + 2,y, true);
+		//crearPlataforma(WIDTH + 2,1.5f, true);
 	}
 	oWorldBox.getBodies(arrBodies);
 	time -= delta;
@@ -639,11 +645,32 @@ public class Colisiones implements ContactListener {
 	// llama antes de que vayan a chocar, pero de que si choquen
 	@Override
 	public void preSolve(Contact contact, Manifold oldManifold) {
-		
+		Fixture a = contact.getFixtureA();
+		Fixture b = contact.getFixtureB();
+		if (a.getBody().getUserData() instanceof Gato) {
+			PreSolveContactoPersonaje(a, b,contact);
+		} else if (b.getBody().getUserData() instanceof Gato) {
+			PreSolveContactoPersonaje(b, a,contact);
+		}
 	}
 
-	private void PreSolveContactoPersonaje(Fixture Personaje, Fixture otracosa, Contact contacto) {
-	
+	private void PreSolveContactoPersonaje(Fixture Personaje, Fixture OotraCosa, Contact contacto) {
+		Gato OGato = (Gato) Personaje.getBody().getUserData();
+
+		Object otracosa = OotraCosa.getBody().getUserData();
+		 if (otracosa instanceof Plataforma) {
+			 //.7 y .1 x y y
+			 //kuro .3 x y .15 en y
+			 //tocando por abajo la vamos a atravesar, si la estamos tocando por arriba no la vamos a atravesar
+			 //Calcular la posicoin del mono el y - radio 
+			float posicion_personaje = OGato.position.y - .2f;
+			//Calcular la posicion de la plataforma que seria y + 0.09 y la plataforma mide .1 la mitad y .2 toda en y
+			float posicion_plataforma = ((Plataforma) otracosa).posicion.y + .1f;
+			 if(posicion_personaje < posicion_plataforma){
+				 //no existira el concacto y podra atravezar la plataforma desde abajo
+				 contacto.setEnabled(false);
+			 }
+		}
 		
 	}
 

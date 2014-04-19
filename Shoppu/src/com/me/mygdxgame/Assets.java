@@ -23,6 +23,8 @@ public class Assets {
 	public static AtlasRegion Moneda;
 	public static AtlasRegion Cerro;
 	
+	public static AtlasRegion Fondo;
+	
 	public static Animation Panadilla;
 	public static Animation Kuro;	
 
@@ -59,6 +61,7 @@ public class Assets {
 		Plataforma = atlas.findRegion("plataforma");
 		Moneda = atlas.findRegion("siguiente");
 		Cerro = atlas.findRegion("cerros");
+		Fondo = atlas.findRegion("cielos");
 		
 		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("cielos"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 800, 480);
 		ParallaxLayer as[] = new ParallaxLayer[] { floor };

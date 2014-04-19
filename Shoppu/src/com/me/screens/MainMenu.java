@@ -44,8 +44,10 @@ public class MainMenu extends Screens{
 
 	@Override
 	public void draw(float delta) {
-		Assets.parallaxFondo.render(delta);
-
+	//	Assets.parallaxFondo.render(delta);
+		batcher.begin();
+		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
+		batcher.end();
 	}
 
 }

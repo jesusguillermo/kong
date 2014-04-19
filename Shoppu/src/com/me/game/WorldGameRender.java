@@ -32,7 +32,10 @@ public class WorldGameRender {
 	}
 
 	public void render(float delta) {
-		renderbackground(delta);
+		//renderbackground(delta);
+		batcher.begin();
+		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
+		batcher.end();
 		oCam.update();
 		
 		//matriz de proyeccion
@@ -95,7 +98,7 @@ TextureRegion keyframe;
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
 		
 		
-				batcher.draw(keyframe, oWorld.OGato.position.x - 0.35f , oWorld.OGato.position.y-0.3f, +0.7f, .7f);
+				batcher.draw(keyframe, oWorld.OGato.position.x - 0.35f , oWorld.OGato.position.y-0.35f, +.7f, .7f);
 	
 	}
 
@@ -123,7 +126,7 @@ TextureRegion keyframe;
 			//true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.Rejillas;
 
-		    batcher.draw(keyframe, oReji.posicion.x - 1.7f, oReji.posicion.y -.15f, 2.15f , .85f );
+		    batcher.draw(keyframe, oReji.posicion.x - 0.75f, oReji.posicion.y -.25f, 1.5f , 0.5f );
 		}
 	}
 
@@ -137,7 +140,7 @@ TextureRegion keyframe;
 			//true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.Poste;
 
-		    batcher.draw(keyframe, oPos.posicion.x - 0.6f, oPos.posicion.y - 0.5f, 1.1f , 4f );
+		    batcher.draw(keyframe, oPos.posicion.x - 0.395f, oPos.posicion.y - 1.95f, 0.79f , 3.9f );
 		}
 	}
 
@@ -151,7 +154,7 @@ TextureRegion keyframe;
 			//true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.Cerro;
 
-		    batcher.draw(keyframe, oCerro.posicion.x - 4f, oCerro.posicion.y - 0.5f, 8f , 3.9f );
+		    batcher.draw(keyframe, oCerro.posicion.x - 1.3f, oCerro.posicion.y - 1.35f, 2.6f , 2.7f );
 		}
 	}
 
@@ -165,7 +168,7 @@ TextureRegion keyframe;
 			//true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.paisaje;
 
-		    batcher.draw(keyframe, oPais.posicion.x - 4f, oPais.posicion.y -0.5f, 8f , 3.9f );
+		    batcher.draw(keyframe, oPais.posicion.x - 4f, oPais.posicion.y -1.15f, 8f , 2.3f );
 		}
 		
 	}
@@ -180,7 +183,7 @@ TextureRegion keyframe;
 			//true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.Nubes;
 
-		    batcher.draw(keyframe, oNube.posicion.x - -4f, oNube.posicion.y - 0.5f, 8f , 4.8f );
+		    batcher.draw(keyframe, oNube.posicion.x - 3.8f, oNube.posicion.y - 0.55f, 7.6f , 1.3f );
 		}
 	}
 

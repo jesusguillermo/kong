@@ -4,114 +4,114 @@ filter: Linear,Linear
 repeat: none
 3
   rotate: false
-  xy: 287, 1640
-  size: 280, 250
-  orig: 280, 250
+  xy: 1880, 618
+  size: 128, 124
+  orig: 128, 124
   offset: 0, 0
   index: -1
 nubes
   rotate: false
-  xy: 2, 885
-  size: 801, 397
-  orig: 801, 397
+  xy: 2, 564
+  size: 764, 133
+  orig: 764, 133
   offset: 0, 0
   index: -1
 e
   rotate: false
-  xy: 841, 1628
+  xy: 372, 699
   size: 319, 192
   orig: 319, 192
   offset: 0, 0
   index: -1
 a
   rotate: false
-  xy: 996, 1365
+  xy: 2, 807
   size: 323, 184
   orig: 323, 184
   offset: 0, 0
   index: -1
-cielo
-  rotate: false
-  xy: 2, 481
-  size: 801, 402
-  orig: 801, 402
-  offset: 0, 0
-  index: -1
 poste
   rotate: false
-  xy: 807, 82
-  size: 224, 858
-  orig: 224, 858
+  xy: 804, 82
+  size: 79, 393
+  orig: 79, 393
   offset: 0, 0
   index: -1
 4
   rotate: false
-  xy: 2, 1674
-  size: 283, 293
-  orig: 283, 293
+  xy: 885, 230
+  size: 149, 141
+  orig: 149, 141
   offset: 0, 0
   index: -1
 cerros
   rotate: false
-  xy: 1033, 484
-  size: 801, 397
-  orig: 801, 397
+  xy: 1610, 484
+  size: 268, 276
+  orig: 268, 276
   offset: 0, 0
   index: -1
 btnSelIzquierda
   rotate: false
-  xy: 1836, 581
+  xy: 885, 373
   size: 98, 95
   orig: 98, 95
   offset: 0, 0
   index: -1
 rejillas
   rotate: false
-  xy: 562, 1284
-  size: 432, 172
-  orig: 432, 172
+  xy: 2, 699
+  size: 368, 106
+  orig: 368, 106
+  offset: 0, 0
+  index: -1
+pisoalcantarilla
+  rotate: false
+  xy: 693, 722
+  size: 874, 96
+  orig: 874, 96
   offset: 0, 0
   index: -1
 b
   rotate: false
-  xy: 562, 1458
+  xy: 693, 820
   size: 320, 168
   orig: 320, 168
   offset: 0, 0
   index: -1
 siguiente
   rotate: false
-  xy: 1836, 678
+  xy: 529, 893
   size: 92, 91
   orig: 92, 91
   offset: 0, 0
   index: -1
 btnSelDerecha
   rotate: false
-  xy: 1936, 581
+  xy: 1875, 865
   size: 98, 95
   orig: 98, 95
   offset: 0, 0
   index: -1
 btnEmpezar
   rotate: false
-  xy: 1836, 484
+  xy: 327, 893
   size: 200, 95
   orig: 200, 95
   offset: 0, 0
   index: -1
 5
   rotate: false
-  xy: 2, 1365
-  size: 281, 307
-  orig: 281, 307
+  xy: 885, 82
+  size: 135, 146
+  orig: 135, 146
   offset: 0, 0
   index: -1
 1
   rotate: false
-  xy: 285, 1365
-  size: 275, 273
-  orig: 275, 273
+  xy: 1880, 484
+  size: 128, 132
+  orig: 128, 132
   offset: 0, 0
   index: -1
 background
@@ -123,9 +123,9 @@ background
   index: -1
 paisaje
   rotate: false
-  xy: 2, 82
-  size: 803, 397
-  orig: 803, 397
+  xy: 804, 484
+  size: 804, 236
+  orig: 804, 236
   offset: 0, 0
   index: -1
 plataforma
@@ -137,28 +137,28 @@ plataforma
   index: -1
 c
   rotate: false
-  xy: 1147, 1822
+  xy: 1015, 820
   size: 313, 186
   orig: 313, 186
   offset: 0, 0
   index: -1
 2
   rotate: false
-  xy: 569, 1628
-  size: 270, 241
-  orig: 270, 241
+  xy: 1880, 744
+  size: 132, 119
+  orig: 132, 119
   offset: 0, 0
   index: -1
 cielos
   rotate: false
-  xy: 1033, 883
+  xy: 2, 82
   size: 800, 480
   orig: 800, 480
   offset: 0, 0
   index: -1
 d
   rotate: false
-  xy: 841, 1822
+  xy: 1569, 762
   size: 304, 192
   orig: 304, 192
   offset: 0, 0

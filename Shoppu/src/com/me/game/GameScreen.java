@@ -14,9 +14,7 @@ public class GameScreen extends Screens {
 	WorldGame oWorld;
 	WorldGameRender renderer;
 	public State state;
-	boolean jump;
-	
-	
+	boolean jump;	
 	
 	public GameScreen(MainShoppu game) {
 		super(game);

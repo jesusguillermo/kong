@@ -2,6 +2,8 @@ package com.me.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.me.mygdxgame.Assets;
 import com.me.mygdxgame.MainShoppu;
 import com.me.screens.MainMenu;
@@ -10,6 +12,8 @@ import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 
 public class GameScreen extends Screens {
 
+	Button btTryAgain, btLeaderBoards, btShop;
+	
 	public enum State {ready,running,gameover}
 	WorldGame oWorld;
 	WorldGameRender renderer;
@@ -21,6 +25,7 @@ public class GameScreen extends Screens {
 			oWorld = new WorldGame();
 			renderer = new WorldGameRender(batcher,oWorld);
 			state = State.ready;
+			InicializarGameOver();
 	}
 
 	@Override
@@ -89,7 +94,11 @@ public class GameScreen extends Screens {
 	}
 
 	private void drawgameover(float delta) {
-		Assets.Font.draw(batcher, "Haz perdido", 100, 200);		
+		Assets.Font.draw(batcher, "Haz perdido", 100, 200);	
+			
+	}
+	private void InicializarGameOver()
+	{
 		
 	}
 

@@ -22,10 +22,11 @@ public class Assets {
 	public static AtlasRegion Plataforma;
 	public static AtlasRegion Moneda;
 	public static AtlasRegion Cerro;
-	public static AtlasRegion PisoAlcantarilla;
+	public static AtlasRegion PisoAlcantarilla;	
 	
 	public static AtlasRegion Fondo;
 	
+	public static Animation Peleando;
 	public static Animation Panadilla;
 	public static Animation Kuro;	
 
@@ -44,7 +45,7 @@ public class Assets {
 		AtlasRegion K4 = atlas.findRegion("4");
 		AtlasRegion K5 = atlas.findRegion("5");
 		
-		Kuro = new Animation(0.15f, K1,K2,K3,K4,K5);
+		Kuro = new Animation(0.20f, K1,K2,K3,K4,K5);
 		
 		AtlasRegion P1 = atlas.findRegion("a");
 		AtlasRegion P2 = atlas.findRegion("b");
@@ -53,6 +54,13 @@ public class Assets {
 		AtlasRegion P5 = atlas.findRegion("e");
 		
 		Panadilla = new Animation(0.20f, P1,P2,P3,P4,P5);
+		
+		AtlasRegion B1 = atlas.findRegion("peleas");
+		AtlasRegion B2 = atlas.findRegion("peleas1");
+		AtlasRegion B3 = atlas.findRegion("peleas2");
+		AtlasRegion B4 = atlas.findRegion("peleas3");
+		
+		Peleando = new Animation(0.10f, B1,B2,B3,B4);
 		
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");

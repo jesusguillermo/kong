@@ -85,11 +85,10 @@ public class WorldGameRender {
 	}
 
 	private void dibujarPandilla(float delta) {
-
-		TextureRegion keyframe = Assets.Panadilla.getKeyFrame(oWorld.oPan.state_time,true);
 		
+		TextureRegion keyframe = Assets.Panadilla.getKeyFrame(oWorld.oPan.state_time,true);		
 		
-			batcher.draw(keyframe, oWorld.oPan.posicion.x - 1f, oWorld.oPan.posicion.y -0.5f, 2f,1f);
+		batcher.draw(keyframe, oWorld.oPan.posicion.x - 1f, oWorld.oPan.posicion.y -0.5f, 2f,1f);
 		
 	}
 
@@ -107,7 +106,7 @@ TextureRegion keyframe;
 		}
 		else if(oWorld.OGato.state ==Gato.State.muerto)
 		{
-			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, false);
+			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
 		}
 		else
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);

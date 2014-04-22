@@ -61,20 +61,10 @@ public class WorldGame {
 	float timeToSpawnPLATAFORMAS;
 	
 	//----------------------------------
-	final float TIME_TO_SPAWN_PASAJE= 4f;// Tiempo en segundos para que aparezcan las rejillas
-	float timeToSpawnPASAJE;
+	final float TIME_TO_SPAWN_Esceneario2= 5f;// Tiempo en segundos para que aparezcan las rejillas
+	float timeToSpawnEscenario2;
 	
-	final float TIME_TO_SPAWN_FOCO= 4.6f;// Tiempo en segundos para que aparezcan las rejillas
-	float timeToSpawnFOCO;
 	
-	final float TIME_TO_SPAWN_TUBERIA= 1.5f;// Tiempo en segundos para que aparezcan las rejillas
-	float timeToSpawnTUBERIA;
-	
-	final float TIME_TO_SPAWN_TUBERIALARGA = 3.5f;// Tiempo en segundos para que aparezcan las rejillas
-	float timeToSpawnTUBERIALARGA;
-	
-	final float TIME_TO_SPAWN_CLOACA= 1.5f;// Tiempo en segundos para que aparezcan las rejillas
-	float timeToSpawnCLOACA;
 	//----------------------------------
 	public enum State
 	{
@@ -134,19 +124,21 @@ public WorldGame()
     crearCerros();
     crearNubes();
     crearMonedas();
-    crearPaisaje();
     crearPoste();
     crearRejillas();
     crearPandilla();
     crearPiso(0.5f);
     crearPiso(HEIGHT);
+    
   //  crearPlataforma(WIDTH+2,1.5f,true);
     //-----------------------
+    /*
     crearReji();
     crearTuberias();
     crearTuberiasLargas();
     crearFocos();
     crearPasaje();
+    */
     //-----------------------
 }
 
@@ -178,11 +170,13 @@ private void crearPasaje() {
 	oBody.createFixture(fixDef);
 
 	oBody.setUserData(oPas);
+	crearFocos(x+3);
+	crearReji(x+3);
+	crearTuberiasLargas(x+1.5f);
 }
 
 
-private void crearFocos() {
-	float x = WIDTH + 3;
+private void crearFocos(float x) {
 	float y = 3f;
 
 	Foco oFoco = new Foco(x, y);
@@ -211,8 +205,7 @@ private void crearFocos() {
 }
 
 
-private void crearTuberiasLargas() {
-	float x = WIDTH + 3;
+private void crearTuberiasLargas(float x) {
 	float y = 2.4f;
 
 	TuberiaLarga oTub = new TuberiaLarga(x, y);
@@ -238,11 +231,11 @@ private void crearTuberiasLargas() {
 	oBody.createFixture(fixDef);
 
 	oBody.setUserData(oTub);
+	crearTuberias(x+3);
 }
 
 
-private void crearTuberias() {
-	float x = WIDTH + 3;
+private void crearTuberias(float x) {
 	float y = 2.4f;
 
 	Tuberia oTub = new Tuberia(x, y);
@@ -271,9 +264,8 @@ private void crearTuberias() {
 }
 
 
-private void crearReji() {
-	float x = WIDTH + 3;
-	float y = 2.4f;
+private void crearReji(float x) {
+	float y = 1.5f;
 
 	Rejilla oReji = new Rejilla(x, y);
 	
@@ -617,31 +609,11 @@ public void update(float delta, boolean jump) {
 		//crearPlataforma(WIDTH + 2,1.5f, true);
 	}
 	//-----------------------------------------------------------------
-	timeToSpawnPASAJE += delta;
-	if (timeToSpawnPASAJE >= TIME_TO_SPAWN_PASAJE) {
-		timeToSpawnPASAJE-= TIME_TO_SPAWN_PASAJE;
+	timeToSpawnEscenario2 += delta;
+	if (timeToSpawnEscenario2 >= TIME_TO_SPAWN_Esceneario2) {
+		timeToSpawnEscenario2-= TIME_TO_SPAWN_Esceneario2;
 		crearPasaje();
 	}	
-	timeToSpawnFOCO+= delta;
-	if (timeToSpawnFOCO >= TIME_TO_SPAWN_FOCO) {
-		timeToSpawnFOCO-= TIME_TO_SPAWN_FOCO;
-		crearFocos();
-	}	
-	timeToSpawnTUBERIA+= delta;
-	if (timeToSpawnTUBERIA >= TIME_TO_SPAWN_TUBERIA) {
-		timeToSpawnTUBERIA-= TIME_TO_SPAWN_TUBERIA;
-		crearTuberias();
-	}	
-	timeToSpawnCLOACA += delta;
-	if (timeToSpawnCLOACA >= TIME_TO_SPAWN_CLOACA) {
-		timeToSpawnCLOACA-= TIME_TO_SPAWN_CLOACA;
-		crearReji();
-	}
-	timeToSpawnTUBERIALARGA += delta;
-	if (timeToSpawnTUBERIALARGA >= TIME_TO_SPAWN_TUBERIALARGA) {
-		timeToSpawnTUBERIALARGA-= TIME_TO_SPAWN_TUBERIALARGA;
-		crearTuberiasLargas();
-	}
 	
 	//-----------------------------------------------------------------
 	oWorldBox.getBodies(arrBodies);

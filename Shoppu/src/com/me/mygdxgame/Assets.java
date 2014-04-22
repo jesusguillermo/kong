@@ -91,7 +91,7 @@ public class Assets {
 		Rejilla2 = atlas.findRegion("cloaca2");
 		Foco = atlas.findRegion("foco");
 		//-----------------------------------
-		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("cielos"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 800, 480);
+		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisoalcantarilla"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 874, 96);
 		ParallaxLayer as[] = new ParallaxLayer[] { floor };
 
 		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));

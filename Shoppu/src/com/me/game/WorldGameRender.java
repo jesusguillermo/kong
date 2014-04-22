@@ -37,10 +37,12 @@ public class WorldGameRender {
 	}
 
 	public void render(float delta) {
-		//renderbackground(delta);
+		
 		batcher.begin();
 		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
 		batcher.end();
+		
+		renderbackground(delta);
 		oCam.update();
 		
 		//matriz de proyeccion
@@ -265,8 +267,7 @@ TextureRegion keyframe;
 			keyframe = Assets.paisaje;
 
 		    batcher.draw(keyframe, oPais.posicion.x - 4f, oPais.posicion.y -1.15f, 8f , 2.3f );
-		}
-		
+		}		
 	}
 
 	private void dibujarNubes(float delta) {

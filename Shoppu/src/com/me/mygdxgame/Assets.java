@@ -24,6 +24,16 @@ public class Assets {
 	public static AtlasRegion Cerro;
 	public static AtlasRegion PisoAlcantarilla;	
 	
+	//-----------------------------------
+	public static AtlasRegion Pasaje;
+	public static AtlasRegion Tuberia;
+	public static AtlasRegion Tuberialarga;
+	public static AtlasRegion Rejilla1;
+	public static AtlasRegion Rejilla2;
+	public static AtlasRegion Foco;		
+	
+	//-----------------------------------
+	
 	public static AtlasRegion Fondo;
 	
 	public static Animation Peleando;
@@ -72,7 +82,15 @@ public class Assets {
 		Moneda = atlas.findRegion("siguiente");
 		Cerro = atlas.findRegion("cerros");
 		Fondo = atlas.findRegion("cielos");
-		
+
+		//-----------------------------------
+		Pasaje = atlas.findRegion("pasaje");
+		Tuberia = atlas.findRegion("tuberia");
+		Tuberialarga = atlas.findRegion("tuberialarga");
+		Rejilla1 = atlas.findRegion("cloaca");
+		Rejilla2 = atlas.findRegion("cloaca2");
+		Foco = atlas.findRegion("foco");
+		//-----------------------------------
 		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("cielos"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 800, 480);
 		ParallaxLayer as[] = new ParallaxLayer[] { floor };
 

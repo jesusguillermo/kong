@@ -6,14 +6,19 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.me.mygdxgame.Assets;
 import com.me.objetos.Cerros;
+import com.me.objetos.Foco;
 import com.me.objetos.Gato;
 import com.me.objetos.Monedas;
 import com.me.objetos.Nubes;
 import com.me.objetos.Paisaje;
 import com.me.objetos.Pandilla;
+import com.me.objetos.Pasaje;
 import com.me.objetos.Plataforma;
 import com.me.objetos.Poste;
+import com.me.objetos.Rejilla;
 import com.me.objetos.Rejillas;
+import com.me.objetos.Tuberia;
+import com.me.objetos.TuberiaLarga;
 import com.me.screens.Screens;
 
 public class WorldGameRender {
@@ -47,6 +52,13 @@ public class WorldGameRender {
 		dibujarCerro(delta);
 		dibujarRejillas(delta);
 		dibujarPlataforma(delta);
+		//------------------------
+		dibujarTuberia(delta);
+		dibujarTuberiaLarga(delta);
+		dibujarFoco(delta);
+		dibujarPasaje(delta);
+		dibujarCloaca(delta);
+		//------------------------
 		dibujarPiso(delta);
 		dibujarMoneda(delta);
 		dibujarPandilla(delta);
@@ -54,6 +66,76 @@ public class WorldGameRender {
 		batcher.end();
 		
 		renderBox.render(oWorld.oWorldBox, oCam.combined);
+	}
+
+	private void dibujarCloaca(float delta) {
+		int length = oWorld.arrReji.size;
+		
+		for(int i = 0; i < length;i++){
+			Rejilla oReji = oWorld.arrReji.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.Rejilla1;
+
+		    batcher.draw(keyframe, oReji.posicion.x - .51f, oReji.posicion.y -.51f, 1.02f , 1.02f );
+		}
+	}
+
+	private void dibujarPasaje(float delta) {
+		int length = oWorld.arrPAseje.size;
+		
+		for(int i = 0; i < length;i++){
+			Pasaje oPas = oWorld.arrPAseje.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.Pasaje;
+
+		    batcher.draw(keyframe, oPas.posicion.x - 1.37f, oPas.posicion.y -1.185f, 2.74f , 2.37f );
+		}
+	}
+
+	private void dibujarFoco(float delta) {
+		int length = oWorld.arrFocos.size;
+		
+		for(int i = 0; i < length;i++){
+			Foco oFoco = oWorld.arrFocos.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.Foco;
+
+		    batcher.draw(keyframe, oFoco.posicion.x - 0.205f, oFoco.posicion.y -.47f, .41f , .94f );
+		}
+	}
+
+	private void dibujarTuberiaLarga(float delta) {
+		int length = oWorld.arrTuberLargas.size;
+		
+		for(int i = 0; i < length;i++){
+			TuberiaLarga oTub = oWorld.arrTuberLargas.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.Tuberialarga;
+
+		    batcher.draw(keyframe, oTub.posicion.x - 0.30f, oTub.posicion.y -2.46f, .60f , 4.92f );
+		}
+	}
+
+	private void dibujarTuberia(float delta) {
+		int length = oWorld.arrTuberias.size;
+		
+		for(int i = 0; i < length;i++){
+			Tuberia oTub = oWorld.arrTuberias.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.Tuberia;
+
+		    batcher.draw(keyframe, oTub.posicion.x - 1.26f, oTub.posicion.y -2.54f, 2.52f , 5.08f );
+		}
 	}
 
 	private void dibujarPiso(float delta) {

@@ -19,14 +19,19 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.Array;
 import com.me.objetos.Cerros;
+import com.me.objetos.Foco;
 import com.me.objetos.Gato;
 import com.me.objetos.Monedas;
 import com.me.objetos.Nubes;
 import com.me.objetos.Paisaje;
 import com.me.objetos.Pandilla;
+import com.me.objetos.Pasaje;
 import com.me.objetos.Plataforma;
 import com.me.objetos.Poste;
+import com.me.objetos.Rejilla;
 import com.me.objetos.Rejillas;
+import com.me.objetos.Tuberia;
+import com.me.objetos.TuberiaLarga;
 import com.me.screens.Screens;
 
 public class WorldGame {
@@ -55,6 +60,22 @@ public class WorldGame {
 	final float TIME_TO_SPAWN_PLATAFORMAS= 1f;// Tiempo en segundos para que aparezcan las rejillas
 	float timeToSpawnPLATAFORMAS;
 	
+	//----------------------------------
+	final float TIME_TO_SPAWN_PASAJE= 4f;// Tiempo en segundos para que aparezcan las rejillas
+	float timeToSpawnPASAJE;
+	
+	final float TIME_TO_SPAWN_FOCO= 4.6f;// Tiempo en segundos para que aparezcan las rejillas
+	float timeToSpawnFOCO;
+	
+	final float TIME_TO_SPAWN_TUBERIA= 1.5f;// Tiempo en segundos para que aparezcan las rejillas
+	float timeToSpawnTUBERIA;
+	
+	final float TIME_TO_SPAWN_TUBERIALARGA = 3.5f;// Tiempo en segundos para que aparezcan las rejillas
+	float timeToSpawnTUBERIALARGA;
+	
+	final float TIME_TO_SPAWN_CLOACA= 1.5f;// Tiempo en segundos para que aparezcan las rejillas
+	float timeToSpawnCLOACA;
+	//----------------------------------
 	public enum State
 	{
 		Running, GameOver
@@ -72,6 +93,13 @@ Array<Paisaje> arrPaisaje;
 Array<Poste> arrPoste;
 Array<Rejillas> arrRejillas;
 Array<Plataforma> arrPlataforma;
+//_---------------------------
+Array<Foco> arrFocos;
+Array<Tuberia> arrTuberias;
+Array<TuberiaLarga> arrTuberLargas;
+Array<Rejilla> arrReji;
+Array<Pasaje> arrPAseje;
+//----------------------------
 
 Random Oran;
 int monedas;
@@ -88,6 +116,13 @@ public WorldGame()
 	arrPoste = new Array<Poste>();
 	arrRejillas = new Array<Rejillas>();
 	arrPlataforma = new Array<Plataforma>();
+	//------------------------
+	arrPAseje = new Array<Pasaje>();
+	arrReji = new Array<Rejilla>();
+	arrFocos = new Array<Foco>();
+	arrTuberias = new Array<Tuberia>();
+	arrTuberLargas = new Array<TuberiaLarga>();
+	//------------------------
 	Oran = new Random();
 	oWorldBox = new World(new Vector2(0, -10),true);
 	////
@@ -106,6 +141,163 @@ public WorldGame()
     crearPiso(0.5f);
     crearPiso(HEIGHT);
   //  crearPlataforma(WIDTH+2,1.5f,true);
+    //-----------------------
+    crearReji();
+    crearTuberias();
+    crearTuberiasLargas();
+    crearFocos();
+    crearPasaje();
+    //-----------------------
+}
+
+
+private void crearPasaje() {
+	float x = WIDTH + 3;
+	float y = 1.6f;
+	
+	Pasaje oPas = new Pasaje(x, y);
+	
+	arrPAseje.add(oPas);
+
+	BodyDef bd = new BodyDef();
+	bd.type = BodyType.KinematicBody;
+	bd.position.x = oPas.posicion.x;
+	bd.position.y = oPas.posicion.y;
+
+	Body oBody = oWorldBox.createBody(bd);
+
+	PolygonShape shape = new PolygonShape();
+	shape.setAsBox(2.74f, 2.37f);
+
+	FixtureDef fixDef = new FixtureDef();
+	fixDef.shape = shape;
+	//para que cuando choque no lo tome como otra plataforma e impulse a nuestro personaje
+	// que la moneda no choque con nada pero aun asi reciba eventos de colisiones
+	fixDef.isSensor = true;
+
+	oBody.createFixture(fixDef);
+
+	oBody.setUserData(oPas);
+}
+
+
+private void crearFocos() {
+	float x = WIDTH + 3;
+	float y = 3f;
+
+	Foco oFoco = new Foco(x, y);
+	
+	arrFocos.add(oFoco);
+
+	BodyDef bd = new BodyDef();
+	bd.type = BodyType.KinematicBody;
+	bd.position.x = oFoco.posicion.x;
+	bd.position.y = oFoco.posicion.y;
+
+	Body oBody = oWorldBox.createBody(bd);
+
+	PolygonShape shape = new PolygonShape();
+	shape.setAsBox(.41f, .94f);
+
+	FixtureDef fixDef = new FixtureDef();
+	fixDef.shape = shape;
+	//para que cuando choque no lo tome como otra plataforma e impulse a nuestro personaje
+	// que la moneda no choque con nada pero aun asi reciba eventos de colisiones
+	fixDef.isSensor = true;
+
+	oBody.createFixture(fixDef);
+
+	oBody.setUserData(oFoco);
+}
+
+
+private void crearTuberiasLargas() {
+	float x = WIDTH + 3;
+	float y = 2.4f;
+
+	TuberiaLarga oTub = new TuberiaLarga(x, y);
+	
+	arrTuberLargas.add(oTub);
+
+	BodyDef bd = new BodyDef();
+	bd.type = BodyType.KinematicBody;
+	bd.position.x = oTub.posicion.x;
+	bd.position.y = oTub.posicion.y;
+
+	Body oBody = oWorldBox.createBody(bd);
+
+	PolygonShape shape = new PolygonShape();
+	shape.setAsBox(.3f, 2.46f);
+
+	FixtureDef fixDef = new FixtureDef();
+	fixDef.shape = shape;
+	//para que cuando choque no lo tome como otra plataforma e impulse a nuestro personaje
+	// que la moneda no choque con nada pero aun asi reciba eventos de colisiones
+	fixDef.isSensor = true;
+
+	oBody.createFixture(fixDef);
+
+	oBody.setUserData(oTub);
+}
+
+
+private void crearTuberias() {
+	float x = WIDTH + 3;
+	float y = 2.4f;
+
+	Tuberia oTub = new Tuberia(x, y);
+	
+	arrTuberias.add(oTub);
+
+	BodyDef bd = new BodyDef();
+	bd.type = BodyType.KinematicBody;
+	bd.position.x = oTub.posicion.x;
+	bd.position.y = oTub.posicion.y;
+
+	Body oBody = oWorldBox.createBody(bd);
+
+	PolygonShape shape = new PolygonShape();
+	shape.setAsBox(1.26f, 2.54f);
+
+	FixtureDef fixDef = new FixtureDef();
+	fixDef.shape = shape;
+	//para que cuando choque no lo tome como otra plataforma e impulse a nuestro personaje
+	// que la moneda no choque con nada pero aun asi reciba eventos de colisiones
+	fixDef.isSensor = true;
+
+	oBody.createFixture(fixDef);
+
+	oBody.setUserData(oTub);
+}
+
+
+private void crearReji() {
+	float x = WIDTH + 3;
+	float y = 2.4f;
+
+	Rejilla oReji = new Rejilla(x, y);
+	
+	arrReji.add(oReji);
+
+	BodyDef bd = new BodyDef();
+	bd.type = BodyType.KinematicBody;
+	bd.position.x = oReji.posicion.x;
+	bd.position.y = oReji.posicion.y;
+
+	Body oBody = oWorldBox.createBody(bd);
+
+	PolygonShape shape = new PolygonShape();
+	shape.setAsBox(1.02f, 1.02f);
+
+	FixtureDef fixDef = new FixtureDef();
+	fixDef.shape = shape;
+	//para que cuando choque no lo tome como otra plataforma e impulse a nuestro personaje
+	// que la moneda no choque con nada pero aun asi reciba eventos de colisiones
+	fixDef.isSensor = true;
+
+	oBody.createFixture(fixDef);
+
+	oBody.setUserData(oReji);
 }
 
 
@@ -385,7 +577,7 @@ public void update(float delta, boolean jump) {
 	timeToSpawnCERROS += delta;
 	if (timeToSpawnCERROS >= TIME_TO_SPAWN_CERROS) {
 		timeToSpawnCERROS-= TIME_TO_SPAWN_CERROS;
-		crearCerros();
+	//	crearCerros();
 	}
 	timeToSpawnMONEDAS += delta;
 	if (timeToSpawnMONEDAS >= TIME_TO_SPAWN_MONEDAS) {
@@ -400,17 +592,18 @@ public void update(float delta, boolean jump) {
 	timeToSpawnPAISAJE += delta;
 	if (timeToSpawnPAISAJE >= TIME_TO_SPAWN_PAISAJE) {
 		timeToSpawnPAISAJE-= TIME_TO_SPAWN_PAISAJE;
-		crearPaisaje();
+		//crearPaisaje(); 
 	}
 	timeToSpawnPOSTE += delta;
 	if (timeToSpawnPOSTE>= TIME_TO_SPAWN_POSTE) {
 		timeToSpawnPOSTE-= TIME_TO_SPAWN_POSTE;
-		crearPoste();
+		//crearPoste();
 	}
 	timeToSpawnREJILLAS += delta;
 	if (timeToSpawnREJILLAS>= TIME_TO_SPAWN_REJILLAS) {
 		timeToSpawnREJILLAS-= TIME_TO_SPAWN_REJILLAS;
-		crearRejillas();
+		//crearRejillas();
+		
 	}
 	timeToSpawnPLATAFORMAS += delta;
 	if (timeToSpawnPLATAFORMAS>= TIME_TO_SPAWN_PLATAFORMAS) {
@@ -423,6 +616,34 @@ public void update(float delta, boolean jump) {
 		crearPlataforma(WIDTH + 2,y, true);
 		//crearPlataforma(WIDTH + 2,1.5f, true);
 	}
+	//-----------------------------------------------------------------
+	timeToSpawnPASAJE += delta;
+	if (timeToSpawnPASAJE >= TIME_TO_SPAWN_PASAJE) {
+		timeToSpawnPASAJE-= TIME_TO_SPAWN_PASAJE;
+		crearPasaje();
+	}	
+	timeToSpawnFOCO+= delta;
+	if (timeToSpawnFOCO >= TIME_TO_SPAWN_FOCO) {
+		timeToSpawnFOCO-= TIME_TO_SPAWN_FOCO;
+		crearFocos();
+	}	
+	timeToSpawnTUBERIA+= delta;
+	if (timeToSpawnTUBERIA >= TIME_TO_SPAWN_TUBERIA) {
+		timeToSpawnTUBERIA-= TIME_TO_SPAWN_TUBERIA;
+		crearTuberias();
+	}	
+	timeToSpawnCLOACA += delta;
+	if (timeToSpawnCLOACA >= TIME_TO_SPAWN_CLOACA) {
+		timeToSpawnCLOACA-= TIME_TO_SPAWN_CLOACA;
+		crearReji();
+	}
+	timeToSpawnTUBERIALARGA += delta;
+	if (timeToSpawnTUBERIALARGA >= TIME_TO_SPAWN_TUBERIALARGA) {
+		timeToSpawnTUBERIALARGA-= TIME_TO_SPAWN_TUBERIALARGA;
+		crearTuberiasLargas();
+	}
+	
+	//-----------------------------------------------------------------
 	oWorldBox.getBodies(arrBodies);
 	time -= delta;
 	int lenght = arrBodies.size;
@@ -466,6 +687,26 @@ public void update(float delta, boolean jump) {
 		{
 			updatePlataforma(delta,body);
 		}
+		if(body.getUserData() instanceof Rejilla)
+		{
+			updateReji(delta,body);
+		}
+		if(body.getUserData() instanceof Foco)
+		{
+			updateFoco(delta,body);
+		}
+		if(body.getUserData() instanceof Tuberia)
+		{
+			updatePTuberia(delta,body);
+		}
+		if(body.getUserData() instanceof TuberiaLarga)
+		{
+			updateTuberiaLarga(delta,body);
+		}
+		if(body.getUserData() instanceof Pasaje)
+		{
+			updatePasaje(delta,body);
+		}
 		if(OGato.state == Gato.State.muerto)
 		{
 			state = State.GameOver;
@@ -475,7 +716,72 @@ public void update(float delta, boolean jump) {
 	
 }
 
-private void updatePlataforma(float delta, Body body) {
+private void updatePasaje(float delta, Body body) {
+	Pasaje obj = (Pasaje) body.getUserData();
+	if(obj.posicion.x <= -2)
+	{
+		arrPAseje.removeValue(obj, true);
+		oWorldBox.destroyBody(body);
+		return;
+	}
+	obj.update(body, delta);
+	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+}
+
+
+private void updateTuberiaLarga(float delta, Body body) {
+	TuberiaLarga obj = (TuberiaLarga) body.getUserData();
+	if(obj.posicion.x <= -2)
+	{
+		arrTuberLargas.removeValue(obj, true);
+		oWorldBox.destroyBody(body);
+		return;
+	}
+	obj.update(body, delta);
+	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+}
+
+
+private void updatePTuberia(float delta, Body body) {
+	Tuberia obj = (Tuberia) body.getUserData();
+	if(obj.posicion.x <= -2)
+	{
+		arrTuberias.removeValue(obj, true);
+		oWorldBox.destroyBody(body);
+		return;
+	}
+	obj.update(body, delta);
+	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+}
+
+
+private void updateFoco(float delta, Body body) {
+	Foco obj = (Foco) body.getUserData();
+	if(obj.posicion.x <= -2)
+	{
+		arrFocos.removeValue(obj, true);
+		oWorldBox.destroyBody(body);
+		return;
+	}
+	obj.update(body, delta);
+	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+}
+
+
+private void updateReji(float delta, Body body) {
+	Rejilla obj = (Rejilla) body.getUserData();
+	if(obj.posicion.x <= -2)
+	{
+		arrReji.removeValue(obj, true);
+		oWorldBox.destroyBody(body);
+		return;
+	}
+	obj.update(body, delta);
+	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+}
+
+
+private void updatePlataforma(float delta, Body body) {
 	Plataforma obj = (Plataforma) body.getUserData();
 	if(obj.posicion.x <= -2)
 	{

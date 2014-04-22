@@ -4,183 +4,211 @@ filter: Linear,Linear
 repeat: none
 1
   rotate: false
-  xy: 934, 193
+  xy: 460, 694
   size: 128, 132
   orig: 128, 132
   offset: 0, 0
   index: -1
 2
   rotate: false
-  xy: 1727, 208
+  xy: 603, 455
   size: 132, 119
   orig: 132, 119
   offset: 0, 0
   index: -1
 3
   rotate: false
-  xy: 804, 208
+  xy: 1801, 653
   size: 128, 124
   orig: 128, 124
   offset: 0, 0
   index: -1
 4
   rotate: false
-  xy: 2, 879
+  xy: 808, 82
   size: 149, 141
   orig: 149, 141
   offset: 0, 0
   index: -1
 5
   rotate: false
-  xy: 1873, 193
+  xy: 323, 694
   size: 135, 146
   orig: 135, 146
   offset: 0, 0
   index: -1
 a
   rotate: false
-  xy: 1402, 758
+  xy: 2, 455
   size: 323, 184
   orig: 323, 184
   offset: 0, 0
   index: -1
 b
   rotate: false
-  xy: 980, 476
+  xy: 1479, 653
   size: 320, 168
   orig: 320, 168
   offset: 0, 0
   index: -1
 btnEmpezar
   rotate: false
-  xy: 1727, 2
+  xy: 1038, 484
   size: 200, 95
   orig: 200, 95
   offset: 0, 0
   index: -1
 c
   rotate: false
-  xy: 1087, 758
+  xy: 2, 835
   size: 313, 186
   orig: 313, 186
   offset: 0, 0
   index: -1
 cerros
   rotate: false
-  xy: 83, 484
+  xy: 768, 320
   size: 268, 276
   orig: 268, 276
   offset: 0, 0
   index: -1
 cielos
   rotate: false
-  xy: 2, 2
+  xy: 1060, 2
   size: 800, 480
   orig: 800, 480
   offset: 0, 0
   index: -1
+cloaca
+  rotate: false
+  xy: 1240, 484
+  size: 102, 102
+  orig: 102, 102
+  offset: 0, 0
+  index: -1
+cloaca2
+  rotate: false
+  xy: 1943, 250
+  size: 102, 102
+  orig: 102, 102
+  offset: 0, 0
+  index: -1
 d
   rotate: false
-  xy: 674, 484
+  xy: 590, 696
   size: 304, 192
   orig: 304, 192
   offset: 0, 0
   index: -1
 e
   rotate: false
-  xy: 353, 484
+  xy: 2, 641
   size: 319, 192
   orig: 319, 192
   offset: 0, 0
   index: -1
 foco
   rotate: false
-  xy: 83, 762
+  xy: 1975, 2
   size: 41, 94
   orig: 41, 94
   offset: 0, 0
   index: -1
 nubes
   rotate: false
-  xy: 804, 341
+  xy: 2, 320
   size: 764, 133
   orig: 764, 133
   offset: 0, 0
   index: -1
 paisaje
   rotate: false
-  xy: 281, 762
+  xy: 2, 82
   size: 804, 236
   orig: 804, 236
   offset: 0, 0
   index: -1
+pasaje
+  rotate: false
+  xy: 327, 455
+  size: 274, 237
+  orig: 274, 237
+  offset: 0, 0
+  index: -1
 peleas
   rotate: false
-  xy: 804, 100
+  xy: 1801, 779
   size: 100, 92
   orig: 100, 92
   offset: 0, 0
   index: -1
 peleas1
   rotate: false
-  xy: 1929, 97
+  xy: 1344, 484
   size: 102, 94
   orig: 102, 94
   offset: 0, 0
   index: -1
 peleas2
   rotate: false
-  xy: 353, 678
+  xy: 959, 175
   size: 90, 80
   orig: 90, 80
   offset: 0, 0
   index: -1
 peleas3
   rotate: false
-  xy: 1929, 2
+  xy: 808, 225
   size: 104, 93
   orig: 104, 93
   offset: 0, 0
   index: -1
 pisoalcantarilla
   rotate: false
-  xy: 804, 2
+  xy: 603, 598
   size: 874, 96
   orig: 874, 96
   offset: 0, 0
   index: -1
 plataforma
   rotate: false
-  xy: 445, 678
+  xy: 2, 2
   size: 1056, 78
   orig: 1056, 78
   offset: 0, 0
   index: -1
 poste
   rotate: false
-  xy: 2, 484
+  xy: 1862, 2
   size: 79, 393
   orig: 79, 393
   offset: 0, 0
   index: -1
 rejillas
   rotate: false
-  xy: 1503, 100
+  xy: 1479, 484
   size: 368, 106
   orig: 368, 106
   offset: 0, 0
   index: -1
 siguiente
   rotate: false
-  xy: 906, 100
+  xy: 959, 82
   size: 92, 91
   orig: 92, 91
   offset: 0, 0
   index: -1
 tuberia
   rotate: false
-  xy: 153, 762
+  xy: 1862, 397
   size: 126, 254
   orig: 126, 254
+  offset: 0, 0
+  index: -1
+tuberialarga
+  rotate: false
+  xy: 1943, 2
+  size: 30, 246
+  orig: 30, 246
   offset: 0, 0
   index: -1

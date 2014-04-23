@@ -42,12 +42,13 @@ public class WorldGameRender {
 		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
 		batcher.end();
 		
-		renderbackground(delta);
+		//renderbackground(delta);
 		oCam.update();
 		
 		//matriz de proyeccion
 		batcher.setProjectionMatrix(oCam.combined);
 		batcher.begin();
+		dibujarPiso(delta);
 		dibujarNubes(delta);
 		dibujarPoste(delta);
 		dibujarPaisaje(delta);
@@ -55,13 +56,16 @@ public class WorldGameRender {
 		dibujarRejillas(delta);
 		dibujarPlataforma(delta);
 		//------------------------
+		/*	 
+		 
 		dibujarTuberia(delta);
 		dibujarTuberiaLarga(delta);
 		dibujarFoco(delta);
 		dibujarPasaje(delta);
 		dibujarCloaca(delta);
+		*/
 		//------------------------
-		dibujarPiso(delta);
+		
 		dibujarMoneda(delta);
 		dibujarPandilla(delta);
 		dibujarGato(delta);
@@ -148,7 +152,7 @@ public class WorldGameRender {
 			TextureRegion keyframe;
 
 			//true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.PisoAlcantarilla;
+			keyframe = Assets.paisaje;
 
 		    batcher.draw(keyframe, oPais.posicion.x - 4f, oPais.posicion.y -1.35f, 8.74f , 1.2f );
 		}

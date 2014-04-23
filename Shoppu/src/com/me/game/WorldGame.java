@@ -569,7 +569,7 @@ public void update(float delta, boolean jump) {
 	timeToSpawnCERROS += delta;
 	if (timeToSpawnCERROS >= TIME_TO_SPAWN_CERROS) {
 		timeToSpawnCERROS-= TIME_TO_SPAWN_CERROS;
-	//	crearCerros();
+		crearCerros();
 	}
 	timeToSpawnMONEDAS += delta;
 	if (timeToSpawnMONEDAS >= TIME_TO_SPAWN_MONEDAS) {
@@ -584,17 +584,17 @@ public void update(float delta, boolean jump) {
 	timeToSpawnPAISAJE += delta;
 	if (timeToSpawnPAISAJE >= TIME_TO_SPAWN_PAISAJE) {
 		timeToSpawnPAISAJE-= TIME_TO_SPAWN_PAISAJE;
-		//crearPaisaje(); 
+		crearPaisaje(); 
 	}
 	timeToSpawnPOSTE += delta;
 	if (timeToSpawnPOSTE>= TIME_TO_SPAWN_POSTE) {
 		timeToSpawnPOSTE-= TIME_TO_SPAWN_POSTE;
-		//crearPoste();
+		crearPoste();
 	}
 	timeToSpawnREJILLAS += delta;
 	if (timeToSpawnREJILLAS>= TIME_TO_SPAWN_REJILLAS) {
 		timeToSpawnREJILLAS-= TIME_TO_SPAWN_REJILLAS;
-		//crearRejillas();
+		crearRejillas();
 		
 	}
 	timeToSpawnPLATAFORMAS += delta;
@@ -612,7 +612,7 @@ public void update(float delta, boolean jump) {
 	timeToSpawnEscenario2 += delta;
 	if (timeToSpawnEscenario2 >= TIME_TO_SPAWN_Esceneario2) {
 		timeToSpawnEscenario2-= TIME_TO_SPAWN_Esceneario2;
-		crearPasaje();
+	//	crearPasaje();
 	}	
 	
 	//-----------------------------------------------------------------

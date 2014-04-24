@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 public class Gato {
 	public enum State {
-		standing,saltando, cayendo, muerto
+		standing,saltando, cayendo, muerto,boos
 	}
 
 	public State state;
@@ -44,6 +44,23 @@ public class Gato {
 				//para que sale mas		
 				body.setLinearVelocity(velocidad.x, 5);
 			}
+			float timer=0;
+			if(state == State.boos)
+			{
+			   /*timer=+delta;
+			   Gdx.app.log("tiempoodelta", ""+delta);
+			   if(timer>3)
+			   {*/
+			     state = State.standing;
+			     statetime = 0;	
+			   
+			  // }			  
+			    //Cerros.VELOCIDAD_X=-5;
+			    //Nubes.VELOCIDAD_X=-5;
+			    //Rejillas.VELOCIDAD_X=-5;
+			    //Foco.VELOCIDAD_X=-5;
+			    //Poste.VELOCIDAD_X=-5;
+			}		
 			
 			if(state == State.saltando)
 				if (velocidad.y < 0 && state != State.cayendo)
@@ -68,7 +85,8 @@ public class Gato {
 	public void jump() {
 		if (state == State.cayendo) 
 		{				
-			state = State.standing;			
+			state = State.standing;	
+			statetime = 0;
 		}
 						}
 	public void hit()
@@ -76,6 +94,15 @@ public class Gato {
 		if(state != State.muerto)
 		{
 		   state = State.muerto;
+		   statetime = 0;
+		}
+		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
+	}
+	public void Booster()
+	{
+		if(state != State.muerto)
+		{
+		   state = State.boos;
 		   statetime = 0;
 		}
 		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 

@@ -33,6 +33,29 @@ public class Assets {
 	public static AtlasRegion Foco;		
 	
 	//-----------------------------------
+	//Escenario CAllejon
+	public static AtlasRegion Barandal;
+	public static AtlasRegion botebasura;
+	public static AtlasRegion cajacarton;
+	public static AtlasRegion edificio1;
+	public static AtlasRegion edificio2;
+	public static AtlasRegion lata1;
+	public static AtlasRegion lata2;
+	public static AtlasRegion lata3;
+	public static AtlasRegion lata4;
+	public static AtlasRegion nube1;
+	public static AtlasRegion nube2;
+	public static AtlasRegion nube3;
+	public static AtlasRegion nube4;
+	public static AtlasRegion nube5;
+	public static AtlasRegion nube6;
+	public static AtlasRegion nube7;
+	public static AtlasRegion pisocemento;
+	public static AtlasRegion pisotierra;
+	public static AtlasRegion postecemento;
+	public static AtlasRegion postemadera;
+	
+	//-----------------------------------
 	
 	public static AtlasRegion Fondo;
 	
@@ -90,6 +113,28 @@ public class Assets {
 		Rejilla1 = atlas.findRegion("cloaca");
 		Rejilla2 = atlas.findRegion("cloaca2");
 		Foco = atlas.findRegion("foco");
+		//-----------------------------------
+		Barandal = atlas.findRegion("barandal");
+		botebasura = atlas.findRegion("botebasura");
+		cajacarton = atlas.findRegion("cajacarton");
+		edificio1 = atlas.findRegion("edificio1");
+		edificio2 = atlas.findRegion("edificio2");
+		lata1 = atlas.findRegion("lata1");
+		lata2 = atlas.findRegion("lata2");
+		lata3 = atlas.findRegion("lata3");
+		lata4 = atlas.findRegion("lata4");
+		nube1 = atlas.findRegion("nube1");
+		nube2 = atlas.findRegion("nube2");
+		nube3 = atlas.findRegion("nube3");
+		nube4 = atlas.findRegion("nube4");
+		nube5 = atlas.findRegion("nube5");
+		nube6 = atlas.findRegion("nube6");
+		nube7 = atlas.findRegion("nube7");
+		pisocemento = atlas.findRegion("pisocemento");
+		pisotierra = atlas.findRegion("pisotierra");
+		postecemento = atlas.findRegion("postecemento");
+		postemadera = atlas.findRegion("postemadera");
+		
 		//-----------------------------------
 		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisoalcantarilla"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 874, 96);
 		ParallaxLayer as[] = new ParallaxLayer[] { floor };

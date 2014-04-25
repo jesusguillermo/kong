@@ -5,14 +5,20 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.me.mygdxgame.Assets;
+import com.me.objetos.Barandal;
+import com.me.objetos.BoteBasura;
+import com.me.objetos.CajaCarton;
 import com.me.objetos.Cerros;
+import com.me.objetos.Edificio;
 import com.me.objetos.Foco;
 import com.me.objetos.Gato;
+import com.me.objetos.Lata;
 import com.me.objetos.Monedas;
 import com.me.objetos.Nubes;
 import com.me.objetos.Paisaje;
 import com.me.objetos.Pandilla;
 import com.me.objetos.Pasaje;
+import com.me.objetos.Piso;
 import com.me.objetos.Plataforma;
 import com.me.objetos.Poste;
 import com.me.objetos.Rejilla;
@@ -50,14 +56,19 @@ public class WorldGameRender {
 		batcher.begin();
 		dibujarPiso(delta);
 		dibujarNubes(delta);
-		dibujarPoste(delta);
 		dibujarPaisaje(delta);
 		dibujarCerro(delta);
 		dibujarRejillas(delta);
-		dibujarPlataforma(delta);
 		//------------------------
-		/*	 
-		 
+		
+		 dibujarEdificio(delta);
+		 dibujarPiso(delta);
+		 dibujarBarandal(delta);
+		 dibujarBote(delta);
+		 dibujarLata(delta);
+		 dibujarPoste(delta);
+		 dibujarCajaCarton(delta);
+		 /*
 		dibujarTuberia(delta);
 		dibujarTuberiaLarga(delta);
 		dibujarFoco(delta);
@@ -65,13 +76,85 @@ public class WorldGameRender {
 		dibujarCloaca(delta);
 		*/
 		//------------------------
-		
+
+			dibujarPlataforma(delta);
 		dibujarMoneda(delta);
 		dibujarPandilla(delta);
 		dibujarGato(delta);
+		
 		batcher.end();
 		
 		renderBox.render(oWorld.oWorldBox, oCam.combined);
+	}
+
+	private void dibujarCajaCarton(float delta) {
+		int length = oWorld.arrCajacarton.size;
+		
+		for(int i = 0; i < length;i++){
+			CajaCarton oCaj = oWorld.arrCajacarton.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.cajacarton;
+
+		    batcher.draw(keyframe, oCaj.posicion.x - .55f, oCaj.posicion.y -.37f, 1.11f , .74f );
+		}
+	}
+
+	private void dibujarLata(float delta) {
+int length = oWorld.arrLata.size;
+		
+		for(int i = 0; i < length;i++){
+			Lata oLat = oWorld.arrLata.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.lata1;
+
+		    batcher.draw(keyframe, oLat.posicion.x - .27f, oLat.posicion.y -.12f, .54f , .23f );
+		}
+	}
+
+	private void dibujarBote(float delta) {
+		int length = oWorld.arrBoteBasura.size;
+		
+		for(int i = 0; i < length;i++){
+			BoteBasura oBot = oWorld.arrBoteBasura.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.botebasura;
+
+		    batcher.draw(keyframe, oBot.posicion.x - .65f, oBot.posicion.y -.54f, 1.33f , 1.09f );
+		}
+	}
+
+	private void dibujarBarandal(float delta) {
+int length = oWorld.arrBardanl.size;
+		
+		for(int i = 0; i < length;i++){
+			Barandal oBar = oWorld.arrBardanl.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.Barandal;
+
+		    batcher.draw(keyframe, oBar.posicion.x - 4.01f, oBar.posicion.y -.91f, 8.02f , 1.83f );
+		}
+	}
+
+	private void dibujarEdificio(float delta) {
+int length = oWorld.arrEdificio.size;
+		
+		for(int i = 0; i < length;i++){
+			Edificio oEdi = oWorld.arrEdificio.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.edificio2;
+
+		    batcher.draw(keyframe, oEdi.posicion.x - 1.4f, oEdi.posicion.y -2.25f, 3.8f , 4.52f );
+		}
 	}
 
 	private void dibujarCloaca(float delta) {
@@ -145,16 +228,16 @@ public class WorldGameRender {
 	}
 
 	private void dibujarPiso(float delta) {
-		int length = oWorld.arrPaisaje.size;
+		int length = oWorld.arrPiso.size;
 		
 		for(int i = 0; i < length;i++){
-			Paisaje oPais = oWorld.arrPaisaje.get(i);
+			Piso oPais = oWorld.arrPiso.get(i);
 			TextureRegion keyframe;
 
 			//true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.paisaje;
+			keyframe = Assets.pisotierra;
 
-		    batcher.draw(keyframe, oPais.posicion.x - 4f, oPais.posicion.y -1.35f, 8.74f , 1.2f );
+		    batcher.draw(keyframe, oPais.posicion.x - 4f, oPais.posicion.y -.7f, 8f , 1.58f );
 		}
 	}
 
@@ -240,9 +323,9 @@ TextureRegion keyframe;
 			TextureRegion keyframe;
 
 			//true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.Poste;
+			keyframe = Assets.postemadera;
 
-		    batcher.draw(keyframe, oPos.posicion.x - 0.395f, oPos.posicion.y - 1.95f, 0.79f , 3.9f );
+		    batcher.draw(keyframe, oPos.posicion.x- .41f , oPos.posicion.y -1.81f, 0.83f , 3.62f );
 		}
 	}
 

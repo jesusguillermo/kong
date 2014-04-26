@@ -39,18 +39,20 @@ public class Gato {
 			body.setLinearVelocity(velocidad.x,velocidad.y);
 			if (jump && state ==State.standing) 
 			{
-				//jump = false;	
+				jump = false;	
 				state = State.saltando;
 				statetime = 0;
 				//para que sale mas		
 				body.setLinearVelocity(velocidad.x, 5);
 			}
 			
-			if(state == State.boos)
+			if(state == State.boos  )
 			{
 				timer+= delta;
 				if (timer >= 3) 
 				{
+					if(jump)
+						body.setLinearVelocity(velocidad.x, 5);
 					timer-= 3;	 
 					state = State.standing;
 					statetime = 0;	

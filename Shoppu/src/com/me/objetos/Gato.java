@@ -13,6 +13,7 @@ public class Gato {
 	public float statetime;
 	public boolean jump;
 	public int lado;
+	float timer;
 
 	public Vector2 position;
 	public Vector2 velocidad;
@@ -44,22 +45,17 @@ public class Gato {
 				//para que sale mas		
 				body.setLinearVelocity(velocidad.x, 5);
 			}
-			float timer=0;
+			
 			if(state == State.boos)
 			{
-			   /*timer=+delta;
-			   Gdx.app.log("tiempoodelta", ""+delta);
-			   if(timer>3)
-			   {*/
-			     state = State.standing;
-			     statetime = 0;	
+				timer+= delta;
+				if (timer >= 3) 
+				{
+					timer-= 3;	 
+					state = State.standing;
+					statetime = 0;	
+				 }
 			   
-			  // }			  
-			    //Cerros.VELOCIDAD_X=-5;
-			    //Nubes.VELOCIDAD_X=-5;
-			    //Rejillas.VELOCIDAD_X=-5;
-			    //Foco.VELOCIDAD_X=-5;
-			    //Poste.VELOCIDAD_X=-5;
 			}		
 			
 			if(state == State.saltando)

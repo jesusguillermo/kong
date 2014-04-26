@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.me.mygdxgame.Assets;
 import com.me.objetos.Barandal;
+import com.me.objetos.Boos;
 import com.me.objetos.BoteBasura;
 import com.me.objetos.CajaCarton;
 import com.me.objetos.Cerros;
@@ -68,6 +69,7 @@ public class WorldGameRender {
 		 dibujarLata(delta);
 		 dibujarPoste(delta);
 		 dibujarCajaCarton(delta);
+		 dibujarBoos(delta);
 		 /*
 		dibujarTuberia(delta);
 		dibujarTuberiaLarga(delta);
@@ -101,6 +103,19 @@ public class WorldGameRender {
 		}
 	}
 
+	private void dibujarBoos(float delta) {
+		int length = oWorld.arrBoos.size;
+		
+		for(int i = 0; i < length;i++){
+			Boos oBoos= oWorld.arrBoos.get(i);
+			TextureRegion keyframe;
+
+			//true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.btnEmpezar;
+
+		    batcher.draw(keyframe, oBoos.posicion.x - .55f, oBoos.posicion.y -.37f, 1.11f , .74f );
+		}
+	}
 	private void dibujarLata(float delta) {
 int length = oWorld.arrLata.size;
 		

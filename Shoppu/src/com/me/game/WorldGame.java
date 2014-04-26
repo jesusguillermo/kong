@@ -19,6 +19,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.Array;
 import com.me.objetos.Barandal;
+import com.me.objetos.Boos;
 import com.me.objetos.BoteBasura;
 import com.me.objetos.CajaCarton;
 import com.me.objetos.Cerros;
@@ -83,6 +84,8 @@ public class WorldGame {
 	float timeToSpawnEdificio;
 	final float TIME_TO_SPAWN_Piso= 2.95f;// Tiempo en segundos para que aparezcan las rejillas
 	float timeToSpawnPiso;
+	final float TIME_TO_SPAWN_BOOS= 2f;// Tiempo en segundos para que aparezcan boos
+	float timeToSpawnBoos;
 	
 	
 	
@@ -103,6 +106,7 @@ Array<Monedas> arrMonedas;
 Array<Paisaje> arrPaisaje;
 Array<Rejillas> arrRejillas;
 Array<Plataforma> arrPlataforma;
+Array<Boos> arrBoos;
 //_---------------------------
 Array<Foco> arrFocos;
 Array<Tuberia> arrTuberias;
@@ -143,6 +147,7 @@ public WorldGame()
 	arrPaisaje = new Array<Paisaje>();
 	arrPoste = new Array<Poste>();
 	arrRejillas = new Array<Rejillas>();
+	arrBoos = new Array<Boos>();
 	arrPlataforma = new Array<Plataforma>();
 	//------------------------
 	arrPAseje = new Array<Pasaje>();
@@ -635,6 +640,34 @@ private void crearRejillas() {
 
 	oBody.setUserData(oReji);
 }
+private void crearBooster() {
+	float x = WIDTH + 3;
+	float y = 0.7f;
+
+	Boos oBoos= new Boos(x, y);
+	
+	arrBoos.add(oBoos);
+
+	BodyDef bd = new BodyDef();
+	bd.type = BodyType.KinematicBody;
+	bd.position.x = oBoos.posicion.x;
+	bd.position.y = oBoos.posicion.y;
+
+	Body oBody = oWorldBox.createBody(bd);
+
+	PolygonShape shape = new PolygonShape();
+	shape.setAsBox(.36f, .1f);
+
+	FixtureDef fixDef = new FixtureDef();
+	fixDef.shape = shape;
+	//para que cuando choque no lo tome como otra plataforma e impulse a nuestro personaje
+	// que la moneda no choque con nada pero aun asi reciba eventos de colisiones
+	fixDef.isSensor = true;
+
+	oBody.createFixture(fixDef);
+
+	oBody.setUserData(oBoos);
+}
 
 private void crearPoste() {
 	float x = WIDTH + 3;
@@ -866,6 +899,11 @@ public void update(float delta, boolean jump) {
 		timeToSpawnBoteBAsura-= TIME_TO_SPAWN_BoteBasura;
 		crearBoteBasura();
 	}
+	timeToSpawnBoos += delta;
+	if (timeToSpawnBoos >= TIME_TO_SPAWN_BOOS) {
+		timeToSpawnBoos-= TIME_TO_SPAWN_BOOS;
+		crearBooster();
+	}
 	//-----------------------------------------------------------------
 	oWorldBox.getBodies(arrBodies);
 	time -= delta;
@@ -955,6 +993,10 @@ public void update(float delta, boolean jump) {
 		{
 			updateLata(delta,body);
 		}
+		if(body.getUserData() instanceof Boos)
+		{
+			updateBoos(delta,body);
+		}
 		//-------------------------------------
 		if(OGato.state == Gato.State.muerto)
 		{
@@ -965,7 +1007,22 @@ public void update(float delta, boolean jump) {
 	
 }
 
-private void updateLata(float delta, Body body) {
+private void updateBoos(float delta, Body body) 
+{
+	Boos obj = (Boos) body.getUserData();
+	if(obj.posicion.x <= -2)
+	{
+		arrBoos.removeValue(obj, true);
+		oWorldBox.destroyBody(body);
+		return;
+	}
+	obj.update(body, delta);
+	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+	
+}
+
+
+private void updateLata(float delta, Body body) {
 	Lata obj = (Lata) body.getUserData();
 	if(obj.posicion.x <= -2)
 	{
@@ -987,6 +1044,11 @@ private void updatePiso(float delta, Body body) {
 		oWorldBox.destroyBody(body);
 		return;
 	}
+	if(OGato.state== Gato.State.boos )
+	{
+		body.setLinearVelocity(-5, 0);	
+	}
+		
 	obj.update(body, delta);
 	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 
@@ -1001,8 +1063,15 @@ private void updateEdificio(float delta, Body body) {
 		oWorldBox.destroyBody(body);
 		return;
 	}
+	if(OGato.state== Gato.State.boos )
+	{
+		body.setLinearVelocity(-5, 0);		
+	}
+	else
+	{
+		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+	}	
 	obj.update(body, delta);
-	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 
 }
 
@@ -1015,8 +1084,15 @@ private void updatecajaCarton(float delta, Body body) {
 		oWorldBox.destroyBody(body);
 		return;
 	}
+	if(OGato.state== Gato.State.boos )
+	{
+		body.setLinearVelocity(-5, 0);		
+	}
+	else
+	{
+		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+	}
 	obj.update(body, delta);
-	body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 
 }
 
@@ -1271,7 +1347,11 @@ public class Colisiones implements ContactListener {
 		{
 			oGato.hit();
 		}
+		if(Ootracosa instanceof Boos)
+		{
+			oGato.Booster();
 		}
+	}
 	
 
 	// estan seprados los objetos, despues de toparon

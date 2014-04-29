@@ -79,19 +79,11 @@ public class WorldGameRender {
 		dibujarPlataforma(delta);
 		dibujarMoneda(delta);
 		dibujarPandilla(delta);		
-		dibujarGato(delta);
-<<<<<<< HEAD
-		
+		dibujarGato(delta);		
 
 		batcher.end();
 		renderBox.render(oWorld.oWorldBox, oCam.combined);
 
-=======
-
-		batcher.end();
-	
-	renderBox.render(oWorld.oWorldBox, oCam.combined);
->>>>>>> 6ab636dcf8643e6b7220e0afa3ae8ec331f1bd83
 	}
 
 	private void dibujarCajaCarton(float delta) {

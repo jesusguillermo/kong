@@ -103,7 +103,6 @@ public class WorldGame {
 		crearGato();
 		crearPandilla();
 		crearNubes();
-		crearPiso(0.5f);
 		agregarPlataformas(0, 15);
 		/*
 		
@@ -151,6 +150,7 @@ public class WorldGame {
 		    crearBooster(i*5);
 		    crearEdficio(i*9);
 		    crearBarandal(i*7);
+		    crearPoste(i*8);
 			
 		}
     }
@@ -715,10 +715,7 @@ public class WorldGame {
 			oWorldBox.destroyBody(body);
 			return;
 		}
-		if (OGato.state == Gato.State.boos) 
-			body.setLinearVelocity(-5, 0);
-		else 
-			body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+		//body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		obj.update(body, delta);
 		
 	}
@@ -799,7 +796,8 @@ public class WorldGame {
 
 			Object Ootracosa = otracosa.getBody().getUserData();
 
-			if (Ootracosa.equals("pared")) {
+			if (Ootracosa instanceof Piso)
+			{
 				oGato.jump();
 			}
 			if (Ootracosa instanceof Plataforma) {

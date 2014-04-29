@@ -53,11 +53,12 @@ public class Gato {
 				if (timer >= 3) 
 				{
 					if(jump)
-						body.setLinearVelocity(velocidad.x, 5);
+					body.setLinearVelocity(10, velocidad.y);
 					timer-= 3;	 
 					state = State.standing;
 					statetime = 0;	
 				 }
+				body.setLinearVelocity(10, velocidad.y);
 			   
 			}		
 			

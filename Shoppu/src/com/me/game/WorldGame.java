@@ -46,44 +46,6 @@ public class WorldGame {
 	final float WIDTH = Screens.WORLD_WIDTH;
 	final float HEIGHT = Screens.WORLD_HEIGHT;
 
-	final float TIME_TO_SPAWN_MONEDAS = .8f;// Tiempo en segundos para que
-											// aparezcan las monedas
-	float timeToSpawnMONEDAS;
-
-	final float TIME_TO_SPAWN_NUBES = 1.6f;// Tiempo en segundos para que
-											// aparezcan las nubes
-	float timeToSpawnNUBES;
-
-	final float TIME_TO_SPAWN_POSTE = 4f;// Tiempo en segundos para que
-											// aparezcan el poste
-	float timeToSpawnPOSTE;
-
-	final float TIME_TO_SPAWN_PLATAFORMAS = 1f;// Tiempo en segundos para que
-												// aparezcan las rejillas
-	float timeToSpawnPLATAFORMAS;
-
-	// ----------------------------------
-	final float TIME_TO_SPAWN_Barandal = 2.95f;// Tiempo en segundos para que
-												// aparezcan las rejillas
-	float timeToSpawnBarandal;
-	final float TIME_TO_SPAWN_Lata = 1.5f;// Tiempo en segundos para que
-											// aparezcan las rejillas
-	float timeToSpawnELata;
-	final float TIME_TO_SPAWN_BoteBasura = 3.5f;// Tiempo en segundos para que
-												// aparezcan las rejillas
-	float timeToSpawnBoteBAsura;
-	final float TIME_TO_SPAWN_CajaCarton = 2f;// Tiempo en segundos para que
-												// aparezcan las rejillas
-	float timeToSpawnCajaCarton;
-	final float TIME_TO_SPAWN_Edificio = 3f;// Tiempo en segundos para que
-											// aparezcan las rejillas
-	float timeToSpawnEdificio;
-	final float TIME_TO_SPAWN_Piso = 2.95f;// Tiempo en segundos para que
-											// aparezcan las rejillas
-	float timeToSpawnPiso;
-	final float TIME_TO_SPAWN_BOOS = 2f;// Tiempo en segundos para que aparezcan
-										// boos
-	float timeToSpawnBoos;
 
 	// ----------------------------------
 	public enum State {
@@ -141,8 +103,33 @@ public class WorldGame {
 		crearGato();
 		crearPandilla();
 		crearNubes();
+		crearPiso(0.5f);
+		agregarPlataformas(0, 15);
+		/*
+		
 		crearMonedas();
 		crearPandilla();
+		
+		crearPiso(HEIGHT);
+
+		// --------------------------
+		crearBarandal();
+		crearBoteBasura();
+		crearCajaCarton();
+		crearEdficio();
+		crearLata();
+		CrearPisoTierra();
+		crearPoste();*/
+
+	}
+	
+	public int ponsincial ;
+	public int limite_i;
+	
+	private void  agregarPlataformas(int in ,int limi)
+	{
+		/*		
+		crearMonedas();		
 		crearPiso(0.5f);
 		crearPiso(HEIGHT);
 
@@ -153,39 +140,50 @@ public class WorldGame {
 		crearEdficio();
 		crearLata();
 		CrearPisoTierra();
-		crearPoste();
+		crearPoste();*/
+		//Gdx.app.log("posicion en i : ", ""+ponsincial);
+		//Gdx.app.log("limite en i : ", ""+limite_i);
+		ponsincial = in;
+		limite_i= limi;
+		for(int i = in ; i<limi ;i++)
+		{
+		    CrearPisoTierra(i*8);
+		    crearBooster(i*5);
+		    crearEdficio(i*9);
+		    crearBarandal(i*7);
+			
+		}
+    }
 
-	}
 
-	private void CrearPisoTierra() {
-		float x = WIDTH + 4.5f;
-		float y = .7f;
+	private void CrearPisoTierra(float x) {
+		//float x = WIDTH + 4.5f;
+		float y = .5f;
 
 		Piso oPis = new Piso(x, y);
 
 		arrPiso.add(oPis);
 
 		BodyDef bd = new BodyDef();
-		bd.type = BodyType.KinematicBody;
+		bd.type = BodyType.StaticBody;
 		bd.position.x = oPis.posicion.x;
 		bd.position.y = oPis.posicion.y;
 
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(4f, .7f);
+		shape.setAsBox(4f, 0f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
-		fixDef.isSensor = true;
 
 		oBody.createFixture(fixDef);
 
 		oBody.setUserData(oPis);
 	}
 
-	private void crearLata() {
-		float x = WIDTH + 1f;
+	private void crearLata(float x) {
+		//float x = WIDTH + 1f;
 		float y = 1.3f;
 
 		Lata oLat = new Lata(x, y);
@@ -212,8 +210,8 @@ public class WorldGame {
 
 	}
 
-	private void crearEdficio() {
-		float x = WIDTH + 3;
+	private void crearEdficio(float x) {
+		//float x = WIDTH + 3;
 		float y = 3.2f;
 
 		Edificio oEd = new Edificio(x, y);
@@ -240,9 +238,9 @@ public class WorldGame {
 
 	}
 
-	private void crearCajaCarton() {
+	private void crearCajaCarton(float x) {
 
-		float x = WIDTH + 3f;
+		//float x = WIDTH + 3f;
 		float y = 1.5f;
 
 		CajaCarton oCaj = new CajaCarton(x, y);
@@ -268,8 +266,8 @@ public class WorldGame {
 		oBody.setUserData(oCaj);
 	}
 
-	private void crearBoteBasura() {
-		float x = WIDTH + 3f;
+	private void crearBoteBasura(float x) {
+		//float x = WIDTH + 3f;
 		float y = 1.7f;
 
 		BoteBasura oBot = new BoteBasura(x, y);
@@ -295,9 +293,9 @@ public class WorldGame {
 		oBody.setUserData(oBot);
 	}
 
-	private void crearBarandal() {
-		float x = WIDTH + 4.5f;
-		float y = 2f;
+	private void crearBarandal(float x) {
+		//float x = WIDTH + 4.5f;
+		float y = 1.8f;
 
 		Barandal oBar = new Barandal(x, y);
 
@@ -420,8 +418,8 @@ public class WorldGame {
 
 	}
 
-	private void crearBooster() {
-		float x = WIDTH + 3;
+	private void crearBooster(float x) {
+		//float x = WIDTH + 3;
 		float y = 0.7f;
 
 		Boos oBoos = new Boos(x, y);
@@ -451,8 +449,8 @@ public class WorldGame {
 		oBody.setUserData(oBoos);
 	}
 
-	private void crearPoste() {
-		float x = WIDTH + 3;
+	private void crearPoste(float x) {
+		//float x = WIDTH + 3;
 		float y = 3f;
 
 		Poste oPos = new Poste(x, y);
@@ -482,8 +480,8 @@ public class WorldGame {
 		oBody.setUserData(oPos);
 	}
 
-	private void crearMonedas() {
-		float x = Oran.nextFloat() * Screens.WORLD_WIDTH - .3f;
+	private void crearMonedas(float x) {
+		//float x = Oran.nextFloat() * Screens.WORLD_WIDTH - .3f;
 		float y = 1.5f;
 
 		Monedas oMon = new Monedas(x, y);
@@ -541,77 +539,7 @@ public class WorldGame {
 	}
 
 	public void update(float delta, boolean jump) {
-		oWorldBox.step(delta, 4, 8);
-
-		timeToSpawnMONEDAS += delta;
-		if (timeToSpawnMONEDAS >= TIME_TO_SPAWN_MONEDAS) {
-			timeToSpawnMONEDAS -= TIME_TO_SPAWN_MONEDAS;
-			crearMonedas();
-		}
-		timeToSpawnNUBES += delta;
-		if (timeToSpawnNUBES >= TIME_TO_SPAWN_NUBES) {
-			timeToSpawnNUBES -= TIME_TO_SPAWN_NUBES;
-			crearNubes();
-		}
-
-		timeToSpawnPOSTE += delta;
-		if (timeToSpawnPOSTE >= TIME_TO_SPAWN_POSTE) {
-			timeToSpawnPOSTE -= TIME_TO_SPAWN_POSTE;
-			crearPoste();
-		}
-
-		timeToSpawnPLATAFORMAS += delta;
-		if (timeToSpawnPLATAFORMAS >= TIME_TO_SPAWN_PLATAFORMAS) {
-			timeToSpawnPLATAFORMAS -= TIME_TO_SPAWN_PLATAFORMAS;
-			float y = Oran.nextInt(4);
-			if (y == 0) {
-				y = 1;
-			}
-			crearPlataforma(WIDTH + 2, y, true);
-			// crearPlataforma(WIDTH + 2,1.5f, true);
-		}
-		// -----------------------------------------------------------------
-		timeToSpawnELata += delta;
-		if (timeToSpawnELata >= TIME_TO_SPAWN_Lata) {
-			timeToSpawnELata -= TIME_TO_SPAWN_Lata;
-			crearLata();
-		}
-		timeToSpawnEdificio += delta;
-		if (timeToSpawnEdificio >= TIME_TO_SPAWN_Edificio) {
-			timeToSpawnEdificio -= TIME_TO_SPAWN_Edificio;
-			crearEdficio();
-		}
-		timeToSpawnCajaCarton += delta;
-		if (timeToSpawnCajaCarton >= TIME_TO_SPAWN_CajaCarton) {
-			timeToSpawnCajaCarton -= TIME_TO_SPAWN_CajaCarton;
-			crearCajaCarton();
-		}
-		timeToSpawnPOSTE += delta;
-		if (timeToSpawnPOSTE >= TIME_TO_SPAWN_POSTE) {
-			timeToSpawnPOSTE -= TIME_TO_SPAWN_POSTE;
-			crearPoste();
-		}
-		timeToSpawnBarandal += delta;
-		if (timeToSpawnBarandal >= TIME_TO_SPAWN_Barandal) {
-			timeToSpawnBarandal -= TIME_TO_SPAWN_Barandal;
-			crearBarandal();
-		}
-
-		timeToSpawnPiso += delta;
-		if (timeToSpawnPiso >= TIME_TO_SPAWN_Piso) {
-			timeToSpawnPiso -= TIME_TO_SPAWN_Piso;
-			CrearPisoTierra();
-		}
-		timeToSpawnBoteBAsura += delta;
-		if (timeToSpawnBoteBAsura >= TIME_TO_SPAWN_BoteBasura) {
-			timeToSpawnBoteBAsura -= TIME_TO_SPAWN_BoteBasura;
-			crearBoteBasura();
-		}
-		timeToSpawnBoos += delta;
-		if (timeToSpawnBoos >= TIME_TO_SPAWN_BOOS) {
-			timeToSpawnBoos -= TIME_TO_SPAWN_BOOS;
-			crearBooster();
-		}
+		oWorldBox.step(delta, 4, 8);		
 		// -----------------------------------------------------------------
 		oWorldBox.getBodies(arrBodies);
 		time -= delta;
@@ -664,7 +592,6 @@ public class WorldGame {
 		}
 
 	}
-
 	private void updateBoos(float delta, Body body) {
 		Boos obj = (Boos) body.getUserData();
 		if (obj.posicion.x <= -2) {
@@ -702,10 +629,6 @@ public class WorldGame {
 			oWorldBox.destroyBody(body);
 			return;
 		}
-		if (OGato.state == Gato.State.boos) 
-			body.setLinearVelocity(-5, 0);
-		else 
-			body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		obj.update(body, delta);
 	}
 
@@ -715,11 +638,6 @@ public class WorldGame {
 			arrEdificio.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			return;
-		}
-		if (OGato.state == Gato.State.boos) {
-			body.setLinearVelocity(-5, 0);
-		} else {
-			body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		}
 		obj.update(body, delta);
 
@@ -770,10 +688,6 @@ public class WorldGame {
 			oWorldBox.destroyBody(body);
 			return;
 		}
-		if (OGato.state == Gato.State.boos) 
-			body.setLinearVelocity(-5, 0);
-		else 
-			body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		obj.update(body, delta);
 		
 	}
@@ -849,11 +763,18 @@ public class WorldGame {
 			return;
 		}
 		obj.update(body, delta);
-		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+		
 	}
 
 	private void updateGato(float delta, Body body, boolean jump) {
 		OGato.update(delta, body, jump, time);
+		
+		//actualizar camara para q siga al gato
+	    if(body.getPosition().x>WIDTH/2 )//&& body.getPosition().x >posCam)
+		{
+	    	WorldGameRender.oCam.position.set( body.getPosition().x,WIDTH/3.4f, 0);
+		
+		}
 
 	}
 

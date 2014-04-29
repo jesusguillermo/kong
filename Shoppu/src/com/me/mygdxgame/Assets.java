@@ -11,7 +11,7 @@ import com.me.parallax.ParallaxLayer;
 import com.sun.java.swing.plaf.motif.resources.motif;
 
 public class Assets {
-
+	
 	public static BitmapFont Font;
 
 	public static AtlasRegion btnEmpezar;
@@ -136,7 +136,7 @@ public class Assets {
 		postemadera = atlas.findRegion("postemadera");
 		
 		//-----------------------------------
-		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisoalcantarilla"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 874, 96);
+		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisotierra"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 874, 96);
 		ParallaxLayer as[] = new ParallaxLayer[] { floor };
 
 		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));

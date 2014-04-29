@@ -31,7 +31,7 @@ import com.me.screens.Screens;
 public class WorldGameRender {
 
 	SpriteBatch batcher;
-	OrthographicCamera oCam;
+	public  static OrthographicCamera oCam;
 	Box2DDebugRenderer renderBox;
 	WorldGame oWorld;
 
@@ -56,6 +56,12 @@ public class WorldGameRender {
 		// matriz de proyeccion
 		batcher.setProjectionMatrix(oCam.combined);
 		batcher.begin();
+		
+		//renderbackground(delta);
+		batcher.disableBlending();
+
+		batcher.enableBlending();	
+		
 		dibujarPiso(delta);
 		dibujarNubes(delta);
 		// ------------------------
@@ -72,17 +78,13 @@ public class WorldGameRender {
 
 		dibujarPlataforma(delta);
 		dibujarMoneda(delta);
-		dibujarPandilla(delta);
+		dibujarPandilla(delta);		
 		dibujarGato(delta);
+		
 
 		batcher.end();
-<<<<<<< HEAD
-		
-	renderBox.render(oWorld.oWorldBox, oCam.combined);
-=======
-
 		renderBox.render(oWorld.oWorldBox, oCam.combined);
->>>>>>> 322f409d9142845dea7abb2016b5c880865228a3
+
 	}
 
 	private void dibujarCajaCarton(float delta) {
@@ -276,8 +278,9 @@ public class WorldGameRender {
 		}
 	}
 
-	private void renderbackground(float delta) {
-		Assets.parallaxFondo.render(delta);
+	private void renderbackground(float delta) 
+	{
+		Assets.parallaxFondo.render(delta);		
 	}
 
 }

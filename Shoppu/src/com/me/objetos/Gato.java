@@ -33,10 +33,11 @@ public class Gato {
 		position.x = body.getPosition().x;
 		position.y = body.getPosition().y;
 		velocidad = body.getLinearVelocity();
+		statetime+=delta;
 		
 		if(state != State.muerto)
 		{
-			body.setLinearVelocity(velocidad.x,velocidad.y);
+			body.setLinearVelocity(2,velocidad.y);
 			if (jump && state ==State.standing) 
 			{
 				jump = false;	
@@ -75,7 +76,7 @@ public class Gato {
 			
 		}
 		
-		statetime+=delta;
+		
 		//body.setLinearVelocity(acelx*5,velocidad.y);
 
 	}

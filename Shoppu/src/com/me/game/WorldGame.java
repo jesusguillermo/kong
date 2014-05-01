@@ -228,7 +228,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(1.4f, 2.25f);
+		shape.setAsBox(1.4f, 1.81f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -257,7 +257,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(0.55f, .37f);
+		shape.setAsBox(0.45f, .3f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -284,7 +284,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.65f, .54f);
+		shape.setAsBox(.535f, .44f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -383,7 +383,7 @@ public class WorldGame {
 
 		// haremos un rectangulo
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.3f, .2f);
+		shape.setAsBox(.235f, .27f);
 		// necestamos una fixture
 		FixtureDef fixture = new FixtureDef();
 		fixture.shape = shape;
@@ -467,7 +467,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.41f, 1.81f);
+		shape.setAsBox(.525f, 1.76f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -719,16 +719,13 @@ public class WorldGame {
 		Gdx.app.log("posicion del gato"+OGato.position.x,"   posicion de la pandilla"+ oPan.posicion.x);	
 		
 		oPan.update(body, delta);
-<<<<<<< HEAD
-=======
-		if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
+if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
 		{
 			oPan.posicion.x=OGato.position.x - 4;
 			Gdx.app.log("ifopan","");
 			
 		}
->>>>>>> eb659b0e71988032636f152e2ea4b00ea9ad4a53
-	}
+}
 
 	private void updateMonedas(float delta, Body body) {
 		Monedas obj = (Monedas) body.getUserData();

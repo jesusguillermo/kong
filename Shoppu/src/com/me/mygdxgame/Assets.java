@@ -53,12 +53,12 @@ public class Assets {
 	public static AtlasRegion pisocemento;
 	public static AtlasRegion pisotierra;
 	public static AtlasRegion postecemento;
-	public static AtlasRegion postemadera;
 	
 	//-----------------------------------
 	
 	public static AtlasRegion Fondo;
 	
+	public static Animation posteluz;
 	public static Animation Peleando;
 	public static Animation Panadilla;
 	public static Animation Kuro;	
@@ -94,6 +94,11 @@ public class Assets {
 		AtlasRegion B4 = atlas.findRegion("peleas3");
 		
 		Peleando = new Animation(0.10f, B1,B2,B3,B4);
+		
+		AtlasRegion L1 = atlas.findRegion("postemadera");
+		AtlasRegion L2 = atlas.findRegion("postemadera1");
+		
+		posteluz = new Animation(0.1f, L1,L2);
 		
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");
@@ -133,10 +138,9 @@ public class Assets {
 		pisocemento = atlas.findRegion("pisocemento");
 		pisotierra = atlas.findRegion("pisoparallax");
 		postecemento = atlas.findRegion("postecemento");
-		postemadera = atlas.findRegion("postemadera");
 		
 		//-----------------------------------
-		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisotierra"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 874, 96);
+		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisotierra"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 803, 280);
 		ParallaxLayer as[] = new ParallaxLayer[] { floor };
 
 		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));

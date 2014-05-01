@@ -96,8 +96,8 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.cajacarton;
 
-			batcher.draw(keyframe, oCaj.posicion.x - .55f,
-					oCaj.posicion.y - .37f, 1.11f, .74f);
+			batcher.draw(keyframe, oCaj.posicion.x - .45f,
+					oCaj.posicion.y - .3f, .89f, .60f);
 		}
 	}
 
@@ -141,8 +141,8 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.botebasura;
 
-			batcher.draw(keyframe, oBot.posicion.x - .65f,
-					oBot.posicion.y - .54f, 1.33f, 1.09f);
+			batcher.draw(keyframe, oBot.posicion.x - .535f,
+					oBot.posicion.y - .44f, 1.07f, .88f);
 		}
 	}
 
@@ -156,8 +156,8 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.Barandal;
 
-			batcher.draw(keyframe, oBar.posicion.x - 4.01f,
-					oBar.posicion.y - .91f, 8.02f, 1.83f);
+			batcher.draw(keyframe, oBar.posicion.x - 4.015f,
+					oBar.posicion.y - .765f, 8.03f, 1.53f);
 		}
 	}
 
@@ -172,7 +172,7 @@ public class WorldGameRender {
 			keyframe = Assets.edificio2;
 
 			batcher.draw(keyframe, oEdi.posicion.x - 1.4f,
-					oEdi.posicion.y - 2.25f, 3.8f, 4.52f);
+					oEdi.posicion.y - 1.81f, 3.04f, 3.62f);
 		}
 	}
 
@@ -227,8 +227,8 @@ public class WorldGameRender {
 		} else
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
 
-		batcher.draw(keyframe, oWorld.OGato.position.x - 0.35f,
-				oWorld.OGato.position.y - 0.35f, +.7f, .7f);
+		batcher.draw(keyframe, oWorld.OGato.position.x - 0.235f,
+				oWorld.OGato.position.y - 0.27f,.47f, .54f);
 
 	}
 
@@ -255,7 +255,7 @@ public class WorldGameRender {
 			TextureRegion keyframe;
 
 			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.postemadera;
+			keyframe = Assets.posteluz.getKeyFrame(oPos.state_time,true);
 
 			batcher.draw(keyframe, oPos.posicion.x - .41f,
 					oPos.posicion.y - 1.81f, 0.83f, 3.62f);

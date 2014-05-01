@@ -21,11 +21,13 @@ public class Pandilla {
 		//actualizando las posiciones
 		posicion.x = body.getPosition().x;
 		posicion.y = body.getPosition().y;
+	
 		//Le damos la velocidad, a la derecha
 		// velociad es mayor que 8
 		// aqui es para que se muevan las plataformas y no se salga de las medidas del mundo
 		
-		body.setLinearVelocity(velocidad);
+		body.setLinearVelocity(2.05f,velocidad.y);
+		//body.setLinearVelocity(velocidad);
 		state_time += delta;
 	}
 

@@ -50,7 +50,7 @@ public class Gato {
 			if(state == State.boos  )
 			{
 				timer+= delta;
-				if (timer >= 3) 
+				if (timer >= .5f) 
 				{
 					if(jump)
 					body.setLinearVelocity(10, velocidad.y);

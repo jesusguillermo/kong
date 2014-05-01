@@ -724,7 +724,6 @@ public class WorldGame {
 	private void updatePandilla(float delta, Body body) 
 	{
 		oPan.update(body, delta);
-
 	}
 
 	private void updateMonedas(float delta, Body body) {

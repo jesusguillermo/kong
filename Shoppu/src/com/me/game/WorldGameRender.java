@@ -186,8 +186,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.pisotierra;
 
-			batcher.draw(keyframe, oPais.posicion.x - 4f,
-					oPais.posicion.y - .7f, 8f, 1.58f);
+			batcher.draw(keyframe, oPais.posicion.x - 4f,oPais.posicion.y - .7f, 8.02f, 2.88f);
 		}
 	}
 

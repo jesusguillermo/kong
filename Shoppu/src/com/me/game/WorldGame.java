@@ -146,11 +146,13 @@ public class WorldGame {
 		limite_i= limi;
 		for(int i = in ; i<limi ;i++)
 		{
-		    CrearPisoTierra(i*8);
-		    crearBooster(i*5);
+		    CrearPisoTierra(i*7.5f);
+		    crearBooster(i*12);
 		    crearEdficio(i*9);
-		    crearBarandal(i*7);
 		    crearPoste(i*8);
+		    crearBoteBasura(i*9);
+		    crearCajaCarton(i*10);
+		    crearLata(i*7);
 			
 		}
     }
@@ -184,7 +186,7 @@ public class WorldGame {
 
 	private void crearLata(float x) {
 		//float x = WIDTH + 1f;
-		float y = 1.3f;
+		float y = .3f;
 
 		Lata oLat = new Lata(x, y);
 
@@ -241,7 +243,7 @@ public class WorldGame {
 	private void crearCajaCarton(float x) {
 
 		//float x = WIDTH + 3f;
-		float y = 1.5f;
+		float y = .9f;
 
 		CajaCarton oCaj = new CajaCarton(x, y);
 
@@ -268,7 +270,7 @@ public class WorldGame {
 
 	private void crearBoteBasura(float x) {
 		//float x = WIDTH + 3f;
-		float y = 1.7f;
+		float y = 1.3f;
 
 		BoteBasura oBot = new BoteBasura(x, y);
 
@@ -451,7 +453,7 @@ public class WorldGame {
 
 	private void crearPoste(float x) {
 		//float x = WIDTH + 3;
-		float y = 3f;
+		float y = 2.8f;
 
 		Poste oPos = new Poste(x, y);
 
@@ -594,7 +596,7 @@ public class WorldGame {
 	}
 	private void updateBoos(float delta, Body body) {
 		Boos obj = (Boos) body.getUserData();
-		if (obj.posicion.x <= -2) {
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4) {
 			arrBoos.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			return;
@@ -606,16 +608,12 @@ public class WorldGame {
 
 	private void updateLata(float delta, Body body) {
 		Lata obj = (Lata) body.getUserData();
-		if (obj.posicion.x <= -2)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrLata.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			return;
 		}
-		if (OGato.state == Gato.State.boos) 
-			body.setLinearVelocity(-5, 0);
-		else 
-			body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		obj.update(body, delta);
 		
 
@@ -623,7 +621,7 @@ public class WorldGame {
 
 	private void updatePiso(float delta, Body body) {
 		Piso obj = (Piso) body.getUserData();
-		if (obj.posicion.x <= -4.5)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-10)
 		{
 			arrPiso.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -634,7 +632,9 @@ public class WorldGame {
 
 	private void updateEdificio(float delta, Body body) {
 		Edificio obj = (Edificio) body.getUserData();
-		if (obj.posicion.x <= -2) {
+
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-10)
+		{
 			arrEdificio.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			return;
@@ -646,17 +646,12 @@ public class WorldGame {
 	private void updatecajaCarton(float delta, Body body) 
 	{
 		CajaCarton obj = (CajaCarton) body.getUserData();
-		if (obj.posicion.x <= -2) 
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrCajacarton.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			return;
-		}
-		if (OGato.state == Gato.State.boos) 
-			body.setLinearVelocity(-5, 0);
-		else 
-			body.setLinearVelocity(obj.VELOCIDAD_X, 0);
-		
+		}		
 		obj.update(body, delta);
 	}
 	
@@ -664,16 +659,12 @@ public class WorldGame {
 	private void updateBoteBasura(float delta, Body body) 
 	{
 		BoteBasura obj = (BoteBasura) body.getUserData();
-		if (obj.posicion.x <= -2)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrBoteBasura.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			return;
 		}
-		if (OGato.state == Gato.State.boos) 
-			body.setLinearVelocity(-5, 0);
-		else 
-			body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		obj.update(body, delta);
 		
 	}
@@ -682,7 +673,7 @@ public class WorldGame {
 	private void updateBarandal(float delta, Body body)
 	{
 		Barandal obj = (Barandal) body.getUserData();
-		if (obj.posicion.x <= -4.5) 
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrBardanl.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -696,7 +687,8 @@ public class WorldGame {
 	private void updatePlataforma(float delta, Body body) 
 	{
 		Plataforma obj = (Plataforma) body.getUserData();
-		if (obj.posicion.x <= -2) {
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		{
 			arrPlataforma.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			return;
@@ -709,7 +701,7 @@ public class WorldGame {
 	private void updatePoste(float delta, Body body) 
 	{
 		Poste obj = (Poste) body.getUserData();
-		if (obj.posicion.x <= -2)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrPoste.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -720,10 +712,22 @@ public class WorldGame {
 		
 	}
 
-	
+
 	private void updatePandilla(float delta, Body body) 
 	{
+		
+		Gdx.app.log("posicion del gato"+OGato.position.x,"   posicion de la pandilla"+ oPan.posicion.x);	
+		
 		oPan.update(body, delta);
+<<<<<<< HEAD
+=======
+		if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
+		{
+			oPan.posicion.x=OGato.position.x - 4;
+			Gdx.app.log("ifopan","");
+			
+		}
+>>>>>>> eb659b0e71988032636f152e2ea4b00ea9ad4a53
 	}
 
 	private void updateMonedas(float delta, Body body) {

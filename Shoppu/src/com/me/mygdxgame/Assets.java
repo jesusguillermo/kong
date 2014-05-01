@@ -131,7 +131,7 @@ public class Assets {
 		nube6 = atlas.findRegion("nube6");
 		nube7 = atlas.findRegion("nube7");
 		pisocemento = atlas.findRegion("pisocemento");
-		pisotierra = atlas.findRegion("pisotierra");
+		pisotierra = atlas.findRegion("pisoparallax");
 		postecemento = atlas.findRegion("postecemento");
 		postemadera = atlas.findRegion("postemadera");
 		

@@ -255,7 +255,7 @@ public class WorldGameRender {
 			TextureRegion keyframe;
 
 			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.posteluz.getKeyFrame(oPos.state_time,true);
+			keyframe = Assets.posteluz;
 
 			batcher.draw(keyframe, oPos.posicion.x - .41f,
 					oPos.posicion.y - 1.81f, 0.83f, 3.62f);

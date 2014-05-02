@@ -53,12 +53,12 @@ public class Assets {
 	public static AtlasRegion pisocemento;
 	public static AtlasRegion pisotierra;
 	public static AtlasRegion postecemento;
+	public static AtlasRegion posteluz;
 	
 	//-----------------------------------
 	
 	public static AtlasRegion Fondo;
 	
-	public static Animation posteluz;
 	public static Animation Peleando;
 	public static Animation Panadilla;
 	public static Animation Kuro;	
@@ -95,10 +95,7 @@ public class Assets {
 		
 		Peleando = new Animation(0.10f, B1,B2,B3,B4);
 		
-		AtlasRegion L1 = atlas.findRegion("postemadera");
-		AtlasRegion L2 = atlas.findRegion("postemadera1");
-		
-		posteluz = new Animation(0.1f, L1,L2);
+		posteluz = atlas.findRegion("postemadera");
 		
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");

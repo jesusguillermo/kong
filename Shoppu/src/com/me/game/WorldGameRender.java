@@ -76,8 +76,8 @@ public class WorldGameRender {
 		dibujarBoos(delta);
 		// ------------------------
 
-		dibujarPlataforma(delta);
-		dibujarMoneda(delta);
+	//	dibujarPlataforma(delta);
+		//dibujarMoneda(delta);
 		dibujarPandilla(delta);		
 		dibujarGato(delta);		
 
@@ -157,7 +157,7 @@ public class WorldGameRender {
 			keyframe = Assets.Barandal;
 
 			batcher.draw(keyframe, oBar.posicion.x - 4.015f,
-					oBar.posicion.y - .765f, 8.03f, 1.53f);
+					oBar.posicion.y - .765f, 8.03f, 1.57f);
 		}
 	}
 
@@ -186,7 +186,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.pisotierra;
 
-			batcher.draw(keyframe, oPais.posicion.x - 4f,oPais.posicion.y - .7f, 8.02f, 2.88f);
+			batcher.draw(keyframe, oPais.posicion.x - 4f,oPais.posicion.y -.6f, 8f, 2.8f);
 		}
 	}
 
@@ -227,8 +227,8 @@ public class WorldGameRender {
 		} else
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
 
-		batcher.draw(keyframe, oWorld.OGato.position.x - 0.235f,
-				oWorld.OGato.position.y - 0.27f,.47f, .54f);
+		batcher.draw(keyframe, oWorld.OGato.position.x - 0.575f,
+				oWorld.OGato.position.y - 0.55f,1.15f, 1.1f);
 
 	}
 

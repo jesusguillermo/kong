@@ -160,7 +160,7 @@ public class WorldGame {
 
 	private void CrearPisoTierra(float x) {
 		//float x = WIDTH + 4.5f;
-		float y = .5f;
+		float y = 0.5f;
 
 		Piso oPis = new Piso(x, y);
 
@@ -383,7 +383,7 @@ public class WorldGame {
 
 		// haremos un rectangulo
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.235f, .27f);
+		shape.setAsBox(.22f , .25f );
 		// necestamos una fixture
 		FixtureDef fixture = new FixtureDef();
 		fixture.shape = shape;
@@ -453,7 +453,7 @@ public class WorldGame {
 
 	private void crearPoste(float x) {
 		//float x = WIDTH + 3;
-		float y = 2.8f;
+		float y = 3.07f;
 
 		Poste oPos = new Poste(x, y);
 

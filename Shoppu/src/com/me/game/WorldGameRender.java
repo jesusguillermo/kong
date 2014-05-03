@@ -52,7 +52,12 @@ public class WorldGameRender {
 		batcher.end();
 
 		// renderbackground(delta);
+<<<<<<< HEAD
 		renderbackground(delta);
+=======
+		renderedificio(delta);
+		renderedificio1(delta);
+>>>>>>> b2862840ffc5d3209e56d288463494cbe47cfbf3
 		oCam.update();
 
 		// matriz de proyeccion
@@ -84,6 +89,16 @@ public class WorldGameRender {
 		batcher.end();
 		renderBox.render(oWorld.oWorldBox, oCam.combined);
 
+	}
+
+	private void renderedificio1(float delta) {
+
+		Assets.parallaxEdifNegro.render(delta);		
+	}
+
+	private void renderedificio(float delta) {
+
+		Assets.parallaxEdifGris.render(delta);		
 	}
 
 	private void dibujarCajaCarton(float delta) {

@@ -144,13 +144,7 @@ public class Assets {
 		
 		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};
 
-<<<<<<< HEAD
-=======
-		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));
 
-		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));
-		//-----------------------------------
->>>>>>> 672bc8a8eb29436a3abd6cb31a8b4676612b5c6e
 
 		
 	}

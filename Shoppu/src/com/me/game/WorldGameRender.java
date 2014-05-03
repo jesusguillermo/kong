@@ -52,12 +52,7 @@ public class WorldGameRender {
 		batcher.end();
 
 		// renderbackground(delta);
-<<<<<<< HEAD
 		renderbackground(delta);
-=======
-		renderedificio(delta);
-		renderedificio1(delta);
->>>>>>> b2862840ffc5d3209e56d288463494cbe47cfbf3
 		oCam.update();
 
 		// matriz de proyeccion

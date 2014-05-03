@@ -137,10 +137,12 @@ public class Assets {
 		postecemento = atlas.findRegion("postecemento");
 		
 		//-----------------------------------
-		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisotierra"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 803, 280);
-		ParallaxLayer as[] = new ParallaxLayer[] { floor };
+		ParallaxLayer edifBlanco = new ParallaxLayer(atlas.findRegion("fondoedificio1"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 1936, 348);
+		ParallaxLayer edifNegro = new ParallaxLayer(atlas.findRegion("fondoedificio"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-1, 700), 1918, 464);
+		
+		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};
 
-		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));
+		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));
 
 		
 	}

@@ -45,21 +45,22 @@ public class WorldGameRender {
 	}
 
 	public void render(float delta) {
-
+		
+		
 		batcher.begin();
 		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
 		batcher.end();
 
 		// renderbackground(delta);
+		renderbackground(delta);
 		oCam.update();
 
 		// matriz de proyeccion
 		batcher.setProjectionMatrix(oCam.combined);
-		batcher.begin();
-		
+		batcher.begin();		
 		//renderbackground(delta);
 		batcher.disableBlending();
-
+		
 		batcher.enableBlending();	
 		
 		dibujarPiso(delta);
@@ -68,7 +69,6 @@ public class WorldGameRender {
 
 		dibujarEdificio(delta);
 		dibujarPiso(delta);
-		dibujarBarandal(delta);
 		dibujarBote(delta);
 		dibujarLata(delta);
 		dibujarPoste(delta);
@@ -146,21 +146,6 @@ public class WorldGameRender {
 		}
 	}
 
-	private void dibujarBarandal(float delta) {
-		int length = oWorld.arrBardanl.size;
-
-		for (int i = 0; i < length; i++) {
-			Barandal oBar = oWorld.arrBardanl.get(i);
-			TextureRegion keyframe;
-
-			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.Barandal;
-
-			batcher.draw(keyframe, oBar.posicion.x - 4.015f,
-					oBar.posicion.y - .765f, 8.03f, 1.57f);
-		}
-	}
-
 	private void dibujarEdificio(float delta) {
 		int length = oWorld.arrEdificio.size;
 
@@ -186,7 +171,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.pisotierra;
 
-			batcher.draw(keyframe, oPais.posicion.x - 4f,oPais.posicion.y -.6f, 8f, 2.8f);
+			batcher.draw(keyframe, oPais.posicion.x ,oPais.posicion.y-.2f, 8.03f, 2.21f);
 		}
 	}
 
@@ -258,7 +243,7 @@ public class WorldGameRender {
 			keyframe = Assets.posteluz;
 
 			batcher.draw(keyframe, oPos.posicion.x - .41f,
-					oPos.posicion.y - 1.81f, 0.83f, 3.62f);
+					oPos.posicion.y - 1.81f, 1.05f, 3.46f);
 		}
 	}
 

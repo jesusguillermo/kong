@@ -49,15 +49,13 @@ public class WorldGameRender {
 		batcher.begin();
 		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
 		batcher.end();
-
-		// renderbackground(delta);
+		renderbackground(delta);
 		oCam.update();
 
 		// matriz de proyeccion
 		batcher.setProjectionMatrix(oCam.combined);
 		batcher.begin();
 		
-		//renderbackground(delta);
 		batcher.disableBlending();
 
 		batcher.enableBlending();	
@@ -84,16 +82,6 @@ public class WorldGameRender {
 		batcher.end();
 		renderBox.render(oWorld.oWorldBox, oCam.combined);
 
-	}
-
-	private void renderedificio1(float delta) {
-
-		Assets.parallaxEdifNegro.render(delta);		
-	}
-
-	private void renderedificio(float delta) {
-
-		Assets.parallaxEdifGris.render(delta);		
 	}
 
 	private void dibujarCajaCarton(float delta) {
@@ -196,7 +184,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.pisotierra;
 
-			batcher.draw(keyframe, oPais.posicion.x - 4f,oPais.posicion.y -.6f, 8f, 2.8f);
+			batcher.draw(keyframe, oPais.posicion.x,oPais.posicion.y-.2f, 8.03f, 2.21f);
 		}
 	}
 
@@ -267,8 +255,8 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.posteluz;
 
-			batcher.draw(keyframe, oPos.posicion.x - .41f,
-					oPos.posicion.y - 1.81f, 0.83f, 3.62f);
+			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y - 1.81f, 1.05f, 3.46f);
+			
 		}
 	}
 

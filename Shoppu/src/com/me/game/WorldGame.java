@@ -160,7 +160,7 @@ public class WorldGame {
 
 	private void CrearPisoTierra(float x) {
 		//float x = WIDTH + 4.5f;
-		float y = 0.5f;
+		float y = 0.2f;
 
 		Piso oPis = new Piso(x, y);
 
@@ -396,7 +396,7 @@ public class WorldGame {
 	private void crearPandilla() {
 
 		float x = 2;
-		float y = 1f;
+		float y = .5f;
 
 		oPan = new Pandilla(x, y, 0);
 		BodyDef bd = new BodyDef();
@@ -769,7 +769,7 @@ if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
 		//actualizar camara para q siga al gato
 	    if(body.getPosition().x>WIDTH/2 )//&& body.getPosition().x >posCam)
 		{
-	    	WorldGameRender.oCam.position.set( body.getPosition().x,WIDTH/3.4f, 0);
+	    	WorldGameRender.oCam.position.set( body.getPosition().x,HEIGHT/2, 0);
 		
 		}
 

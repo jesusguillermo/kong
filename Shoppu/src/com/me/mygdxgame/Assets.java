@@ -144,21 +144,10 @@ public class Assets {
 		
 		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};
 
-<<<<<<< HEAD
 		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));
-=======
+
 		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));
 		//-----------------------------------
-				ParallaxLayer black = new ParallaxLayer(atlas.findRegion("fondoedificio"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 1918, 464);
-				ParallaxLayer blackas[] = new ParallaxLayer[] { black };
-
-				parallaxEdifNegro = new ParallaxBackground(blackas, 800, 480, new Vector2(10, 0));
-				//-----------------------------------
-				ParallaxLayer gray = new ParallaxLayer(atlas.findRegion("fondoedificio1"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 1936, 348);
-				ParallaxLayer grayas[] = new ParallaxLayer[] { gray };
-
-				parallaxEdifGris = new ParallaxBackground(grayas, 800, 480, new Vector2(10, 0));
->>>>>>> b2862840ffc5d3209e56d288463494cbe47cfbf3
 
 		
 	}

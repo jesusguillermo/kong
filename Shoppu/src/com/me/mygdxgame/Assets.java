@@ -141,10 +141,15 @@ public class Assets {
 		//-----------------------------------
 		ParallaxLayer floor = new ParallaxLayer(atlas.findRegion("pisotierra"), new Vector2(24, 0), new Vector2(0, 0), new Vector2(-1, 700), 803, 280);
 		ParallaxLayer as[] = new ParallaxLayer[] { floor };
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
 =======
+		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));
+>>>>>>> parent of 612c9a7... up
+=======
+
 		parallaxFondo = new ParallaxBackground(as, 800, 480, new Vector2(10, 0));
 >>>>>>> parent of 612c9a7... up
 

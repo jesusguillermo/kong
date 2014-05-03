@@ -140,7 +140,7 @@ public class Assets {
 		
 		//-----------------------------------
 		ParallaxLayer edifBlanco = new ParallaxLayer(atlas.findRegion("fondoedificio1"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 1936, 348);
-		ParallaxLayer edifNegro = new ParallaxLayer(atlas.findRegion("fondoedificio"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-1, 700), 1918, 464);
+		ParallaxLayer edifNegro = new ParallaxLayer(atlas.findRegion("fondoedificio"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 1918, 464);
 		
 		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};
 		

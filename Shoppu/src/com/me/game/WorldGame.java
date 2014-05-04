@@ -153,6 +153,7 @@ public class WorldGame {
 		    crearBoteBasura(i*9);
 		    crearCajaCarton(i*10);
 		    crearLata(i*7);
+		    crearPlataforma(i*4, 1, true);
 			
 		}
     }
@@ -332,7 +333,8 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.7f, .1f);
+		//shape.setAsBox(.7f, .1f);
+		shape.setAsBox(1.3f, .15f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -848,10 +850,10 @@ if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
 				// tocando por abajo la vamos a atravesar, si la estamos tocando
 				// por arriba no la vamos a atravesar
 				// Calcular la posicoin del mono el y - radio
-				float posicion_personaje = OGato.position.y - .2f;
+				float posicion_personaje = OGato.position.y - .15f;
 				// Calcular la posicion de la plataforma que seria y + 0.09 y la
 				// plataforma mide .1 la mitad y .2 toda en y
-				float posicion_plataforma = ((Plataforma) otracosa).posicion.y + .1f;
+				float posicion_plataforma = ((Plataforma) otracosa).posicion.y + .13f;
 				if (posicion_personaje < posicion_plataforma) {
 					// no existira el concacto y podra atravezar la plataforma
 					// desde abajo

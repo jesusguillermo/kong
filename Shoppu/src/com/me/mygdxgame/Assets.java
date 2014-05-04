@@ -112,7 +112,7 @@ public class Assets {
 		Poste = atlas.findRegion("poste");
 		Rejillas = atlas.findRegion("rejillas");
 		paisaje = atlas.findRegion("paisaje");
-		Plataforma = atlas.findRegion("plataforma");
+		Plataforma = atlas.findRegion("plataforma1");
 		Moneda = atlas.findRegion("siguiente");
 		Cerro = atlas.findRegion("cerros");
 		Fondo = atlas.findRegion("cielos");

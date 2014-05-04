@@ -74,7 +74,7 @@ public class WorldGameRender {
 		dibujarBoos(delta);
 		// ------------------------
 
-	//	dibujarPlataforma(delta);
+		dibujarPlataforma(delta);
 		//dibujarMoneda(delta);
 		dibujarPandilla(delta);		
 		dibujarGato(delta);		
@@ -198,8 +198,8 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.Plataforma;
 
-			batcher.draw(keyframe, oPla.posicion.x - 0.4f,
-					oPla.posicion.y - 0.1f, 0.8f, .2f);
+			batcher.draw(keyframe, oPla.posicion.x - 1.3f,
+					oPla.posicion.y - 0.15f, 2.64f, .53f);
 		}
 	}
 

@@ -58,10 +58,12 @@ public class Assets {
 	//-----------------------------------
 	
 	public static AtlasRegion Fondo;
+	public static AtlasRegion kuro_run;
 	
 	public static Animation Peleando;
 	public static Animation Panadilla;
 	public static Animation Kuro;	
+	public static Animation Pescadito;
 
 	public static ParallaxBackground parallaxFondo;
 	public static ParallaxBackground parallaxEdifNegro;
@@ -97,8 +99,13 @@ public class Assets {
 		
 		Peleando = new Animation(0.10f, B1,B2,B3,B4);
 		
-		posteluz = atlas.findRegion("postemadera");
+		AtlasRegion F1 = atlas.findRegion("fish");
+		AtlasRegion F2 = atlas.findRegion("fish1");
 		
+		Pescadito = new Animation(0.30f, F1,F2);
+		
+		posteluz = atlas.findRegion("postemadera");
+		kuro_run = atlas.findRegion("kurofood");
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");
 		Nubes = atlas.findRegion("nubes");

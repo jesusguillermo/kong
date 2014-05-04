@@ -74,7 +74,7 @@ public class WorldGame {
 	// ----------------------------
 
 	Random Oran;
-	int monedas;
+	int monedas,boos;
 	public float time = 30;
 
 	public WorldGame() {
@@ -436,7 +436,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.36f, .1f);
+		shape.setAsBox(.15f, .18f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -814,6 +814,7 @@ if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
 			}
 			if (Ootracosa instanceof Boos) {
 				oGato.Booster();
+				boos++;
 			}
 		}
 

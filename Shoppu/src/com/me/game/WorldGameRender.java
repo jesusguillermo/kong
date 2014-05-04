@@ -107,10 +107,10 @@ public class WorldGameRender {
 			TextureRegion keyframe;
 
 			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.btnEmpezar;
+			keyframe = Assets.Pescadito.getKeyFrame(oBoos.state_time,true);
 
-			batcher.draw(keyframe, oBoos.posicion.x - .55f,
-					oBoos.posicion.y - .37f, 1.11f, .74f);
+			batcher.draw(keyframe, oBoos.posicion.x - .15f,
+					oBoos.posicion.y - .18f, .32f, .39f);
 		}
 	}
 
@@ -222,7 +222,10 @@ public class WorldGameRender {
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
 		} else if (oWorld.OGato.state == Gato.State.muerto) {
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
-		} else
+		}  else if (oWorld.OGato.state == Gato.State.boos) {
+			keyframe = Assets.kuro_run;
+		}
+		else
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
 
 		batcher.draw(keyframe, oWorld.OGato.position.x - 0.575f,

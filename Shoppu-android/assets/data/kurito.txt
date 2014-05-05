@@ -135,7 +135,7 @@ fish
   orig: 32, 39
   offset: 0, 0
   index: -1
-fish1
+fish2
   rotate: false
   xy: 1690, 1104
   size: 32, 39

@@ -66,7 +66,6 @@ public class WorldGameRender {
 
 		dibujarEdificio(delta);
 		dibujarPiso(delta);
-		dibujarBarandal(delta);
 		dibujarBote(delta);
 		dibujarLata(delta);
 		dibujarPoste(delta);
@@ -94,8 +93,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.cajacarton;
 
-			batcher.draw(keyframe, oCaj.posicion.x - .45f,
-					oCaj.posicion.y - .3f, .89f, .60f);
+			batcher.draw(keyframe, oCaj.posicion.x - .45f,oCaj.posicion.y - .3f, .89f, .60f);
 		}
 	}
 
@@ -144,20 +142,6 @@ public class WorldGameRender {
 		}
 	}
 
-	private void dibujarBarandal(float delta) {
-		int length = oWorld.arrBardanl.size;
-
-		for (int i = 0; i < length; i++) {
-			Barandal oBar = oWorld.arrBardanl.get(i);
-			TextureRegion keyframe;
-
-			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.Barandal;
-
-			batcher.draw(keyframe, oBar.posicion.x - 4.015f,
-					oBar.posicion.y - .765f, 8.03f, 1.57f);
-		}
-	}
 
 	private void dibujarEdificio(float delta) {
 		int length = oWorld.arrEdificio.size;
@@ -216,20 +200,26 @@ public class WorldGameRender {
 	private void dibujarGato(float delta) {
 		TextureRegion keyframe;
 
-		if (oWorld.OGato.state == Gato.State.saltando) {
+		if (oWorld.OGato.state == Gato.State.saltando)
+		{
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
-		} else if (oWorld.OGato.state == Gato.State.cayendo) {
+		} 
+		else if (oWorld.OGato.state == Gato.State.cayendo) 
+		{
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
-		} else if (oWorld.OGato.state == Gato.State.muerto) {
+		} 
+		else if (oWorld.OGato.state == Gato.State.muerto)
+		{
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
-		}  else if (oWorld.OGato.state == Gato.State.boos) {
+		} 
+		else if (oWorld.OGato.state == Gato.State.boos) 
+		{
 			keyframe = Assets.kuro_run;
 		}
 		else
 			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
 
-		batcher.draw(keyframe, oWorld.OGato.position.x - 0.575f,
-				oWorld.OGato.position.y - 0.55f,1.15f, 1.1f);
+		batcher.draw(keyframe, oWorld.OGato.position.x - 0.575f,oWorld.OGato.position.y - .7f,1.15f, 1.1f);
 
 	}
 
@@ -258,7 +248,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.posteluz;
 
-			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y - 1.81f, 1.05f, 3.46f);
+			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y -2.8f, 1.05f, 3.46f);
 			
 		}
 	}

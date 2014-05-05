@@ -721,12 +721,12 @@ public class WorldGame {
 		Gdx.app.log("posicion del gato"+OGato.position.x,"   posicion de la pandilla"+ oPan.posicion.x);	
 		
 		oPan.update(body, delta);
-if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
+        if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
 		{
 			oPan.posicion.x=OGato.position.x - 4;
 			Gdx.app.log("ifopan","");
-			
-		}
+	   }
+        oPan.posicion.y=OGato.position.y;
 }
 
 	private void updateMonedas(float delta, Body body) {

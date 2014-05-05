@@ -21,6 +21,8 @@ public class Pandilla {
 		//actualizando las posiciones
 		posicion.x = body.getPosition().x;
 		posicion.y = body.getPosition().y;
+		
+		
 	
 		//Le damos la velocidad, a la derecha
 		// velociad es mayor que 8

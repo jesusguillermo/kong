@@ -75,8 +75,9 @@ public class WorldGameRender {
 
 		dibujarPlataforma(delta);
 		//dibujarMoneda(delta);
+		dibujarGato(delta);	
 		dibujarPandilla(delta);		
-		dibujarGato(delta);		
+			
 
 		batcher.end();
 		renderBox.render(oWorld.oWorldBox, oCam.combined);
@@ -137,8 +138,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.botebasura;
 
-			batcher.draw(keyframe, oBot.posicion.x - .535f,
-					oBot.posicion.y - .44f, 1.07f, .88f);
+			batcher.draw(keyframe, oBot.posicion.x -.75f,oBot.posicion.y - .44f, 1.07f, .88f);
 		}
 	}
 

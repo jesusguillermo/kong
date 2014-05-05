@@ -604,7 +604,7 @@ public class WorldGame {
 			return;
 		}
 		obj.update(body, delta);
-		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+		
 
 	}
 

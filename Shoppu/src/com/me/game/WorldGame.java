@@ -104,7 +104,7 @@ public class WorldGame {
 		crearPandilla();
 		crearNubes();
 		agregarPlataformas(0, 15);
-<<<<<<< HEAD
+
 		/*
 		
 		crearMonedas();
@@ -122,10 +122,6 @@ public class WorldGame {
 		crearPoste();*/
 
 	}	
-=======
-	}
-	
->>>>>>> be3f496546855c6ac75e2cb4379992016c954f08
 	public int ponsincial ;
 	public int limite_i;
 	

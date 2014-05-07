@@ -104,6 +104,7 @@ public class WorldGame {
 		crearPandilla();
 		crearNubes();
 		agregarPlataformas(0, 15);
+<<<<<<< HEAD
 		/*
 		
 		crearMonedas();
@@ -121,34 +122,23 @@ public class WorldGame {
 		crearPoste();*/
 
 	}	
+=======
+	}
+	
+>>>>>>> be3f496546855c6ac75e2cb4379992016c954f08
 	public int ponsincial ;
 	public int limite_i;
 	
 	private void  agregarPlataformas(int in ,int limi)
 	{
-		/*		
-		crearMonedas();		
-		crearPiso(0.5f);
-		crearPiso(HEIGHT);
-
-		// --------------------------
-		crearBarandal();
-		crearBoteBasura();
-		crearCajaCarton();
-		crearEdficio();
-		crearLata();
-		CrearPisoTierra();
-		crearPoste();*/
-		//Gdx.app.log("posicion en i : ", ""+ponsincial);
-		//Gdx.app.log("limite en i : ", ""+limite_i);
 		ponsincial = in;
 		limite_i= limi;
 		for(int i = in ; i<limi ;i++)
 		{
-		    CrearPisoTierra(i*7.5f);
+		    CrearPisoTierra(i*8f);
 		    crearBooster(i*12);
 		    crearEdficio(i*9);
-		    crearPoste(i*8);
+		    crearPoste(i*7.9f);
 		    crearBoteBasura(i*9);
 		    crearCajaCarton(i*10);
 		    crearLata(i*7);
@@ -243,7 +233,7 @@ public class WorldGame {
 	private void crearCajaCarton(float x) {
 
 		//float x = WIDTH + 3f;
-		float y = .9f;
+		float y = .42f;
 
 		CajaCarton oCaj = new CajaCarton(x, y);
 
@@ -270,7 +260,7 @@ public class WorldGame {
 
 	private void crearBoteBasura(float x) {
 		//float x = WIDTH + 3f;
-		float y = 1.3f;
+		float y = .6f;
 
 		BoteBasura oBot = new BoteBasura(x, y);
 
@@ -284,7 +274,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.535f, .44f);
+		shape.setAsBox(.3f, .44f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -394,23 +384,24 @@ public class WorldGame {
 		oBody.setUserData(OGato);
 	}
 
+	
 	private void crearPandilla() {
 
 		float x = 2;
-		float y = .5f;
+		float y = .4f;
 
 		oPan = new Pandilla(x, y, 0);
-		BodyDef bd = new BodyDef();
-		bd.position.x = oPan.posicion.x;
-		bd.position.y = oPan.posicion.y;
+		BodyDef bdp = new BodyDef();
+		bdp.position.x = oPan.posicion.x;
+		bdp.position.y = oPan.posicion.y;
 
-		bd.type = BodyType.KinematicBody;
+		bdp.type = BodyType.KinematicBody;
 		// creamos el cuerpo
-		Body oBody = oWorldBox.createBody(bd);
+		Body oBody = oWorldBox.createBody(bdp);
 
 		// haremos una linea
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(1, 0.5f);
+		shape.setAsBox(.5f, 2f);
 		// necestamos una fixture
 		FixtureDef fixture = new FixtureDef();
 		fixture.shape = shape;
@@ -666,8 +657,7 @@ public class WorldGame {
 			oWorldBox.destroyBody(body);
 			return;
 		}
-		obj.update(body, delta);
-		
+		obj.update(body, delta);		
 	}
 	
 
@@ -724,9 +714,9 @@ public class WorldGame {
 		{
 			oPan.posicion.x=OGato.position.x - 4;
 			Gdx.app.log("ifopan","");
-	   }
+	    }   
         oPan.posicion.y=OGato.position.y;
-}
+	}
 
 	private void updateMonedas(float delta, Body body) {
 		Monedas obj = (Monedas) body.getUserData();
@@ -765,8 +755,7 @@ public class WorldGame {
 	}
 
 	private void updateGato(float delta, Body body, boolean jump) {
-		OGato.update(delta, body, jump, time);
-		
+		OGato.update(delta, body, jump, time);		
 		//actualizar camara para q siga al gato
 	    if(body.getPosition().x>WIDTH/2 )//&& body.getPosition().x >posCam)
 		{

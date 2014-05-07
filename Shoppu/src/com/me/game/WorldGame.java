@@ -383,7 +383,7 @@ public class WorldGame {
 	
 	private void crearPandilla() {
 
-		float x = 2;
+		float x = 1;
 		float y = .4f;
 
 		oPan = new Pandilla(x, y, 0);
@@ -799,8 +799,12 @@ public class WorldGame {
 				oGato.hit();
 			}
 			if (Ootracosa instanceof Boos) {
-				oGato.Booster();
 				boos++;
+				if(boos==3)
+				{
+					oGato.Booster();
+					boos=0;
+				}
 			}
 		}
 

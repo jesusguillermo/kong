@@ -120,8 +120,7 @@ public class WorldGame {
 		CrearPisoTierra();
 		crearPoste();*/
 
-	}
-	
+	}	
 	public int ponsincial ;
 	public int limite_i;
 	

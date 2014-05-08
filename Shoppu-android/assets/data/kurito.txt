@@ -39,14 +39,14 @@ repeat: none
   index: -1
 a
   rotate: false
-  xy: 3680, 225
+  xy: 3409, 318
   size: 323, 184
   orig: 323, 184
   offset: 0, 0
   index: -1
 b
   rotate: false
-  xy: 3605, 411
+  xy: 3295, 504
   size: 320, 168
   orig: 320, 168
   offset: 0, 0
@@ -81,28 +81,28 @@ btnEmpezar
   index: -1
 c
   rotate: false
-  xy: 3571, 775
+  xy: 3617, 504
   size: 313, 186
   orig: 313, 186
   offset: 0, 0
   index: -1
 cajacarton
   rotate: false
-  xy: 4005, 225
+  xy: 3044, 2
   size: 89, 60
   orig: 89, 60
   offset: 0, 0
   index: -1
 cajacartongameover
   rotate: false
-  xy: 3295, 661
+  xy: 2559, 2
   size: 300, 76
   orig: 300, 76
   offset: 0, 0
   index: -1
 cajagameover
   rotate: false
-  xy: 2939, 286
+  xy: 3458, 137
   size: 481, 179
   orig: 481, 179
   offset: 0, 0
@@ -137,14 +137,14 @@ contenedor
   index: -1
 d
   rotate: false
-  xy: 3295, 467
+  xy: 3295, 674
   size: 304, 192
   orig: 304, 192
   offset: 0, 0
   index: -1
 e
   rotate: false
-  xy: 3601, 581
+  xy: 2283, 250
   size: 319, 192
   orig: 319, 192
   offset: 0, 0
@@ -165,14 +165,14 @@ edificio2
   index: -1
 edificiogameover
   rotate: false
-  xy: 2283, 2
+  xy: 2451, 820
   size: 806, 282
   orig: 806, 282
   offset: 0, 0
   index: -1
 estrellas
   rotate: false
-  xy: 2134, 338
+  xy: 2653, 137
   size: 803, 86
   orig: 803, 86
   offset: 0, 0
@@ -263,14 +263,14 @@ lata4
   index: -1
 nube1
   rotate: false
-  xy: 3422, 346
+  xy: 2988, 68
   size: 181, 64
   orig: 181, 64
   offset: 0, 0
   index: -1
 nube2
   rotate: false
-  xy: 3422, 280
+  xy: 2861, 2
   size: 181, 64
   orig: 181, 64
   offset: 0, 0
@@ -291,7 +291,7 @@ nube4
   index: -1
 nube5
   rotate: false
-  xy: 3251, 225
+  xy: 2559, 80
   size: 161, 55
   orig: 161, 55
   offset: 0, 0
@@ -310,9 +310,16 @@ nube7
   orig: 95, 50
   offset: 0, 0
   index: -1
+nubes
+  rotate: false
+  xy: 3295, 2
+  size: 764, 133
+  orig: 764, 133
+  offset: 0, 0
+  index: -1
 pasaje
   rotate: false
-  xy: 3295, 739
+  xy: 2283, 2
   size: 274, 237
   orig: 274, 237
   offset: 0, 0
@@ -333,7 +340,7 @@ peleas1
   index: -1
 peleas2
   rotate: false
-  xy: 3927, 411
+  xy: 2040, 338
   size: 90, 80
   orig: 90, 80
   offset: 0, 0
@@ -354,14 +361,14 @@ pisoalcantarilla
   index: -1
 pisoparallax
   rotate: false
-  xy: 3251, 2
+  xy: 2604, 230
   size: 803, 221
   orig: 803, 221
   offset: 0, 0
   index: -1
 plataforma1
   rotate: false
-  xy: 3414, 225
+  xy: 2722, 80
   size: 264, 53
   orig: 264, 53
   offset: 0, 0
@@ -389,7 +396,7 @@ señal
   index: -1
 siguiente
   rotate: false
-  xy: 2040, 338
+  xy: 2559, 137
   size: 92, 91
   orig: 92, 91
   offset: 0, 0
@@ -403,14 +410,14 @@ televisor
   index: -1
 tuberia
   rotate: false
-  xy: 3091, 2
+  xy: 3941, 250
   size: 126, 254
   orig: 126, 254
   offset: 0, 0
   index: -1
 tuberialarga
   rotate: false
-  xy: 3219, 2
+  xy: 4061, 2
   size: 30, 246
   orig: 30, 246
   offset: 0, 0

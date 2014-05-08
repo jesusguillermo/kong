@@ -120,14 +120,19 @@ public class WorldGame {
 		    crearEdficio(i*9);
 		    crearPoste(i*7.9f);
 		    crearBoteBasura(i*9, .6f);
-		    crearCajaCarton(i*10);
+		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
 		    if(Oran.nextInt(11)<5)
 		    {
 		    	crearPlataforma(i*4.1f, 1, true);
 		    	if(Oran.nextInt(11)<5)
 			    {
-		    	    crearBoteBasura(i*4.2f, 1.5f); 
+		    		if(Oran.nextInt(11)<5)
+				    {
+		    			crearBoteBasura(i*4.1f, 1.5f); 
+				    }
+		    		else
+		    			crearCajaCarton(i*4.1f,1.4f);
 			    }
 		    }
 		    else
@@ -135,7 +140,10 @@ public class WorldGame {
 		    	crearPlataforma(i*4.1f, 2, true);
 		    	if(Oran.nextInt(11)<5)
 			    {
-		    	    crearBoteBasura(i*4.2f, 2.5f); 
+		    		if(Oran.nextInt(11)<5)
+		    	        crearBoteBasura(i*4.1f, 2.5f); 
+		    		else
+		    			crearCajaCarton(i*4.1f,2.4f);
 			    }
 		    	
 		    }
@@ -226,10 +234,10 @@ public class WorldGame {
 
 	}
 
-	private void crearCajaCarton(float x) {
+	private void crearCajaCarton(float x,float y) {
 
 		//float x = WIDTH + 3f;
-		float y = .42f;
+		//float y = .42f;
 
 		CajaCarton oCaj = new CajaCarton(x, y);
 

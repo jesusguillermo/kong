@@ -7,7 +7,7 @@ import com.me.objetos.Cerros.State;
 public class Boos {
 
 	public enum State {
-		Normal
+		Normal, agarrado
 	}
 
 	public State state;
@@ -32,5 +32,9 @@ public class Boos {
 		posicion.y = body.getPosition().y;
 
 		state_time += delta;
+	}
+	public void Hit(){
+		state_time = 0;
+		state = State.agarrado;		
 	}
 }

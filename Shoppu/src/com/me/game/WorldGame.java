@@ -592,6 +592,18 @@ public class WorldGame {
 	}
 	private void updateBoos(float delta, Body body) {
 		Boos obj = (Boos) body.getUserData();
+		
+		if (obj.state ==Boos.State.agarrado) {
+			// destruye el cuerpo
+			oWorldBox.destroyBody(body);
+
+			// quita el obejto del arreglo
+			arrBoos.removeValue(obj, true);
+			// aqui tambien podria ir el int monedas
+			return;
+		}
+
+		
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4) {
 			arrBoos.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -807,7 +819,9 @@ public class WorldGame {
 				oGato.hit();
 			}
 			if (Ootracosa instanceof Boos) {
+				Boos obj = (Boos) Ootracosa;
 				boos++;
+				obj.Hit();
 				if(boos==3)
 				{
 					oGato.Booster();

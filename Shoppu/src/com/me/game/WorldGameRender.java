@@ -60,15 +60,15 @@ public class WorldGameRender {
 
 		batcher.enableBlending();	
 		
-		dibujarPiso(delta);
+		//dibujarPiso(delta);
 		dibujarNubes(delta);
 		// ------------------------
 
 		dibujarEdificio(delta);
 		dibujarPiso(delta);
+		dibujarPoste(delta);
 		dibujarBote(delta);
 		dibujarLata(delta);
-		dibujarPoste(delta);
 		dibujarCajaCarton(delta);
 		dibujarBoos(delta);
 		// ------------------------

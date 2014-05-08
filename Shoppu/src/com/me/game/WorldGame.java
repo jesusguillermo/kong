@@ -105,22 +105,6 @@ public class WorldGame {
 		crearNubes();
 		agregarPlataformas(0, 15);
 
-		/*
-		
-		crearMonedas();
-		crearPandilla();
-		
-		crearPiso(HEIGHT);
-
-		// --------------------------
-		crearBarandal();
-		crearBoteBasura();
-		crearCajaCarton();
-		crearEdficio();
-		crearLata();
-		CrearPisoTierra();
-		crearPoste();*/
-
 	}	
 	public int ponsincial ;
 	public int limite_i;
@@ -135,10 +119,26 @@ public class WorldGame {
 		    crearBooster(i*12);
 		    crearEdficio(i*9);
 		    crearPoste(i*7.9f);
-		    crearBoteBasura(i*9);
+		    crearBoteBasura(i*9, .6f);
 		    crearCajaCarton(i*10);
 		    crearLata(i*7);
-		    crearPlataforma(i*4, 1, true);
+		    if(Oran.nextInt(11)<5)
+		    {
+		    	crearPlataforma(i*4.1f, 1, true);
+		    	if(Oran.nextInt(11)<5)
+			    {
+		    	    crearBoteBasura(i*4.2f, 1.5f); 
+			    }
+		    }
+		    else
+		    {
+		    	crearPlataforma(i*4.1f, 2, true);
+		    	if(Oran.nextInt(11)<5)
+			    {
+		    	    crearBoteBasura(i*4.2f, 2.5f); 
+			    }
+		    	
+		    }
 			
 		}
     }
@@ -254,9 +254,9 @@ public class WorldGame {
 		oBody.setUserData(oCaj);
 	}
 
-	private void crearBoteBasura(float x) {
+	private void crearBoteBasura(float x,float y) {
 		//float x = WIDTH + 3f;
-		float y = .6f;
+		//y = .6f;
 
 		BoteBasura oBot = new BoteBasura(x, y);
 

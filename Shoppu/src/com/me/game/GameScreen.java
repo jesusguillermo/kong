@@ -113,7 +113,7 @@ public class GameScreen extends Screens {
 		background.setPosition(0,0);
 		
 		btTryAgain = new Button(new TextureRegionDrawable(Assets.btntyagain));
-		btTryAgain.setSize(226, 62);
+		btTryAgain.setSize(271, 261);
 		btTryAgain.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT / 2f);
 
 		btTryAgain.addListener(new InputListener()

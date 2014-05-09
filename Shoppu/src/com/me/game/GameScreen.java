@@ -3,7 +3,11 @@ package com.me.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.me.mygdxgame.Assets;
 import com.me.mygdxgame.MainShoppu;
 import com.me.screens.MainMenu;
@@ -13,6 +17,7 @@ import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 public class GameScreen extends Screens {
 
 	Button btTryAgain, btLeaderBoards, btShop;
+	Image background;
 	
 	public enum State {ready,running,gameover}
 	WorldGame oWorld;
@@ -45,10 +50,8 @@ public class GameScreen extends Screens {
 	}
 
 	private void updategameover(float delta) {
-		if(Gdx.input.isTouched())
-		{
-			game.setScreen(new MainMenu(game));
-		}
+
+		stage.addActor(btTryAgain);
 	}
 
 	private void updaterunning(float delta) {
@@ -59,9 +62,15 @@ public class GameScreen extends Screens {
 		oWorld.update(delta,jump);
 		if(oWorld.state == WorldGame.State.GameOver)
 		{
-			state = State.gameover;
+		//	state = State.gameover;
+			setGameOver();
 		}	
 		jump = false;
+	}
+
+	private void setGameOver() {
+			state = State.gameover;
+		stage.addActor(background);
 	}
 
 	private void updateready(float delta) {
@@ -99,6 +108,31 @@ public class GameScreen extends Screens {
 	}
 	private void InicializarGameOver()
 	{
+		background = new Image(Assets.fondogameover);
+		background.setSize(800, 480);
+		background.setPosition(0,0);
+		
+		btTryAgain = new Button(new TextureRegionDrawable(Assets.btntyagain));
+		btTryAgain.setSize(226, 62);
+		btTryAgain.setPosition(SCREEN_WIDTH / 2f, SCREEN_HEIGHT / 2f);
+
+		btTryAgain.addListener(new InputListener()
+		{
+			@Override
+			public void touchUp(InputEvent event, float x, float y,
+					int pointer, int button) {
+				// TODO Auto-generated method stub
+				btTryAgain.setY(btTryAgain.getY() + 3);
+				game.setScreen(new GameScreen(game));
+			}
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y,
+					int pointer, int button) {
+				// TODO Auto-generated method stub
+				btTryAgain.setY(btTryAgain.getY() - 3);
+				return true;
+			}
+		});
 		
 	}
 

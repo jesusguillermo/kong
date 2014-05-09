@@ -15,6 +15,8 @@ public class Assets {
 	public static BitmapFont Font;
 
 	public static AtlasRegion btnEmpezar;
+	public static AtlasRegion btntyagain;
+	public static AtlasRegion fondogameover;
 	public static AtlasRegion Nubes;
 	public static AtlasRegion Poste;
 	public static AtlasRegion Rejillas;
@@ -108,6 +110,8 @@ public class Assets {
 		kuro_run = atlas.findRegion("kurofood");
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");
+		btntyagain = atlas.findRegion("botonbote");
+		fondogameover = atlas.findRegion("fondogameover");
 		Nubes = atlas.findRegion("nubes");
 		Poste = atlas.findRegion("poste");
 		Rejillas = atlas.findRegion("rejillas");

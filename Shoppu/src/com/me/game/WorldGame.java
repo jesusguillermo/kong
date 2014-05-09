@@ -583,7 +583,8 @@ public class WorldGame {
 				updateBoos(delta, body);
 			}
 			// -------------------------------------
-			if (OGato.state == Gato.State.muerto) {
+			if (OGato.state == Gato.State.muerto && OGato.statetime >= Gato.TIEMPO_MUERTO)
+			{
 				state = State.GameOver;
 			}
 
@@ -724,14 +725,16 @@ public class WorldGame {
 	{
 		
 		Gdx.app.log("posicion del gato"+OGato.position.x,"   posicion de la pandilla"+ oPan.posicion.x);	
-		
-		oPan.update(body, delta);
-        if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
+		if (OGato.state != Gato.State.muerto)
 		{
-			oPan.posicion.x=OGato.position.x - 4;
-			Gdx.app.log("ifopan","");
-	    }   
-        oPan.posicion.y=OGato.position.y;
+			oPan.update(body, delta);
+			if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
+			{
+				oPan.posicion.x=OGato.position.x - 4;
+				Gdx.app.log("ifopan","");
+			}   
+			oPan.posicion.y=OGato.position.y;
+		}
 	}
 
 	private void updateMonedas(float delta, Body body) {
@@ -771,12 +774,15 @@ public class WorldGame {
 	}
 
 	private void updateGato(float delta, Body body, boolean jump) {
-		OGato.update(delta, body, jump, time);		
-		//actualizar camara para q siga al gato
-	    if(body.getPosition().x>WIDTH/2 )//&& body.getPosition().x >posCam)
-		{
-	    	WorldGameRender.oCam.position.set( body.getPosition().x,HEIGHT/2, 0);
 		
+			OGato.update(delta, body, jump, time);
+			//actualizar camara para q siga al gato
+		if (OGato.state != Gato.State.muerto)
+		{
+			if(body.getPosition().x>WIDTH/2 )//&& body.getPosition().x >posCam)
+			{
+				WorldGameRender.oCam.position.set( body.getPosition().x,HEIGHT/2, 0);
+			}
 		}
 
 	}

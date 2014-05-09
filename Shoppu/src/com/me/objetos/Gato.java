@@ -14,6 +14,8 @@ public class Gato {
 	public boolean jump;
 	public int lado;
 	float timer;
+	
+	public static final float TIEMPO_MUERTO = .75f;
 
 	public Vector2 position;
 	public Vector2 velocidad;
@@ -76,6 +78,12 @@ public class Gato {
 			}
 			
 		}
+		else
+		{
+			body.setLinearVelocity(0,-5);
+			
+		}
+		
 		
 		
 		//body.setLinearVelocity(acelx*5,velocidad.y);

@@ -68,8 +68,9 @@ public class GameScreen extends Screens {
 		jump = false;
 	}
 
-	private void setGameOver() {
-			state = State.gameover;
+	private void setGameOver() 
+	{
+		state = State.gameover;
 		stage.addActor(background);
 	}
 

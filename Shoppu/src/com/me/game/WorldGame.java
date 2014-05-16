@@ -39,6 +39,7 @@ import com.me.objetos.Rejilla;
 import com.me.objetos.Rejillas;
 import com.me.objetos.Tuberia;
 import com.me.objetos.TuberiaLarga;
+import com.me.objetos.Gato.State;
 import com.me.screens.Screens;
 
 public class WorldGame {
@@ -76,6 +77,7 @@ public class WorldGame {
 	Random Oran;
 	int monedas,boos;
 	public float time = 30;
+	public float timer ;
 
 	public WorldGame() {
 		state = State.Running;
@@ -535,14 +537,24 @@ public class WorldGame {
 
 		oBody.setUserData(oNube);
 	}
-
+    int eliminados;
 	public void update(float delta, boolean jump) {
 		oWorldBox.step(delta, 4, 8);		
 		// -----------------------------------------------------------------
 		oWorldBox.getBodies(arrBodies);
 		time -= delta;
+		timer +=delta;
 		int lenght = arrBodies.size;
 		Gdx.app.log("Cuerpos", lenght + "");
+		
+
+		if(eliminados>9)
+		{
+		  ponsincial= ponsincial +20;
+		  limite_i=   limite_i+20;
+		  agregarPlataformas(ponsincial, limite_i);
+		  eliminados=0;
+		}
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
 			if (body.getUserData() instanceof Gato) {
@@ -608,6 +620,7 @@ public class WorldGame {
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4) {
 			arrBoos.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);
@@ -621,6 +634,7 @@ public class WorldGame {
 		{
 			arrLata.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);
@@ -634,6 +648,7 @@ public class WorldGame {
 		{
 			arrPiso.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);
@@ -646,6 +661,7 @@ public class WorldGame {
 		{
 			arrEdificio.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);
@@ -659,7 +675,9 @@ public class WorldGame {
 		{
 			arrCajacarton.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
+			
 		}		
 		obj.update(body, delta);
 	}
@@ -672,6 +690,7 @@ public class WorldGame {
 		{
 			arrBoteBasura.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);		
@@ -685,6 +704,7 @@ public class WorldGame {
 		{
 			arrBardanl.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);
@@ -699,6 +719,7 @@ public class WorldGame {
 		{
 			arrPlataforma.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);
@@ -713,6 +734,7 @@ public class WorldGame {
 		{
 			arrPoste.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		//body.setLinearVelocity(obj.VELOCIDAD_X, 0);
@@ -720,7 +742,7 @@ public class WorldGame {
 		
 	}
 
-
+   
 	private void updatePandilla(float delta, Body body) 
 	{
 		
@@ -732,8 +754,14 @@ public class WorldGame {
 			{
 				oPan.posicion.x=OGato.position.x - 4;
 				Gdx.app.log("ifopan","");
-			}   
-			oPan.posicion.y=OGato.position.y;
+			}			
+			
+			Gdx.app.log("timer",""+timer);
+			if (timer >= 1f) 
+			{
+				timer = 0;
+			    oPan.posicion.y=OGato.position.y;
+			}
 		}
 	}
 
@@ -746,6 +774,7 @@ public class WorldGame {
 
 			// quita el obejto del arreglo
 			arrMonedas.removeValue(obj, true);
+			eliminados++;
 			// aqui tambien podria ir el int monedas
 			return;
 		}
@@ -754,6 +783,7 @@ public class WorldGame {
 		if (obj.posicion.x <= -2) {
 			arrMonedas.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		// Gdx.app.log("Arreglo de monedas:",arrGAS.size+"");
@@ -767,6 +797,7 @@ public class WorldGame {
 		if (obj.posicion.x <= -10) {
 			arrNubes.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			eliminados++;
 			return;
 		}
 		obj.update(body, delta);

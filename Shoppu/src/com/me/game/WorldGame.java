@@ -76,7 +76,7 @@ public class WorldGame {
 
 	Random Oran;
 	int monedas,boos;
-	public float time = 30;
+	public float time = 60;
 	public float timer ;
 
 	public WorldGame() {
@@ -548,7 +548,7 @@ public class WorldGame {
 		Gdx.app.log("Cuerpos", lenght + "");
 		
 
-		if(eliminados>9)
+		if(eliminados>15)
 		{
 		  ponsincial= ponsincial +20;
 		  limite_i=   limite_i+20;
@@ -593,6 +593,9 @@ public class WorldGame {
 			}
 			if (body.getUserData() instanceof Boos) {
 				updateBoos(delta, body);
+			}
+			if (body.getUserData() instanceof Plataforma) {
+				updatePlataforma(delta, body);
 			}
 			// -------------------------------------
 			if (OGato.state == Gato.State.muerto && OGato.statetime >= Gato.TIEMPO_MUERTO)
@@ -723,7 +726,7 @@ public class WorldGame {
 			return;
 		}
 		obj.update(body, delta);
-		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+		
 	}
 
 	

@@ -111,8 +111,8 @@ public class GameScreen extends Screens {
 	private void InicializarGameOver()
 	{
 		background = new Image(Assets.fondogameover);
-		background.setSize(800, 480);
-		background.setPosition(0,0);
+		background.setSize(802, 482);
+		background.setPosition(-1,-1);
 		
 		BoteBasura = new Image(Assets.botegameover);
 		BoteBasura.setSize(258, 137);

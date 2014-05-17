@@ -17,7 +17,7 @@ import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 public class GameScreen extends Screens {
 
 	Button btTryAgain, btLeaderBoards, btShop;
-	Image background;
+	Image background, BoteBasura;
 	
 	public enum State {ready,running,gameover}
 	WorldGame oWorld;
@@ -52,6 +52,7 @@ public class GameScreen extends Screens {
 	private void updategameover(float delta) {
 
 		stage.addActor(btTryAgain);
+		stage.addActor(BoteBasura);
 	}
 
 	private void updaterunning(float delta) {
@@ -113,9 +114,13 @@ public class GameScreen extends Screens {
 		background.setSize(800, 480);
 		background.setPosition(0,0);
 		
+		BoteBasura = new Image(Assets.botegameover);
+		BoteBasura.setSize(258, 137);
+		BoteBasura.setPosition(SCREEN_WIDTH - BoteBasura.getWidth(),  0);
+		
 		btTryAgain = new Button(new TextureRegionDrawable(Assets.btntyagain));
 		btTryAgain.setSize(271, 261);
-		btTryAgain.setPosition(SCREEN_WIDTH - btTryAgain.getWidth(), SCREEN_HEIGHT / 3f);
+		btTryAgain.setPosition(SCREEN_WIDTH - btTryAgain.getWidth(), 80);
 
 		btTryAgain.addListener(new InputListener()
 		{

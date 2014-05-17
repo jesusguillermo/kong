@@ -226,6 +226,11 @@ public class WorldGameRender {
 			Anikeyframe = Assets.aniRun;
 			loop = true;
 		}
+		else if (obj.state == Gato.State.fly) 
+		{
+			Anikeyframe = Assets.aniFly;
+			loop = true;
+		}
 		else
 		{
 			Anikeyframe = Assets.aniRun;
@@ -234,7 +239,7 @@ public class WorldGameRender {
 
 		Anikeyframe.apply(obj.skel, oWorld.OGato.statetime, oWorld.OGato.statetime, loop, null);
 		obj.skel.setX(obj.position.x);
-		obj.skel.setY(obj.position.y);
+		obj.skel.setY(obj.position.y - 0.25f);
 		obj.skel.update(delta);
 		obj.skel.updateWorldTransform();
 		skelRenderer.draw(batcher, obj.skel);

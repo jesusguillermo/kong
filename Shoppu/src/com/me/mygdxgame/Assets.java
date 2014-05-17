@@ -17,6 +17,7 @@ public class Assets {
 	public static com.esotericsoftware.spine.Animation aniRun;
 	public static com.esotericsoftware.spine.Animation aniJump;
 	public static com.esotericsoftware.spine.Animation aniFall ;
+	public static com.esotericsoftware.spine.Animation aniFly ;
 	public static SkeletonData skelGatoData;
 	
 	public static BitmapFont Font;
@@ -24,6 +25,7 @@ public class Assets {
 	public static AtlasRegion btnEmpezar;
 	public static AtlasRegion btntyagain;
 	public static AtlasRegion fondogameover;
+	public static AtlasRegion botegameover;
 	public static AtlasRegion Nubes;
 	public static AtlasRegion Poste;
 	public static AtlasRegion Rejillas;
@@ -88,12 +90,13 @@ public class Assets {
 		
 		 SkeletonJson jason = new SkeletonJson(atlas);
 		 //En la escala se multiplica 40 por 0.01 para que dibuje a mi gato a las medidas del) mundo 4.8
-		 jason.setScale(0.005f);
+		 jason.setScale(0.007f);
 		 skelGatoData = jason.readSkeletonData(Gdx.files.internal("data/skeleton.json"));
 		 aniRun= skelGatoData.findAnimation("run");
 		 aniJump = skelGatoData.findAnimation("jump");
 		 aniFall = skelGatoData.findAnimation("fall");
-			 
+		 aniFly = skelGatoData.findAnimation("fly");
+		 
 		AtlasRegion K1 = atlas.findRegion("1");
 		AtlasRegion K2 = atlas.findRegion("2");
 		AtlasRegion K3 = atlas.findRegion("3");
@@ -128,6 +131,7 @@ public class Assets {
 		btnEmpezar = atlas.findRegion("btnEmpezar");
 		btntyagain = atlas.findRegion("botonbote");
 		fondogameover = atlas.findRegion("fondogameover");
+		botegameover = atlas.findRegion("botebasuragameover");
 		Nubes = atlas.findRegion("nubes");
 		Poste = atlas.findRegion("poste");
 		Rejillas = atlas.findRegion("rejillas");

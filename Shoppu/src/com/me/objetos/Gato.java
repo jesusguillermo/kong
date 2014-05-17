@@ -13,7 +13,7 @@ public class Gato {
 	//---------------jason
 	
 	public enum State {
-		standing,saltando, cayendo, muerto,boos
+		standing,saltando, cayendo, muerto,boos, fly
 	}
 
 	public State state;
@@ -119,6 +119,15 @@ public class Gato {
 		if(state != State.muerto)
 		{
 		   state = State.boos;
+		   statetime = 0;
+		}
+		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
+	}
+	public void Fly()
+	{
+		if(state != State.muerto)
+		{
+		   state = State.fly;
 		   statetime = 0;
 		}
 		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 

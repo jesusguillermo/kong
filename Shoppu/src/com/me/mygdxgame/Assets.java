@@ -15,6 +15,8 @@ import com.sun.java.swing.plaf.motif.resources.motif;
 public class Assets {
 	
 	public static com.esotericsoftware.spine.Animation aniRun;
+	public static com.esotericsoftware.spine.Animation aniJump;
+	public static com.esotericsoftware.spine.Animation aniFall ;
 	public static SkeletonData skelGatoData;
 	
 	public static BitmapFont Font;
@@ -87,9 +89,11 @@ public class Assets {
 		 SkeletonJson jason = new SkeletonJson(atlas);
 		 //En la escala se multiplica 40 por 0.01 para que dibuje a mi gato a las medidas del) mundo 4.8
 		 jason.setScale(0.01f);
-		 skelGatoData = jason.readSkeletonData((Gdx.files.internal("data/saltando.json")));
+		 skelGatoData = jason.readSkeletonData(Gdx.files.internal("data/skeleton.json"));
 		 aniRun= skelGatoData.findAnimation("run");
-
+		 aniJump = skelGatoData.findAnimation("jump");
+		 aniFall = skelGatoData.findAnimation("fall");
+			 
 		AtlasRegion K1 = atlas.findRegion("1");
 		AtlasRegion K2 = atlas.findRegion("2");
 		AtlasRegion K3 = atlas.findRegion("3");

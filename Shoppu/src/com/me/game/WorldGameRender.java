@@ -1,9 +1,11 @@
 package com.me.game;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.esotericsoftware.spine.SkeletonRenderer;
 import com.me.mygdxgame.Assets;
 import com.me.objetos.Barandal;
 import com.me.objetos.Boos;
@@ -34,6 +36,7 @@ public class WorldGameRender {
 	public  static OrthographicCamera oCam;
 	Box2DDebugRenderer renderBox;
 	WorldGame oWorld;
+	SkeletonRenderer skelRenderer;
 
 	public WorldGameRender(SpriteBatch batcher, WorldGame oWorld) {
 		oCam = new OrthographicCamera(Screens.WORLD_WIDTH, Screens.WORLD_HEIGHT);
@@ -42,6 +45,7 @@ public class WorldGameRender {
 		this.batcher = batcher;
 		this.oWorld = oWorld;
 		renderBox = new Box2DDebugRenderer();
+		skelRenderer = new SkeletonRenderer();
 	}
 
 	public void render(float delta) {
@@ -198,29 +202,42 @@ public class WorldGameRender {
 	}
 
 	private void dibujarGato(float delta) {
-		TextureRegion keyframe;
-
-		if (oWorld.OGato.state == Gato.State.saltando)
+		Gato obj = oWorld.OGato;
+		
+		com.esotericsoftware.spine.Animation Anikeyframe;
+		boolean loop;
+		if (obj.state == Gato.State.saltando)
 		{
-			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
+			Anikeyframe = Assets.aniJump;
+			loop = false;
 		} 
-		else if (oWorld.OGato.state == Gato.State.cayendo) 
+		else if (obj.state == Gato.State.cayendo) 
 		{
-			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
+			Anikeyframe = Assets.aniFall;
+			loop = false;
 		} 
-		else if (oWorld.OGato.state == Gato.State.muerto)
+		else if (obj.state == Gato.State.muerto)
 		{
-			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
+			Anikeyframe = Assets.aniFall;
+			loop = false;
 		} 
-		else if (oWorld.OGato.state == Gato.State.boos) 
+		else if (obj.state == Gato.State.boos) 
 		{
-			keyframe = Assets.kuro_run;
+			Anikeyframe = Assets.aniRun;
+			loop = true;
 		}
 		else
-			keyframe = Assets.Kuro.getKeyFrame(oWorld.OGato.statetime, true);
+		{
+			Anikeyframe = Assets.aniRun;
+			loop = true;
+		}
 
-		batcher.draw(keyframe, oWorld.OGato.position.x - 0.575f,oWorld.OGato.position.y - .7f,1.15f, 1.1f);
-
+		Anikeyframe.apply(obj.skel, oWorld.OGato.statetime, oWorld.OGato.statetime, loop, null);
+		obj.skel.setX(obj.position.x);
+		obj.skel.setY(obj.position.y);
+		obj.skel.update(delta);
+		obj.skel.updateWorldTransform();
+		skelRenderer.draw(batcher, obj.skel);
 	}
 
 	private void dibujarMoneda(float delta) {

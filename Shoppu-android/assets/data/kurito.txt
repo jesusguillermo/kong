@@ -88,7 +88,7 @@ cabeza
   index: -1
 cajacarton
   rotate: false
-  xy: 324, 1930
+  xy: 636, 1878
   size: 89, 60
   orig: 89, 60
   offset: 0, 0
@@ -130,7 +130,7 @@ cola
   index: -1
 contenedor
   rotate: false
-  xy: 1588, 1946
+  xy: 433, 1784
   size: 103, 93
   orig: 103, 93
   offset: 0, 0
@@ -219,6 +219,13 @@ fondonoche
   orig: 42, 24
   offset: 0, 0
   index: -1
+kuro
+  rotate: false
+  xy: 1588, 1946
+  size: 104, 82
+  orig: 104, 82
+  offset: 0, 0
+  index: -1
 kurofood
   rotate: false
   xy: 1910, 1388
@@ -235,14 +242,14 @@ lata1
   index: -1
 lata2
   rotate: false
-  xy: 1989, 195
+  xy: 1989, 220
   size: 43, 19
   orig: 43, 19
   offset: 0, 0
   index: -1
 lata3
   rotate: false
-  xy: 1989, 174
+  xy: 1989, 199
   size: 44, 19
   orig: 44, 19
   offset: 0, 0
@@ -298,14 +305,14 @@ nube5
   index: -1
 nube6
   rotate: false
-  xy: 537, 1877
+  xy: 538, 1878
   size: 96, 51
   orig: 96, 51
   offset: 0, 0
   index: -1
 nube7
   rotate: false
-  xy: 631, 1784
+  xy: 522, 1931
   size: 95, 50
   orig: 95, 50
   offset: 0, 0
@@ -326,21 +333,21 @@ pasaje
   index: -1
 peleas
   rotate: false
-  xy: 324, 1836
+  xy: 538, 1784
   size: 100, 92
   orig: 100, 92
   offset: 0, 0
   index: -1
 peleas1
   rotate: false
-  xy: 433, 1784
+  xy: 324, 1836
   size: 102, 94
   orig: 102, 94
   offset: 0, 0
   index: -1
 peleas2
   rotate: false
-  xy: 426, 1880
+  xy: 324, 1932
   size: 90, 80
   orig: 90, 80
   offset: 0, 0
@@ -352,9 +359,37 @@ peleas3
   orig: 104, 93
   offset: 0, 0
   index: -1
-piesito
+piernadelantera
   rotate: false
   xy: 1644, 260
+  size: 32, 27
+  orig: 32, 27
+  offset: 0, 0
+  index: -1
+piernadelantera2
+  rotate: false
+  xy: 1644, 289
+  size: 29, 27
+  orig: 29, 27
+  offset: 0, 0
+  index: -1
+piernatrasera
+  rotate: false
+  xy: 1644, 318
+  size: 27, 23
+  orig: 27, 23
+  offset: 0, 0
+  index: -1
+piernatrasera2
+  rotate: false
+  xy: 1989, 174
+  size: 23, 23
+  orig: 23, 23
+  offset: 0, 0
+  index: -1
+piesito
+  rotate: false
+  xy: 1644, 343
   size: 20, 21
   orig: 20, 21
   offset: 0, 0
@@ -396,14 +431,14 @@ postemadera
   index: -1
 siguiente
   rotate: false
-  xy: 537, 1784
+  xy: 428, 1879
   size: 92, 91
   orig: 92, 91
   offset: 0, 0
   index: -1
 torzo
   rotate: false
-  xy: 635, 1836
+  xy: 416, 1972
   size: 61, 42
   orig: 61, 42
   offset: 0, 0

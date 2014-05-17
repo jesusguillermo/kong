@@ -6,11 +6,16 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.esotericsoftware.spine.SkeletonData;
+import com.esotericsoftware.spine.SkeletonJson;
 import com.me.parallax.ParallaxBackground;
 import com.me.parallax.ParallaxLayer;
 import com.sun.java.swing.plaf.motif.resources.motif;
 
 public class Assets {
+	
+	public static com.esotericsoftware.spine.Animation aniRun;
+	public static SkeletonData skelGatoData;
 	
 	public static BitmapFont Font;
 
@@ -76,7 +81,14 @@ public class Assets {
 		Font = new BitmapFont();
 		
 		TextureAtlas atlas = new TextureAtlas(
-				Gdx.files.internal("data/kurito.txt"));		
+				Gdx.files.internal("data/kurito.txt"));	
+		
+		
+		 SkeletonJson jason = new SkeletonJson(atlas);
+		 //En la escala se multiplica 40 por 0.01 para que dibuje a mi gato a las medidas del) mundo 4.8
+		 jason.setScale(0.01f);
+		 skelGatoData = jason.readSkeletonData((Gdx.files.internal("data/saltando.json")));
+		 aniRun= skelGatoData.findAnimation("run");
 
 		AtlasRegion K1 = atlas.findRegion("1");
 		AtlasRegion K2 = atlas.findRegion("2");

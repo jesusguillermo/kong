@@ -3,8 +3,15 @@ package com.me.objetos;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.esotericsoftware.spine.Skeleton;
+import com.me.mygdxgame.Assets;
 
 public class Gato {
+	
+	//---------------jason
+	public Skeleton skel;
+	//---------------jason
+	
 	public enum State {
 		standing,saltando, cayendo, muerto,boos
 	}
@@ -27,6 +34,7 @@ public class Gato {
 		state = State.cayendo;
 		velocidad = new Vector2();
 
+		skel = new Skeleton(Assets.skelGatoData);	
 	}
 
 	public void update(float delta, Body body, boolean jump,float time) {

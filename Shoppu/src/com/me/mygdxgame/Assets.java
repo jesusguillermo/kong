@@ -88,7 +88,7 @@ public class Assets {
 		
 		 SkeletonJson jason = new SkeletonJson(atlas);
 		 //En la escala se multiplica 40 por 0.01 para que dibuje a mi gato a las medidas del) mundo 4.8
-		 jason.setScale(0.01f);
+		 jason.setScale(0.005f);
 		 skelGatoData = jason.readSkeletonData(Gdx.files.internal("data/skeleton.json"));
 		 aniRun= skelGatoData.findAnimation("run");
 		 aniJump = skelGatoData.findAnimation("jump");

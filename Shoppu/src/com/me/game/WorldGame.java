@@ -119,7 +119,7 @@ public class WorldGame {
 		{
 		    CrearPisoTierra(i*8f);
 		    crearBooster(i*12);
-		  //  crearEdficio(i*9);
+		    crearEdficio(i*9);
 		    crearPoste(i*7.9f);
 		    crearBoteBasura(i*9, .6f);
 		    crearCajaCarton(i*10, .42f);

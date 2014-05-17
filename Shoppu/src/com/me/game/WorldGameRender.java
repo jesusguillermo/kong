@@ -69,8 +69,8 @@ public class WorldGameRender {
 		// ------------------------
 
 		dibujarEdificio(delta);
-		dibujarPiso(delta);
 		dibujarPoste(delta);
+		dibujarPiso(delta);
 		dibujarBote(delta);
 		dibujarLata(delta);
 		dibujarCajaCarton(delta);
@@ -270,7 +270,7 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.posteluz;
 
-			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y -2.8f, 1.05f, 3.46f);
+			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y -1.7f, 1.05f, 3.46f);
 			
 		}
 	}

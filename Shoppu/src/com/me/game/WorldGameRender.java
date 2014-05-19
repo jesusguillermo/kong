@@ -85,7 +85,7 @@ public class WorldGameRender {
 			
 
 		batcher.end();
-		renderBox.render(oWorld.oWorldBox, oCam.combined);
+		//renderBox.render(oWorld.oWorldBox, oCam.combined);
 
 	}
 

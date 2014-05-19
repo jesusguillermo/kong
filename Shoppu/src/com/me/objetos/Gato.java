@@ -34,7 +34,8 @@ public class Gato {
 		state = State.cayendo;
 		velocidad = new Vector2();
 
-		skel = new Skeleton(Assets.skelGatoData);	
+		skel = new Skeleton(Assets.skelGatoData);
+		skel.setSkin("original");
 	}
 
 	public void update(float delta, Body body, boolean jump,float time) {

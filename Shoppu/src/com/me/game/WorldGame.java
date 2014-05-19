@@ -862,6 +862,12 @@ public class WorldGame {
 			if (Ootracosa instanceof Pandilla) {
 				oGato.hit();
 			}
+			if (Ootracosa instanceof BoteBasura) {
+				oGato.hit();
+			}
+			if (Ootracosa instanceof CajaCarton) {
+				oGato.hit();
+			}
 			if (Ootracosa instanceof Boos) {
 				Boos obj = (Boos) Ootracosa;
 				boos++;

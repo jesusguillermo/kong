@@ -1,5 +1,6 @@
 package com.me.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -236,7 +237,7 @@ public class WorldGameRender {
 			Anikeyframe = Assets.aniRun;
 			loop = true;
 		}
-
+		Gdx.app.log("delta", delta+"");
 		Anikeyframe.apply(obj.skel, oWorld.OGato.statetime, oWorld.OGato.statetime, loop, null);
 		obj.skel.setX(obj.position.x);
 		obj.skel.setY(obj.position.y - 0.25f);

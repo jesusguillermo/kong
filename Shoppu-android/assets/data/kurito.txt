@@ -65,7 +65,7 @@ cajacarton
   orig: 89, 60
   offset: 0, 0
   index: -1
-chamarra
+chamarra (1)
   rotate: false
   xy: 343, 2007
   size: 55, 38

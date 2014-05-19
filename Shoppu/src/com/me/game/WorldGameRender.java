@@ -219,7 +219,7 @@ public class WorldGameRender {
 		} 
 		else if (obj.state == Gato.State.muerto)
 		{
-			Anikeyframe = Assets.aniFall;
+			Anikeyframe = Assets.anicrash;
 			loop = false;
 		} 
 		else if (obj.state == Gato.State.boos) 

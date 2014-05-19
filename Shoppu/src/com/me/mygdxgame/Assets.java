@@ -18,6 +18,7 @@ public class Assets {
 	public static com.esotericsoftware.spine.Animation aniJump;
 	public static com.esotericsoftware.spine.Animation aniFall ;
 	public static com.esotericsoftware.spine.Animation aniFly ;
+	public static com.esotericsoftware.spine.Animation anicrash ;
 	public static SkeletonData skelGatoData;
 	
 	public static BitmapFont Font;
@@ -96,6 +97,7 @@ public class Assets {
 		 aniJump = skelGatoData.findAnimation("jump");
 		 aniFall = skelGatoData.findAnimation("fall");
 		 aniFly = skelGatoData.findAnimation("fly");
+		 anicrash = skelGatoData.findAnimation("crash");
 		 
 		AtlasRegion K1 = atlas.findRegion("1");
 		AtlasRegion K2 = atlas.findRegion("2");

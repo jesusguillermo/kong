@@ -78,6 +78,7 @@ public class WorldGame {
 	int monedas,boos;
 	public float time = 60;
 	public float timer ;
+	public float plata_eliminadas=0;
 
 	public WorldGame() {
 		state = State.Running;
@@ -124,6 +125,8 @@ public class WorldGame {
 		    crearBoteBasura(i*9, .6f);
 		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
+		    
+		   
 		    if(Oran.nextInt(11)<5)
 		    {
 		    	crearPlataforma(i*4.1f, 1, true);
@@ -134,7 +137,7 @@ public class WorldGame {
 		    			crearBoteBasura(i*4.1f, 1.5f); 
 				    }
 		    		else
-		    			crearCajaCarton(i*4.1f,1.4f);
+		    		crearCajaCarton(i*4.1f,1.4f);
 			    }
 		    }
 		    else
@@ -147,9 +150,7 @@ public class WorldGame {
 		    		else
 		    			crearCajaCarton(i*4.1f,2.4f);
 			    }
-		    	
 		    }
-			
 		}
     }
 
@@ -257,7 +258,7 @@ public class WorldGame {
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
-		fixDef.isSensor = true;
+		//fixDef.isSensor = true;
 
 		oBody.createFixture(fixDef);
 
@@ -284,7 +285,7 @@ public class WorldGame {
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
-		fixDef.isSensor = true;
+		//fixDef.isSensor = true;
 
 		oBody.createFixture(fixDef);
 
@@ -545,16 +546,8 @@ public class WorldGame {
 		time -= delta;
 		timer +=delta;
 		int lenght = arrBodies.size;
-		Gdx.app.log("Cuerpos", lenght + "");
+		//Gdx.app.log("Cuerpos", lenght + "");
 		
-
-		if(eliminados>15)
-		{
-		  ponsincial= ponsincial +20;
-		  limite_i=   limite_i+20;
-		  agregarPlataformas(ponsincial, limite_i);
-		  eliminados=0;
-		}
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
 			if (body.getUserData() instanceof Gato) {
@@ -596,6 +589,17 @@ public class WorldGame {
 			}
 			if (body.getUserData() instanceof Plataforma) {
 				updatePlataforma(delta, body);
+			}
+
+			 Gdx.app.log("eliminados", ""+eliminados);
+			 Gdx.app.log("barandales antes del metodo", ""+arrPlataforma.size);
+			if(eliminados>20)
+			{
+			  ponsincial= ponsincial +10;
+			  limite_i=   limite_i+10;
+			  Gdx.app.log("barandales", ""+arrPlataforma.size);
+			  agregarPlataformas(ponsincial, limite_i);
+			  eliminados=0;
 			}
 			// -------------------------------------
 			if (OGato.state == Gato.State.muerto && OGato.statetime >= Gato.TIEMPO_MUERTO)
@@ -647,7 +651,7 @@ public class WorldGame {
 
 	private void updatePiso(float delta, Body body) {
 		Piso obj = (Piso) body.getUserData();
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-10)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-30)
 		{
 			arrPiso.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -703,7 +707,7 @@ public class WorldGame {
 	private void updateBarandal(float delta, Body body)
 	{
 		Barandal obj = (Barandal) body.getUserData();
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x+30)
 		{
 			arrBardanl.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -722,7 +726,7 @@ public class WorldGame {
 		{
 			arrPlataforma.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
-			eliminados++;
+			plata_eliminadas++;
 			return;
 		}
 		obj.update(body, delta);
@@ -749,17 +753,17 @@ public class WorldGame {
 	private void updatePandilla(float delta, Body body) 
 	{
 		
-		Gdx.app.log("posicion del gato"+OGato.position.x,"   posicion de la pandilla"+ oPan.posicion.x);	
+//		Gdx.app.log("posicion del gato"+OGato.position.x,"   posicion de la pandilla"+ oPan.posicion.x);	
 		if (OGato.state != Gato.State.muerto)
 		{
 			oPan.update(body, delta);
 			if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
 			{
 				oPan.posicion.x=OGato.position.x - 4;
-				Gdx.app.log("ifopan","");
+				//Gdx.app.log("ifopan","");
 			}			
 			
-			Gdx.app.log("timer",""+timer);
+			//Gdx.app.log("timer",""+timer);
 			if (timer >= 1f) 
 			{
 				timer = 0;

@@ -28,14 +28,18 @@ public class Gato {
 	public Vector2 velocidad;
 
 	public Gato(float x, float y) {
+		
+		skel = new Skeleton(Assets.skelGatoData);
+		skel.setSkin("original");
+		skel.setToSetupPose();
+
 		// TODO Auto-generated constructor stub
 		position = new Vector2(x,y);
 		statetime = 0;
 		state = State.cayendo;
 		velocidad = new Vector2();
 
-		skel = new Skeleton(Assets.skelGatoData);
-		skel.setSkin("original");
+		
 	}
 
 	public void update(float delta, Body body, boolean jump,float time) {

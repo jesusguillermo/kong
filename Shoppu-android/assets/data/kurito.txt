@@ -2,177 +2,156 @@ kurito.png
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-1
-  rotate: false
-  xy: 1922, 777
-  size: 115, 110
-  orig: 115, 110
-  offset: 0, 0
-  index: -1
-2
-  rotate: false
-  xy: 1922, 566
-  size: 118, 100
-  orig: 118, 100
-  offset: 0, 0
-  index: -1
-3
-  rotate: false
-  xy: 1918, 889
-  size: 115, 102
-  orig: 115, 102
-  offset: 0, 0
-  index: -1
-4
-  rotate: false
-  xy: 807, 1253
-  size: 130, 118
-  orig: 130, 118
-  offset: 0, 0
-  index: -1
-5
-  rotate: false
-  xy: 1922, 445
-  size: 118, 119
-  orig: 118, 119
-  offset: 0, 0
-  index: -1
 a
   rotate: false
-  xy: 317, 1855
+  xy: 1446, 1041
   size: 323, 184
   orig: 323, 184
   offset: 0, 0
   index: -1
 b
   rotate: false
-  xy: 642, 1855
+  xy: 1446, 1227
   size: 320, 168
   orig: 320, 168
   offset: 0, 0
   index: -1
 botebasura
   rotate: false
-  xy: 1918, 993
+  xy: 1922, 445
   size: 107, 88
   orig: 107, 88
   offset: 0, 0
   index: -1
 botebasuragameover
   rotate: false
-  xy: 1121, 1613
+  xy: 1063, 1643
   size: 258, 137
   orig: 258, 137
   offset: 0, 0
   index: -1
 botonbote
   rotate: false
-  xy: 1112, 1350
+  xy: 2, 1784
   size: 271, 261
   orig: 271, 261
   offset: 0, 0
   index: -1
 btnEmpezar
   rotate: false
-  xy: 939, 1253
+  xy: 806, 1182
   size: 200, 95
   orig: 200, 95
   offset: 0, 0
   index: -1
 c
   rotate: false
-  xy: 2, 1855
+  xy: 1112, 1041
   size: 313, 186
   orig: 313, 186
   offset: 0, 0
   index: -1
 cabeza
   rotate: false
-  xy: 1002, 1763
+  xy: 1975, 965
   size: 65, 73
   orig: 65, 73
   offset: 0, 0
   index: -1
 cajacarton
   rotate: false
-  xy: 368, 818
+  xy: 1771, 1110
   size: 89, 60
   orig: 89, 60
   offset: 0, 0
   index: -1
+chamarra
+  rotate: false
+  xy: 343, 2007
+  size: 55, 38
+  orig: 55, 38
+  offset: 0, 0
+  index: -1
 cielos
   rotate: false
-  xy: 2, 1373
+  xy: 2, 1302
   size: 800, 480
   orig: 800, 480
   offset: 0, 0
   index: -1
 cola
   rotate: false
-  xy: 2012, 1217
+  xy: 448, 2007
   size: 32, 33
   orig: 32, 33
   offset: 0, 0
   index: -1
 contenedor
   rotate: false
-  xy: 1907, 1135
+  xy: 1922, 723
   size: 103, 93
   orig: 103, 93
   offset: 0, 0
   index: -1
 d
   rotate: false
-  xy: 1285, 1846
+  xy: 1112, 1229
   size: 304, 192
   orig: 304, 192
   offset: 0, 0
   index: -1
 e
   rotate: false
-  xy: 964, 1848
+  xy: 1080, 1782
   size: 319, 192
   orig: 319, 192
   offset: 0, 0
   index: -1
+eat
+  rotate: false
+  xy: 795, 2007
+  size: 47, 22
+  orig: 47, 22
+  offset: 0, 0
+  index: -1
 edificio1
   rotate: false
-  xy: 900, 1373
+  xy: 900, 1279
   size: 210, 362
   orig: 210, 362
   offset: 0, 0
   index: -1
 edificio2
   rotate: false
-  xy: 807, 889
+  xy: 806, 818
   size: 304, 362
   orig: 304, 362
   offset: 0, 0
   index: -1
 estrellas
   rotate: false
-  xy: 1113, 1041
+  xy: 1112, 818
   size: 803, 86
   orig: 803, 86
   offset: 0, 0
   index: -1
 fish
   rotate: false
-  xy: 2012, 1176
+  xy: 309, 2007
   size: 32, 39
   orig: 32, 39
   offset: 0, 0
   index: -1
 fish2
   rotate: false
-  xy: 2012, 1135
+  xy: 275, 2007
   size: 32, 39
   orig: 32, 39
   offset: 0, 0
   index: -1
 foco
   rotate: false
-  xy: 1166, 1752
+  xy: 1972, 1084
   size: 41, 94
   orig: 41, 94
   offset: 0, 0
@@ -193,140 +172,161 @@ fondoedificio1
   index: -1
 fondogameover
   rotate: false
-  xy: 2, 889
-  size: 803, 482
-  orig: 803, 482
+  xy: 2, 818
+  size: 802, 482
+  orig: 802, 482
   offset: 0, 0
   index: -1
 fondonoche
   rotate: false
-  xy: 965, 1737
+  xy: 585, 2007
   size: 42, 24
   orig: 42, 24
   offset: 0, 0
   index: -1
+gorro
+  rotate: false
+  xy: 880, 1700
+  size: 74, 81
+  orig: 74, 81
+  offset: 0, 0
+  index: -1
+gorronyan
+  rotate: false
+  xy: 804, 1700
+  size: 74, 81
+  orig: 74, 81
+  offset: 0, 0
+  index: -1
 kuro
   rotate: false
-  xy: 804, 1771
+  xy: 1922, 639
   size: 104, 82
   orig: 104, 82
   offset: 0, 0
   index: -1
-kurofood
-  rotate: false
-  xy: 1922, 668
-  size: 117, 107
-  orig: 117, 107
-  offset: 0, 0
-  index: -1
 lata1
   rotate: false
-  xy: 1065, 1737
+  xy: 685, 2007
   size: 54, 23
   orig: 54, 23
   offset: 0, 0
   index: -1
 lata2
   rotate: false
-  xy: 710, 2025
+  xy: 912, 2007
   size: 43, 19
   orig: 43, 19
   offset: 0, 0
   index: -1
 lata3
   rotate: false
-  xy: 664, 2025
+  xy: 866, 2007
   size: 44, 19
   orig: 44, 19
   offset: 0, 0
   index: -1
 lata4
   rotate: false
-  xy: 1009, 1737
+  xy: 629, 2007
   size: 54, 23
   orig: 54, 23
   offset: 0, 0
   index: -1
+mangadelantera
+  rotate: false
+  xy: 482, 2007
+  size: 36, 31
+  orig: 36, 31
+  offset: 0, 0
+  index: -1
 muslito
   rotate: false
-  xy: 1204, 1264
+  xy: 1878, 906
   size: 36, 41
   orig: 36, 41
   offset: 0, 0
   index: -1
 nube1
   rotate: false
-  xy: 185, 818
+  xy: 1263, 1976
   size: 181, 64
   orig: 181, 64
   offset: 0, 0
   index: -1
 nube2
   rotate: false
-  xy: 2, 818
+  xy: 1080, 1976
   size: 181, 64
   orig: 181, 64
   offset: 0, 0
   index: -1
 nube3
   rotate: false
-  xy: 1918, 1083
+  xy: 1922, 587
   size: 107, 50
   orig: 107, 50
   offset: 0, 0
   index: -1
 nube4
   rotate: false
-  xy: 986, 818
+  xy: 1922, 535
   size: 107, 50
   orig: 107, 50
   offset: 0, 0
   index: -1
 nube5
   rotate: false
-  xy: 459, 818
+  xy: 900, 1643
   size: 161, 55
   orig: 161, 55
   offset: 0, 0
   index: -1
 nube6
   rotate: false
-  xy: 888, 818
+  xy: 1916, 912
   size: 96, 51
   orig: 96, 51
   offset: 0, 0
   index: -1
 nube7
   rotate: false
-  xy: 1069, 1762
+  xy: 1878, 965
   size: 95, 50
   orig: 95, 50
   offset: 0, 0
   index: -1
 nubes
   rotate: false
-  xy: 1141, 1129
+  xy: 1112, 906
   size: 764, 133
   orig: 764, 133
   offset: 0, 0
   index: -1
+nyancat
+  rotate: false
+  xy: 400, 2007
+  size: 46, 38
+  orig: 46, 38
+  offset: 0, 0
+  index: -1
 peleas
   rotate: false
-  xy: 1209, 1752
+  xy: 1917, 818
   size: 100, 92
   orig: 100, 92
   offset: 0, 0
   index: -1
 peleas1
   rotate: false
-  xy: 1907, 1230
+  xy: 1008, 1182
   size: 102, 94
   orig: 102, 94
   offset: 0, 0
   index: -1
 peleas2
   rotate: false
-  xy: 910, 1766
+  xy: 956, 1700
   size: 90, 80
   orig: 90, 80
   offset: 0, 0
@@ -340,56 +340,56 @@ peleas3
   index: -1
 piernadelantera
   rotate: false
-  xy: 900, 1737
+  xy: 520, 2007
   size: 32, 27
   orig: 32, 27
   offset: 0, 0
   index: -1
 piernadelantera2
   rotate: false
-  xy: 934, 1737
+  xy: 554, 2007
   size: 29, 27
   orig: 29, 27
   offset: 0, 0
   index: -1
 piernatrasera
   rotate: false
-  xy: 1069, 1814
+  xy: 741, 2007
   size: 27, 23
   orig: 27, 23
   offset: 0, 0
   index: -1
 piernatrasera2
   rotate: false
-  xy: 1113, 1129
+  xy: 770, 2007
   size: 23, 23
   orig: 23, 23
   offset: 0, 0
   index: -1
 piesito
   rotate: false
-  xy: 642, 2025
+  xy: 844, 2007
   size: 20, 21
   orig: 20, 21
   offset: 0, 0
   index: -1
 pisoparallax
   rotate: false
-  xy: 1113, 818
+  xy: 275, 1784
   size: 803, 221
   orig: 803, 221
   offset: 0, 0
   index: -1
 plataforma1
   rotate: false
-  xy: 622, 818
+  xy: 1771, 1180
   size: 264, 53
   orig: 264, 53
   offset: 0, 0
   index: -1
 postecemento
   rotate: false
-  xy: 804, 1373
+  xy: 804, 1302
   size: 94, 396
   orig: 94, 396
   offset: 0, 0
@@ -403,14 +403,14 @@ postemadera
   index: -1
 siguiente
   rotate: false
-  xy: 1311, 1752
+  xy: 1878, 1017
   size: 92, 91
   orig: 92, 91
   offset: 0, 0
   index: -1
 torzo
   rotate: false
-  xy: 1141, 1264
+  xy: 1972, 1040
   size: 61, 42
   orig: 61, 42
   offset: 0, 0

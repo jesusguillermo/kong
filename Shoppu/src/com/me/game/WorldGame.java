@@ -118,6 +118,7 @@ public class WorldGame {
 		limite_i= limi;
 		for(int i = in ; i<limi ;i++)
 		{
+			crearMonedas(i*3);
 		    CrearPisoTierra(i*8f);
 		    crearBooster(i*12);
 		    crearEdficio(i*9);
@@ -497,7 +498,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		CircleShape shape = new CircleShape();
-		shape.setRadius(.2f);
+		shape.setRadius(.1f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;

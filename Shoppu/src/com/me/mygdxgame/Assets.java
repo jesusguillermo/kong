@@ -32,7 +32,6 @@ public class Assets {
 	public static AtlasRegion Rejillas;
 	public static AtlasRegion paisaje;
 	public static AtlasRegion Plataforma;
-	public static AtlasRegion Moneda;
 	public static AtlasRegion Cerro;
 	public static AtlasRegion PisoAlcantarilla;	
 	
@@ -76,6 +75,7 @@ public class Assets {
 	public static Animation Panadilla;
 	public static Animation Kuro;	
 	public static Animation Pescadito;
+	public static Animation moneda;
 
 	public static ParallaxBackground parallaxFondo;
 	public static ParallaxBackground parallaxEdifNegro;
@@ -127,6 +127,19 @@ public class Assets {
 		
 		Pescadito = new Animation(0.30f, F1,F2);
 		
+		AtlasRegion mo1 = atlas.findRegion("mon1");
+		AtlasRegion mo2 = atlas.findRegion("mon2");
+		AtlasRegion mo3 = atlas.findRegion("mon3");
+		AtlasRegion mo4 = atlas.findRegion("mon4");
+		AtlasRegion mo5 = atlas.findRegion("mon5");
+		AtlasRegion mo6 = atlas.findRegion("mon6");
+		AtlasRegion mo7 = atlas.findRegion("mon7");
+		AtlasRegion mo8 = atlas.findRegion("mon8");
+		AtlasRegion mo9 = atlas.findRegion("mon9");
+		AtlasRegion mo10 = atlas.findRegion("mon10");
+		
+		moneda = new Animation(0.20f, mo1,mo2,mo3,mo4,mo5,mo6,mo7,mo8,mo9,mo10);
+		
 		posteluz = atlas.findRegion("postemadera");
 		kuro_run = atlas.findRegion("kurofood");
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
@@ -139,7 +152,6 @@ public class Assets {
 		Rejillas = atlas.findRegion("rejillas");
 		paisaje = atlas.findRegion("paisaje");
 		Plataforma = atlas.findRegion("plataforma1");
-		Moneda = atlas.findRegion("siguiente");
 		Cerro = atlas.findRegion("cerros");
 		Fondo = atlas.findRegion("cielos");
 

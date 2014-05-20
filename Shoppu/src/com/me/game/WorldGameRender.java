@@ -76,6 +76,7 @@ public class WorldGameRender {
 		dibujarLata(delta);
 		dibujarCajaCarton(delta);
 		dibujarBoos(delta);
+		dibujarMoneda(delta);
 		// ------------------------
 
 		dibujarPlataforma(delta);
@@ -254,10 +255,8 @@ public class WorldGameRender {
 			TextureRegion keyframe;
 
 			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.Moneda;
-
-			batcher.draw(keyframe, oMon.posicion.x - 0.2f,
-					oMon.posicion.y - 0.2f, 0.4f, .4f);
+			keyframe = Assets.moneda.getKeyFrame(oMon.state_time, true);
+			batcher.draw(keyframe, oMon.posicion.x - 0.2f,oMon.posicion.y - 0.2f, 0.2f, .2f);
 		}
 	}
 

@@ -238,7 +238,7 @@ public class WorldGameRender {
 			Anikeyframe = Assets.aniRun;
 			loop = true;
 		}
-		Gdx.app.log("delta", delta+"");
+		
 		Anikeyframe.apply(obj.skel, oWorld.OGato.statetime, oWorld.OGato.statetime, loop, null);
 		obj.skel.setX(obj.position.x);
 		obj.skel.setY(obj.position.y - 0.25f);
@@ -256,7 +256,7 @@ public class WorldGameRender {
 
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.moneda.getKeyFrame(oMon.state_time, true);
-			batcher.draw(keyframe, oMon.posicion.x - 0.2f,oMon.posicion.y - 0.2f, 0.2f, .2f);
+			batcher.draw(keyframe, oMon.posicion.x - 0.2f,oMon.posicion.y - 0.2f, 0.3f, .3f);
 		}
 	}
 

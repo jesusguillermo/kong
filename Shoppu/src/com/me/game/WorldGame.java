@@ -105,7 +105,7 @@ public class WorldGame {
 
 		crearGato();
 		crearPandilla();
-		crearNubes();
+		//crearNubes();
 		agregarPlataformas(0, 15);
 
 	}	
@@ -126,6 +126,7 @@ public class WorldGame {
 		    crearBoteBasura(i*9, .6f);
 		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
+		    crearNubes(i*7);
 		    
 		   
 		    if(Oran.nextInt(11)<5)
@@ -138,7 +139,7 @@ public class WorldGame {
 		    			crearBoteBasura(i*4.1f, 1.5f); 
 				    }
 		    		else
-		    		crearCajaCarton(i*4.1f,1.4f);
+		    		   crearCajaCarton(i*4.1f,1.4f);
 			    }
 		    }
 		    else
@@ -147,9 +148,11 @@ public class WorldGame {
 		    	if(Oran.nextInt(11)<5)
 			    {
 		    		if(Oran.nextInt(11)<5)
-		    	        crearBoteBasura(i*4.1f, 2.5f); 
+		    		{
+		    	       crearBoteBasura(i*4.1f, 2.5f); 
+		    		}
 		    		else
-		    			crearCajaCarton(i*4.1f,2.4f);
+		    		   crearCajaCarton(i*4.1f,2.4f);
 			    }
 		    }
 		}
@@ -201,9 +204,10 @@ public class WorldGame {
 		shape.setAsBox(.27f, .12f);
 
 		FixtureDef fixDef = new FixtureDef();
+		
 		fixDef.shape = shape;
 		fixDef.isSensor = true;
-
+	
 		oBody.createFixture(fixDef);
 
 		oBody.setUserData(oLat);
@@ -255,7 +259,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(0.45f, .3f);
+		shape.setAsBox(0.4f, .2f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -282,7 +286,7 @@ public class WorldGame {
 		Body oBody = oWorldBox.createBody(bd);
 
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.3f, .44f);
+		shape.setAsBox(.2f, .3f);
 
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = shape;
@@ -291,33 +295,6 @@ public class WorldGame {
 		oBody.createFixture(fixDef);
 
 		oBody.setUserData(oBot);
-	}
-
-	private void crearBarandal(float x) {
-		//float x = WIDTH + 4.5f;
-		float y = 1.8f;
-
-		Barandal oBar = new Barandal(x, y);
-
-		arrBardanl.add(oBar);
-
-		BodyDef bd = new BodyDef();
-		bd.type = BodyType.KinematicBody;
-		bd.position.x = oBar.posicion.x;
-		bd.position.y = oBar.posicion.y;
-
-		Body oBody = oWorldBox.createBody(bd);
-
-		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(4.01f, .91f);
-
-		FixtureDef fixDef = new FixtureDef();
-		fixDef.shape = shape;
-		fixDef.isSensor = true;
-
-		oBody.createFixture(fixDef);
-
-		oBody.setUserData(oBar);
 	}
 
 	private void crearPlataforma(float x, float y, boolean estado) {
@@ -367,7 +344,8 @@ public class WorldGame {
 		shape.dispose();
 	}
 
-	private void crearGato() {
+	private void crearGato() 
+	{
 		OGato = new Gato(Screens.WORLD_WIDTH / 2, Screens.WORLD_HEIGHT / 2);
 
 		// para declarar el cuerpo necesitamos una definicion
@@ -380,13 +358,36 @@ public class WorldGame {
 		// creamos el cuerpo
 		Body oBody = oWorldBox.createBody(bd);
 
+		//////////////////////////////////////////
 		// haremos un rectangulo
 		PolygonShape shape = new PolygonShape();
 		shape.setAsBox(.22f , .25f );
+		
 		// necestamos una fixture
 		FixtureDef fixture = new FixtureDef();
 		fixture.shape = shape;
 		oBody.createFixture(fixture);
+		
+		////////////////////////////////
+		//rectangulo para los pies
+		PolygonShape shapePies = new PolygonShape();
+		shapePies.setAsBox(.2f,.1f,new Vector2(0,-.19f) , 0);
+		
+		fixture.shape = shapePies;
+		fixture.isSensor=true;
+	  
+		oBody.createFixture(fixture).setUserData("pies");
+		
+		/////////////////////////////////////////
+		PolygonShape shapeFrente = new PolygonShape();
+		shapeFrente.setAsBox(.1f,.22f,new Vector2(.19f,0) , 0);
+		
+		fixture.shape = shapeFrente;
+		fixture.isSensor=true;
+	  
+		oBody.createFixture(fixture).setUserData("frente");
+		
+		
 		// para que no rote el cuadro
 		oBody.setFixedRotation(true);
 		oBody.setUserData(OGato);
@@ -509,8 +510,8 @@ public class WorldGame {
 		oBody.setUserData(oMon);
 	}
 
-	private void crearNubes() {
-		float x = WIDTH + 5;
+	private void crearNubes(float x) {
+		//float x = WIDTH + 5;
 		float y = 3.5f;
 
 		Nubes oNube = new Nubes(x, y);
@@ -592,13 +593,12 @@ public class WorldGame {
 				updatePlataforma(delta, body);
 			}
 
-			 Gdx.app.log("eliminados", ""+eliminados);
-			 Gdx.app.log("barandales antes del metodo", ""+arrPlataforma.size);
+			 
 			if(eliminados>20)
 			{
 			  ponsincial= ponsincial +10;
 			  limite_i=   limite_i+10;
-			  Gdx.app.log("barandales", ""+arrPlataforma.size);
+			  
 			  agregarPlataformas(ponsincial, limite_i);
 			  eliminados=0;
 			}
@@ -829,39 +829,72 @@ public class WorldGame {
 	public class Colisiones implements ContactListener {
 
 		@Override
-		public void beginContact(Contact contact) {
-			// Choca pelota con el piso
-			// sacando los objetos que chocarn del contact
+		public void beginContact(Contact contact) 
+		{
 			Fixture a = contact.getFixtureA();
-			Fixture b = contact.getFixtureB();
-			if (a.getBody().getUserData() instanceof Gato) {
+			Fixture b = contact.getFixtureB();			
+
+			if ( a.getUserData() =="frente" ) 
+			{
 				ContactoPersonaje(a, b);
-			} else if (b.getBody().getUserData() instanceof Gato) {
-				ContactoPersonaje(b, a);
+			}
+			else if (b.getUserData() =="frente"  ) // instanceof Gato) 
+			{
+				ContactoPersonaje(b, a);				
+			}
+			
+			if ( a.getUserData() =="pies" ) 
+			{
+				ContactoPersonaje2(a, b);
+				
+			}
+			else if (b.getUserData() =="pies"  ) // instanceof Gato) 
+			{
+				ContactoPersonaje2(b, a);
+				
 			}
 		}
 
-		private void ContactoPersonaje(Fixture Personaje, Fixture otracosa) {
-
+		private void ContactoPersonaje2(Fixture Personaje, Fixture otracosa)
+		{
 			Gato oGato = (Gato) Personaje.getBody().getUserData();
 
 			Object Ootracosa = otracosa.getBody().getUserData();
-
+			
 			if (Ootracosa instanceof Piso)
 			{
 				oGato.jump();
 			}
-			if (Ootracosa instanceof Plataforma) {
+			if (Ootracosa instanceof Plataforma) 
+			{
 				oGato.jump();
 			}
+			if (Ootracosa instanceof Pandilla) {
+				oGato.jump();
+			}
+			if (Ootracosa instanceof BoteBasura) {
+				oGato.jump();
+			}
+			if (Ootracosa instanceof CajaCarton) {
+				oGato.jump();
+			}
+			if (Ootracosa instanceof Pandilla) {
+				oGato.hit();
+			}
+		}
+
+		private void ContactoPersonaje(Fixture Personaje, Fixture otracosa) 
+		{
+			Gato oGato = (Gato) Personaje.getBody().getUserData();
+
+			Object Ootracosa = otracosa.getBody().getUserData();
+
+			
 			if (Ootracosa instanceof Monedas) {
 				Monedas obj = (Monedas) Ootracosa;
 				obj.Hit();
 				monedas++;
 				time++;
-			}
-			if (Ootracosa instanceof Pandilla) {
-				oGato.hit();
 			}
 			if (Ootracosa instanceof BoteBasura) {
 				oGato.hit();

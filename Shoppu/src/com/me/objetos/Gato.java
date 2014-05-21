@@ -30,7 +30,7 @@ public class Gato {
 	public Gato(float x, float y) {
 		
 		skel = new Skeleton(Assets.skelGatoData);
-		skel.setSkin("original");
+		skel.setSkin("nyancat");
 		skel.setToSetupPose();
 
 		// TODO Auto-generated constructor stub

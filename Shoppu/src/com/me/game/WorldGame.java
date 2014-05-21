@@ -26,6 +26,7 @@ import com.me.objetos.Cerros;
 import com.me.objetos.Edificio;
 import com.me.objetos.Foco;
 import com.me.objetos.Gato;
+import com.me.objetos.Jet;
 import com.me.objetos.Lata;
 import com.me.objetos.Monedas;
 import com.me.objetos.Nubes;
@@ -58,6 +59,7 @@ public class WorldGame {
 	Pandilla oPan;
 	World oWorldBox;
 	Array<Body> arrBodies;
+	Array<Jet> arrJet;
 	Array<Nubes> arrNubes;
 	Array<Monedas> arrMonedas;
 	Array<Plataforma> arrPlataforma;
@@ -90,6 +92,7 @@ public class WorldGame {
 		arrLata = new Array<Lata>();
 		arrPiso = new Array<Piso>();
 		arrPoste = new Array<Poste>();
+		arrJet = new Array<Jet>();
 		// ---------------------------
 		arrBodies = new Array<Body>();
 		arrNubes = new Array<Nubes>();
@@ -104,11 +107,39 @@ public class WorldGame {
 		// /
 
 		crearGato();
+		crearTecho(10);
+		CrearPisoTierra(3);
 		crearPandilla();
 		//crearNubes();
 		agregarPlataformas(0, 15);
 
 	}	
+	
+	private void crearTecho(float x) {
+
+		BodyDef tec = new BodyDef();
+		tec.position.x = 0;
+		tec.position.y = x;
+
+		tec.type = BodyType.KinematicBody;
+		Body oBody = oWorldBox.createBody(tec);
+
+		EdgeShape shape = new EdgeShape();
+		shape.set(0, 0, WIDTH*11, 0);
+
+		FixtureDef fixture = new FixtureDef();
+		fixture.shape = shape;
+		fixture.density = 0f;
+		fixture.restitution = 0;
+		fixture.friction = 0;
+
+		oBody.createFixture(fixture);
+
+		oBody.setFixedRotation(true);
+		oBody.setUserData("techo");
+		shape.dispose();
+
+	}
 	public int ponsincial ;
 	public int limite_i;
 	
@@ -120,6 +151,7 @@ public class WorldGame {
 		{
 			crearMonedas(i*3);
 		    CrearPisoTierra(i*8f);
+		    crearJet(i * 10);
 		    crearBooster(i*12);
 		    crearEdficio(i*9);
 		    crearPoste(i*7.9f);
@@ -157,6 +189,39 @@ public class WorldGame {
 		    }
 		}
     }
+
+
+	private void crearJet(int x) {
+		//float x = WIDTH + 3;
+		float y = 1f;
+
+		Jet ojet = new Jet(x, y);
+
+		arrJet.add(ojet);
+
+		BodyDef bd = new BodyDef();
+		bd.type = BodyType.KinematicBody;
+		bd.position.x = ojet.posicion.x;
+		bd.position.y = ojet.posicion.y;
+
+		Body oBody = oWorldBox.createBody(bd);
+
+		PolygonShape shape = new PolygonShape();
+		shape.setAsBox(.15f, .18f);
+
+		FixtureDef fixDef = new FixtureDef();
+		fixDef.shape = shape;
+		// para que cuando choque no lo tome como otra plataforma e impulse a
+		// nuestro personaje
+		// que la moneda no choque con nada pero aun asi reciba eventos de
+		// colisiones
+		fixDef.isSensor = true;
+
+		oBody.createFixture(fixDef);
+
+		oBody.setUserData(ojet);
+		
+	}
 
 
 	private void CrearPisoTierra(float x) {
@@ -367,7 +432,8 @@ public class WorldGame {
 		FixtureDef fixture = new FixtureDef();
 		fixture.shape = shape;
 		oBody.createFixture(fixture);
-		
+	
+		oBody.createFixture(fixture).setUserData("cuerpo");
 		////////////////////////////////
 		//rectangulo para los pies
 		PolygonShape shapePies = new PolygonShape();
@@ -592,6 +658,9 @@ public class WorldGame {
 			if (body.getUserData() instanceof Plataforma) {
 				updatePlataforma(delta, body);
 			}
+			if (body.getUserData() instanceof Jet) {
+				updateJet(delta, body);
+			}
 
 			 
 			if(eliminados>20)
@@ -611,6 +680,30 @@ public class WorldGame {
 		}
 
 	}
+	private void updateJet(float delta, Body body) {
+		Jet obj = (Jet) body.getUserData();
+		
+		if (obj.state ==Jet.State.agarrado) {
+			// destruye el cuerpo
+			oWorldBox.destroyBody(body);
+
+			// quita el obejto del arreglo
+			arrJet.removeValue(obj, true);
+			// aqui tambien podria ir el int monedas
+			return;
+		}
+
+		
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4) {
+			arrJet.removeValue(obj, true);
+			oWorldBox.destroyBody(body);
+			eliminados++;
+			return;
+		}
+		obj.update(body, delta);		
+	}
+
+
 	private void updateBoos(float delta, Body body) {
 		Boos obj = (Boos) body.getUserData();
 		
@@ -818,10 +911,35 @@ public class WorldGame {
 			//actualizar camara para q siga al gato
 		if (OGato.state != Gato.State.muerto)
 		{
+			
 			if(body.getPosition().x>WIDTH/2 )//&& body.getPosition().x >posCam)
 			{
-				WorldGameRender.oCam.position.set( body.getPosition().x,HEIGHT/2, 0);
+				WorldGameRender.oCam.position.set( body.getPosition().x, body.getPosition().y,0);
 			}
+			if(body.getPosition().y<Screens.WORLD_HEIGHT/2)//&& body.getPosition().x >posCam)
+			{
+				WorldGameRender.oCam.position.set( body.getPosition().x,Screens.WORLD_HEIGHT/2,0);
+			}
+			if(body.getPosition().y>Screens.WORLD_HEIGHT + Screens.WORLD_HEIGHT/2f)//&& body.getPosition().x >posCam)
+			{
+				WorldGameRender.oCam.position.set( body.getPosition().x,Screens.WORLD_HEIGHT + 0.5f + Screens.WORLD_HEIGHT/2,0);
+			}
+			if(body.getPosition().y>9.6f )//&& body.getPosition().x >posCam)
+			{
+				body.setTransform(body.getPosition().x, 9.6f, 0);
+			}
+			if (jump && OGato.state == Gato.State.fly)
+			{
+				body.applyForceToCenter(0, Gato.ACELERACION_Y+50, true);
+				if (body.getLinearVelocity().y < Gato.VELOCIDAD_MIN_Y)
+				{
+					body.setLinearVelocity(0, Gato.VELOCIDAD_MIN_Y);
+				}
+				// Assets.playSound(Assets.wing);
+			}
+		//	else
+		//	body.setLinearVelocity(0, body.getLinearVelocity().y);
+
 		}
 
 	}
@@ -911,6 +1029,11 @@ public class WorldGame {
 					oGato.Booster();
 					boos=0;
 				}
+			}
+			if (Ootracosa instanceof Jet) {
+				Jet obj = (Jet) Ootracosa;
+				obj.Hit();
+				oGato.Fly();
 			}
 		}
 

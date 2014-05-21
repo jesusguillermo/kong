@@ -16,6 +16,11 @@ public class Gato {
 		standing,saltando, cayendo, muerto,boos, fly
 	}
 
+	public static float ACELERACION_Y = 5f;
+	public static float VELOCIDAD_MIN_Y = -2f;
+	public static float VELOCIDAD_MAX_X = 2F;
+	final private int MAX_ANGLE_DEGREES = 20;
+
 	public State state;
 	public float statetime;
 	public boolean jump;
@@ -83,6 +88,17 @@ public class Gato {
 					state = State.cayendo;
 					statetime = 0;
 				}
+			if(jump && state == State.fly)
+			{
+				if (velocidad.y > 3) {
+					velocidad.y = 3;
+					body.setLinearVelocity(velocidad);
+				}
+				if (velocidad.y < VELOCIDAD_MIN_Y) {
+					velocidad.y = VELOCIDAD_MIN_Y;
+					body.setLinearVelocity(velocidad);
+				}
+			}
 			
 			if(time < 1)
 			{
@@ -104,7 +120,7 @@ public class Gato {
 	}
 
 	public void jump() {
-		if (state == State.cayendo) 
+		if (state == State.cayendo || state == State.fly) 
 		{				
 			state = State.standing;	
 			statetime = 0;

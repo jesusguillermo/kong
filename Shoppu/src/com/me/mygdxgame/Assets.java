@@ -65,6 +65,7 @@ public class Assets {
 	public static AtlasRegion pisotierra;
 	public static AtlasRegion postecemento;
 	public static AtlasRegion posteluz;
+	public static AtlasRegion Jet;
 	
 	//-----------------------------------
 	
@@ -140,6 +141,7 @@ public class Assets {
 		
 		moneda = new Animation(0.20f, mo1,mo2,mo3,mo4,mo5,mo6,mo7,mo8,mo9,mo10);
 		
+		Jet = atlas.findRegion("siguiente");
 		posteluz = atlas.findRegion("postemadera");
 		kuro_run = atlas.findRegion("kurofood");
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");

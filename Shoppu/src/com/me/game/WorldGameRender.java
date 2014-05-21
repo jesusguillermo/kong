@@ -1,5 +1,7 @@
 package com.me.game;
 
+import javax.swing.JEditorPane;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -16,6 +18,7 @@ import com.me.objetos.Cerros;
 import com.me.objetos.Edificio;
 import com.me.objetos.Foco;
 import com.me.objetos.Gato;
+import com.me.objetos.Jet;
 import com.me.objetos.Lata;
 import com.me.objetos.Monedas;
 import com.me.objetos.Nubes;
@@ -76,6 +79,7 @@ public class WorldGameRender {
 		dibujarLata(delta);
 		dibujarCajaCarton(delta);
 		dibujarBoos(delta);
+		dibujarJey(delta);
 		dibujarMoneda(delta);
 		// ------------------------
 
@@ -86,8 +90,23 @@ public class WorldGameRender {
 			
 
 		batcher.end();
-		//renderBox.render(oWorld.oWorldBox, oCam.combined);
+		renderBox.render(oWorld.oWorldBox, oCam.combined);
 
+	}
+
+	private void dibujarJey(float delta) {
+		int length = oWorld.arrJet.size;
+
+		for (int i = 0; i < length; i++) {
+			Jet objJet = oWorld.arrJet.get(i);
+			TextureRegion keyframe;
+
+			// true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.Jet;
+
+			batcher.draw(keyframe, objJet.posicion.x - .15f,
+					objJet.posicion.y - .18f, .32f, .39f);
+		}
 	}
 
 	private void dibujarCajaCarton(float delta) {

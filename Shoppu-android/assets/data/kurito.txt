@@ -25,7 +25,7 @@ ave1
   index: -1
 b
   rotate: false
-  xy: 1112, 1137
+  xy: 1112, 1140
   size: 320, 168
   orig: 320, 168
   offset: 0, 0
@@ -60,14 +60,14 @@ btnEmpezar
   index: -1
 c
   rotate: false
-  xy: 1323, 1501
+  xy: 1323, 1504
   size: 313, 186
   orig: 313, 186
   offset: 0, 0
   index: -1
 cabeza
   rotate: false
-  xy: 1972, 1046
+  xy: 1969, 1127
   size: 65, 73
   orig: 65, 73
   offset: 0, 0
@@ -109,7 +109,7 @@ contenedor
   index: -1
 d
   rotate: false
-  xy: 1112, 1307
+  xy: 1112, 1310
   size: 304, 192
   orig: 304, 192
   offset: 0, 0
@@ -466,7 +466,7 @@ pisoparallax
   index: -1
 plataforma1
   rotate: false
-  xy: 1112, 1041
+  xy: 1112, 1085
   size: 264, 53
   orig: 264, 53
   offset: 0, 0
@@ -494,7 +494,7 @@ siguiente
   index: -1
 torzo
   rotate: false
-  xy: 1969, 1121
+  xy: 1323, 1041
   size: 61, 42
   orig: 61, 42
   offset: 0, 0
@@ -504,5 +504,12 @@ volando
   xy: 1975, 965
   size: 71, 79
   orig: 71, 79
+  offset: 0, 0
+  index: -1
+volando1
+  rotate: false
+  xy: 1972, 1046
+  size: 72, 79
+  orig: 72, 79
   offset: 0, 0
   index: -1

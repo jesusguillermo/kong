@@ -23,6 +23,7 @@ import com.me.objetos.Boos;
 import com.me.objetos.BoteBasura;
 import com.me.objetos.CajaCarton;
 import com.me.objetos.Cerros;
+import com.me.objetos.Cuervo;
 import com.me.objetos.Edificio;
 import com.me.objetos.Foco;
 import com.me.objetos.Gato;
@@ -73,6 +74,7 @@ public class WorldGame {
 	Array<Lata> arrLata;
 	Array<Piso> arrPiso;
 	Array<Poste> arrPoste;
+	Array<Cuervo> arrCuervo;
 	// ----------------------------
 	// ----------------------------
 
@@ -100,6 +102,7 @@ public class WorldGame {
 		arrPoste = new Array<Poste>();
 		arrBoos = new Array<Boos>();
 		arrPlataforma = new Array<Plataforma>();
+		arrCuervo = new Array<Cuervo>();
 		Oran = new Random();
 		oWorldBox = new World(new Vector2(0, -10), true);
 		// //
@@ -159,7 +162,7 @@ public class WorldGame {
 		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
 		    crearNubes(i*7);
-		    
+		    crearCuervo(i*2);
 		   
 		    if(Oran.nextInt(11)<5)
 		    {
@@ -190,6 +193,42 @@ public class WorldGame {
 		}
     }
 
+
+	private void crearCuervo(int x) {
+		//float x = WIDTH + 3;
+		float alt = Oran.nextInt(10);
+		if(alt < 5)
+		{
+			alt = Oran.nextInt(10);
+		}
+				float y = Oran.nextFloat() + alt;
+
+				Cuervo ocue = new Cuervo(x, y);
+
+				arrCuervo.add(ocue);
+
+				BodyDef bd = new BodyDef();
+				bd.type = BodyType.KinematicBody;
+				bd.position.x = ocue.posicion.x;
+				bd.position.y = ocue.posicion.y;
+
+				Body oBody = oWorldBox.createBody(bd);
+
+				PolygonShape shape = new PolygonShape();
+				shape.setAsBox(.445f, .215f);
+
+				FixtureDef fixDef = new FixtureDef();
+				fixDef.shape = shape;
+				// para que cuando choque no lo tome como otra plataforma e impulse a
+				// nuestro personaje
+				// que la moneda no choque con nada pero aun asi reciba eventos de
+				// colisiones
+				fixDef.isSensor = true;
+
+				oBody.createFixture(fixDef);
+
+				oBody.setUserData(ocue);
+	}
 
 	private void crearJet(int x) {
 		//float x = WIDTH + 3;
@@ -661,6 +700,9 @@ public class WorldGame {
 			if (body.getUserData() instanceof Jet) {
 				updateJet(delta, body);
 			}
+			if (body.getUserData() instanceof Cuervo) {
+				updateCuervo(delta, body);
+			}
 
 			 
 			if(eliminados>20)
@@ -680,6 +722,18 @@ public class WorldGame {
 		}
 
 	}
+	private void updateCuervo(float delta, Body body) {
+		Cuervo obj = (Cuervo) body.getUserData();
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		{
+			arrCuervo.removeValue(obj, true);
+			oWorldBox.destroyBody(body);
+			eliminados++;
+			return;
+		}
+		obj.update(body, delta);
+	}
+
 	private void updateJet(float delta, Body body) {
 		Jet obj = (Jet) body.getUserData();
 		
@@ -924,6 +978,7 @@ public class WorldGame {
 			{
 				WorldGameRender.oCam.position.set( body.getPosition().x,Screens.WORLD_HEIGHT + 0.5f + Screens.WORLD_HEIGHT/2,0);
 			}
+			
 			if(body.getPosition().y>9.6f )//&& body.getPosition().x >posCam)
 			{
 				body.setTransform(body.getPosition().x, 9.6f, 0);
@@ -1015,6 +1070,9 @@ public class WorldGame {
 				time++;
 			}
 			if (Ootracosa instanceof BoteBasura) {
+				oGato.hit();
+			}
+			if (Ootracosa instanceof Cuervo) {
 				oGato.hit();
 			}
 			if (Ootracosa instanceof CajaCarton) {

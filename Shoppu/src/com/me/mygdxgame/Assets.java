@@ -77,6 +77,7 @@ public class Assets {
 	public static Animation Kuro;	
 	public static Animation Pescadito;
 	public static Animation moneda;
+	public static Animation sergio;
 
 	public static ParallaxBackground parallaxFondo;
 	public static ParallaxBackground parallaxEdifNegro;
@@ -127,6 +128,11 @@ public class Assets {
 		AtlasRegion F2 = atlas.findRegion("fish2");
 		
 		Pescadito = new Animation(0.30f, F1,F2);
+		
+		AtlasRegion C1 = atlas.findRegion("ave");
+		AtlasRegion C2 = atlas.findRegion("ave1");
+		
+		sergio = new Animation(0.1f,C1,C2);
 		
 		AtlasRegion mo1 = atlas.findRegion("mon1");
 		AtlasRegion mo2 = atlas.findRegion("mon2");

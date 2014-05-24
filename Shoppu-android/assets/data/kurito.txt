@@ -9,6 +9,20 @@ a
   orig: 323, 184
   offset: 0, 0
   index: -1
+ave
+  rotate: false
+  xy: 1787, 1103
+  size: 89, 43
+  orig: 89, 43
+  offset: 0, 0
+  index: -1
+ave1
+  rotate: false
+  xy: 1878, 1110
+  size: 89, 42
+  orig: 89, 42
+  offset: 0, 0
+  index: -1
 b
   rotate: false
   xy: 1112, 1041

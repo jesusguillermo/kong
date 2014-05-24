@@ -15,6 +15,7 @@ import com.me.objetos.Boos;
 import com.me.objetos.BoteBasura;
 import com.me.objetos.CajaCarton;
 import com.me.objetos.Cerros;
+import com.me.objetos.Cuervo;
 import com.me.objetos.Edificio;
 import com.me.objetos.Foco;
 import com.me.objetos.Gato;
@@ -80,6 +81,7 @@ public class WorldGameRender {
 		dibujarCajaCarton(delta);
 		dibujarBoos(delta);
 		dibujarJey(delta);
+		dibujarCuervo(delta);
 		dibujarMoneda(delta);
 		// ------------------------
 
@@ -90,8 +92,22 @@ public class WorldGameRender {
 			
 
 		batcher.end();
-		renderBox.render(oWorld.oWorldBox, oCam.combined);
+	//	renderBox.render(oWorld.oWorldBox, oCam.combined);
 
+	}
+
+	private void dibujarCuervo(float delta) {
+		int length = oWorld.arrCuervo.size;
+
+		for (int i = 0; i < length; i++) {
+			Cuervo oCue = oWorld.arrCuervo.get(i);
+			TextureRegion keyframe;
+
+			// true es que la aniimacion se repeteria muchas veces
+			keyframe = Assets.sergio.getKeyFrame(oCue.state_time,true);
+
+			batcher.draw(keyframe, oCue.posicion.x -.445f,oCue.posicion.y - .215f, .89f, .43f);
+		}
 	}
 
 	private void dibujarJey(float delta) {

@@ -92,7 +92,7 @@ public class WorldGameRender {
 			
 
 		batcher.end();
-	//	renderBox.render(oWorld.oWorldBox, oCam.combined);
+	renderBox.render(oWorld.oWorldBox, oCam.combined);
 
 	}
 
@@ -243,6 +243,16 @@ public class WorldGameRender {
 		
 		com.esotericsoftware.spine.Animation Anikeyframe;
 		boolean loop;
+		
+		if (obj.state == Gato.State.fly) 
+		{
+			batcher.draw(Assets.volando, obj.position.x - .41f,obj.position.y -.5f, .99f, 1.11f);
+			return;
+			//Anikeyframe = Assets.aniFly;
+			//loop = true;
+		}
+		
+		
 		if (obj.state == Gato.State.saltando)
 		{
 			Anikeyframe = Assets.aniJump;
@@ -261,11 +271,6 @@ public class WorldGameRender {
 		else if (obj.state == Gato.State.boos) 
 		{
 			Anikeyframe = Assets.aniRun;
-			loop = true;
-		}
-		else if (obj.state == Gato.State.fly) 
-		{
-			Anikeyframe = Assets.aniFly;
 			loop = true;
 		}
 		else

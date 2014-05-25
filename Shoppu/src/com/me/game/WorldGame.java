@@ -199,7 +199,7 @@ public class WorldGame {
 		float alt = Oran.nextInt(10);
 		if(alt < 5)
 		{
-			alt = Oran.nextInt(10);
+			alt = 5;
 		}
 				float y = Oran.nextFloat() + alt;
 

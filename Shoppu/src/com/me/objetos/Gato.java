@@ -62,7 +62,7 @@ public class Gato {
 		position.y = body.getPosition().y;
 		velocidad = body.getLinearVelocity();
 		statetime+=delta;
-		
+		Gdx.app.log("vey",velocidad.y+"");
 		if(state != State.muerto)
 		{
 			body.setLinearVelocity(2,velocidad.y);

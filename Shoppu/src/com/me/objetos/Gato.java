@@ -1,6 +1,7 @@
 package com.me.objetos;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.esotericsoftware.spine.Skeleton;
@@ -25,6 +26,7 @@ public class Gato {
 	public float statetime;
 	public boolean jump;
 	public int lado;
+	public int skin = MathUtils.random(1);
 	float timer;
 	
 	public static final float TIEMPO_MUERTO = .75f;
@@ -35,7 +37,12 @@ public class Gato {
 	public Gato(float x, float y) {
 		
 		skel = new Skeleton(Assets.skelGatoData);
+		if(skin == 0)
+		{
 		skel.setSkin("nyancat");
+		}
+		else
+		skel.setSkin("original");
 		skel.setToSetupPose();
 
 		// TODO Auto-generated constructor stub

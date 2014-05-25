@@ -86,7 +86,6 @@ public class WorldGameRender {
 		// ------------------------
 
 		dibujarPlataforma(delta);
-		//dibujarMoneda(delta);
 		dibujarGato(delta);	
 		dibujarPandilla(delta);		
 			

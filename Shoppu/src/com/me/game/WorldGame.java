@@ -475,7 +475,7 @@ public class WorldGame {
 		////////////////////////////////
 		//rectangulo para los pies
 		PolygonShape shapePies = new PolygonShape();
-		shapePies.setAsBox(.2f,.1f,new Vector2(0,-.19f) , 0);
+		shapePies.setAsBox(.22f,.1f,new Vector2(0,-.19f) , 0);
 		
 		fixture.shape = shapePies;
 		fixture.isSensor=true;
@@ -711,8 +711,8 @@ public class WorldGame {
 			 
 			if(eliminados>20)
 			{
-			  ponsincial= ponsincial +10;
-			  limite_i=   limite_i+10;
+			  ponsincial= ponsincial +14;
+			  limite_i=   limite_i+14;
 			  
 			  agregarPlataformas(ponsincial, limite_i);
 			  eliminados=0;

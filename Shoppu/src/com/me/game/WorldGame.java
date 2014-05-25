@@ -617,7 +617,12 @@ public class WorldGame {
 
 	private void crearNubes(float x) {
 		//float x = WIDTH + 5;
-		float y = 3.5f;
+		float alt = Oran.nextInt(10);
+		if(alt < 5)
+		{
+			alt = Oran.nextInt(10);
+		}
+		float y = Oran.nextFloat() + alt;
 
 		Nubes oNube = new Nubes(x, y);
 

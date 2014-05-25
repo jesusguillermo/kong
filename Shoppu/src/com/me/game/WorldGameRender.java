@@ -266,7 +266,8 @@ public class WorldGameRender {
 		
 		if (obj.state == Gato.State.fly) 
 		{
-			batcher.draw(Assets.volando, obj.position.x - .355f,obj.position.y -.395f, .71f, .79f);
+			batcher.draw(Assets.volando, obj.position.x - .355f,obj.position.y -.395f,.35f,.35f, .71f, .79f,1, 1, (float) Math.toDegrees(obj.angleRad));
+			//batcher.draw(keyFrame, obj.position.x - .4f, obj.position.y -.4f, .5f, .5f, .8f, .8f, 1, 1, (float) Math.toDegrees(obj.angleRad));
 			return;
 			//Anikeyframe = Assets.aniFly;
 			//loop = true;

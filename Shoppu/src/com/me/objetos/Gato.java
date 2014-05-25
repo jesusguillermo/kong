@@ -17,7 +17,7 @@ public class Gato {
 		standing,saltando, cayendo, muerto,boos, fly
 	}
 
-	public static float ACELERACION_Y = 5f;
+	public static float ACELERACION_Y = 55f;
 	public static float VELOCIDAD_MIN_Y = -2f;
 	public static float VELOCIDAD_MAX_X = 2F;
 	final private int MAX_ANGLE_DEGREES = 20;
@@ -28,6 +28,7 @@ public class Gato {
 	public int lado;
 	public int skin = MathUtils.random(1);
 	float timer;
+	public float angleRad;
 	
 	public static final float TIEMPO_MUERTO = .75f;
 
@@ -101,10 +102,22 @@ public class Gato {
 					velocidad.y = 3;
 					body.setLinearVelocity(velocidad);
 				}
-				if (velocidad.y < VELOCIDAD_MIN_Y) {
+				if (velocidad.y < VELOCIDAD_MIN_Y)
+				{
 					velocidad.y = VELOCIDAD_MIN_Y;
 					body.setLinearVelocity(velocidad);
 				}
+
+				Gdx.app.log("velidad en y entes del anfgulo"+velocidad.y,"" );
+				
+				if (velocidad.y < -1) {					
+					angleRad = velocidad.y * MAX_ANGLE_DEGREES / VELOCIDAD_MIN_Y * -1;
+				}
+				if (velocidad.y ==3) {
+					angleRad = velocidad.y * MAX_ANGLE_DEGREES / 3;
+				}
+				angleRad = (float) Math.toRadians(angleRad);
+				
 			}
 			
 			if(time < 1)

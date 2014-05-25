@@ -104,7 +104,7 @@ public class WorldGame {
 		arrPlataforma = new Array<Plataforma>();
 		arrCuervo = new Array<Cuervo>();
 		Oran = new Random();
-		oWorldBox = new World(new Vector2(0, -10), true);
+		oWorldBox = new World(new Vector2(0, -10f), true);
 		// //
 		oWorldBox.setContactListener(new Colisiones());
 		// /
@@ -113,7 +113,6 @@ public class WorldGame {
 		crearTecho(10);
 		CrearPisoTierra(3);
 		crearPandilla();
-		//crearNubes();
 		agregarPlataformas(0, 15);
 
 	}	
@@ -162,7 +161,7 @@ public class WorldGame {
 		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
 		    crearNubes(i*7);
-		    crearCuervo(i*2);
+		    //crearCuervo(i*2);
 		   
 		    if(Oran.nextInt(11)<5)
 		    {
@@ -990,15 +989,16 @@ public class WorldGame {
 			}
 			if (jump && OGato.state == Gato.State.fly)
 			{
-				body.applyForceToCenter(0, Gato.ACELERACION_Y+50, true);
+				body.applyForceToCenter(0, Gato.ACELERACION_Y, true);
 				if (body.getLinearVelocity().y < Gato.VELOCIDAD_MIN_Y)
 				{
 					body.setLinearVelocity(0, Gato.VELOCIDAD_MIN_Y);
 				}
 				// Assets.playSound(Assets.wing);
+				else
+				body.setLinearVelocity(body.getLinearVelocity().x, body.getLinearVelocity().y);
 			}
-		//	else
-		//	body.setLinearVelocity(0, body.getLinearVelocity().y);
+		
 
 		}
 

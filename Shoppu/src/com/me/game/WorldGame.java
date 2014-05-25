@@ -161,7 +161,7 @@ public class WorldGame {
 		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
 		    crearNubes(i*7);
-		    //crearCuervo(i*2);
+		    crearCuervo(i*1.5f);
 		   
 		    if(Oran.nextInt(11)<5)
 		    {
@@ -193,7 +193,7 @@ public class WorldGame {
     }
 
 
-	private void crearCuervo(int x) {
+	private void crearCuervo(float x) {
 		//float x = WIDTH + 3;
 		float alt = Oran.nextInt(10);
 		if(alt < 5)
@@ -229,7 +229,7 @@ public class WorldGame {
 				oBody.setUserData(ocue);
 	}
 
-	private void crearJet(int x) {
+	private void crearJet(float x) {
 		//float x = WIDTH + 3;
 		float y = 1f;
 

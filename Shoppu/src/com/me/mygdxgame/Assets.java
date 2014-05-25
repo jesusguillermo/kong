@@ -52,6 +52,9 @@ public class Assets {
 	public static AtlasRegion cajacarton;
 	public static AtlasRegion edificio1;
 	public static AtlasRegion edificio2;
+	public static AtlasRegion edificio3;
+	public static AtlasRegion edificio4;
+	public static AtlasRegion edificio5;
 	public static AtlasRegion lata1;
 	public static AtlasRegion lata2;
 	public static AtlasRegion lata3;
@@ -179,25 +182,22 @@ public class Assets {
 		Barandal = atlas.findRegion("barandal");
 		botebasura = atlas.findRegion("botebasura");
 		cajacarton = atlas.findRegion("cajacarton");
-		edificio1 = atlas.findRegion("edificio1");
-		edificio2 = atlas.findRegion("edificio2");
+		edificio1 = atlas.findRegion("edificio2");
+		edificio2 = atlas.findRegion("edificio3");
+		edificio3 = atlas.findRegion("edificio4");
+		edificio4 = atlas.findRegion("edificio5");
+		edificio5 = atlas.findRegion("edificio6");
+		
 		lata1 = atlas.findRegion("lata1");
 		lata2 = atlas.findRegion("lata2");
 		lata3 = atlas.findRegion("lata3");
 		lata4 = atlas.findRegion("lata4");
-		nube1 = atlas.findRegion("nube1");
-		nube2 = atlas.findRegion("nube2");
-		nube3 = atlas.findRegion("nube3");
-		nube4 = atlas.findRegion("nube4");
-		nube5 = atlas.findRegion("nube5");
-		nube6 = atlas.findRegion("nube6");
-		nube7 = atlas.findRegion("nube7");
 		pisocemento = atlas.findRegion("pisocemento");
 		pisotierra = atlas.findRegion("pisoparallax");
 		postecemento = atlas.findRegion("postecemento");
 		
 		//-----------------------------------
-		ParallaxLayer edifBlanco = new ParallaxLayer(atlas.findRegion("fondoedificio1"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 1936, 348);
+		ParallaxLayer edifBlanco = new ParallaxLayer(atlas.findRegion("fondoedificio1"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 968, 348);
 		ParallaxLayer edifNegro = new ParallaxLayer(atlas.findRegion("fondoedificio"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 1918, 464);
 		
 		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};

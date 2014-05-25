@@ -190,12 +190,32 @@ public class WorldGameRender {
 		for (int i = 0; i < length; i++) {
 			Edificio oEdi = oWorld.arrEdificio.get(i);
 			TextureRegion keyframe;
-
+			if(oEdi.num == 0)
+			{
 			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.edificio2;
+			keyframe = Assets.edificio1;
+			}
+			else if(oEdi.num == 1)
+			{
+	// true es que la aniimacion se repeteria muchas veces
+				keyframe = Assets.edificio2;
+			}else if(oEdi.num == 2)
+			{
+	// true es que la aniimacion se repeteria muchas veces
+				keyframe = Assets.edificio3;
+			}else if(oEdi.num == 3)
+			{
+	// true es que la aniimacion se repeteria muchas veces
+				keyframe = Assets.edificio4;
+			}
+			else 
+			{
+	// true es que la aniimacion se repeteria muchas veces
+				keyframe = Assets.edificio5;
+			}
 
 			batcher.draw(keyframe, oEdi.posicion.x - 1.4f,
-					oEdi.posicion.y - 1.81f, 3.04f, 3.62f);
+					oEdi.posicion.y - 2.245f, 3.04f, 5.49f);
 		}
 	}
 

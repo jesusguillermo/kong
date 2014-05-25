@@ -1,5 +1,6 @@
 package com.me.objetos;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.me.objetos.Poste.State;
@@ -14,6 +15,7 @@ public class Edificio {
 		public Vector2 velocidad;
 		public float state_time;
 		public static float VELOCIDAD_X = -2.7f;
+		public int num = MathUtils.random(4);
 		
 		public Edificio(float x, float y){
 			posicion = new Vector2(x,y);

@@ -62,7 +62,7 @@ public class Gato {
 		position.y = body.getPosition().y;
 		velocidad = body.getLinearVelocity();
 		statetime+=delta;
-		Gdx.app.log("vey",velocidad.y+"");
+		
 		if(state != State.muerto)
 		{
 			body.setLinearVelocity(2,velocidad.y);
@@ -96,8 +96,19 @@ public class Gato {
 					state = State.cayendo;
 					statetime = 0;
 				}
-			if(jump && state == State.fly)
+			
+			if(state == State.fly)
 			{
+
+				Gdx.app.log("velidad en y entes del anfgulo"+velocidad.y,"" );
+				if (velocidad.y < 0)
+				{					
+					angleRad = velocidad.y * MAX_ANGLE_DEGREES / VELOCIDAD_MIN_Y * -1;
+				}
+				if (velocidad.y >0) {
+					angleRad = velocidad.y * MAX_ANGLE_DEGREES / 3;
+				}
+				
 				if (velocidad.y > 3) {
 					velocidad.y = 3;
 					body.setLinearVelocity(velocidad);
@@ -108,14 +119,8 @@ public class Gato {
 					body.setLinearVelocity(velocidad);
 				}
 
-				Gdx.app.log("velidad en y entes del anfgulo"+velocidad.y,"" );
 				
-				if (velocidad.y < -1) {					
-					angleRad = velocidad.y * MAX_ANGLE_DEGREES / VELOCIDAD_MIN_Y * -1;
-				}
-				if (velocidad.y ==3) {
-					angleRad = velocidad.y * MAX_ANGLE_DEGREES / 3;
-				}
+				
 				angleRad = (float) Math.toRadians(angleRad);
 				
 			}

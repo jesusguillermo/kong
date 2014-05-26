@@ -169,7 +169,7 @@ public class Assets {
 		paisaje = atlas.findRegion("paisaje");
 		Plataforma = atlas.findRegion("plataforma1");
 		Cerro = atlas.findRegion("cerros");
-		Fondo = atlas.findRegion("cielos");
+		Fondo = atlas.findRegion("background");
 
 		//-----------------------------------
 		Pasaje = atlas.findRegion("pasaje");

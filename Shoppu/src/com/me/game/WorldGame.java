@@ -162,7 +162,6 @@ public class WorldGame {
 		    crearLata(i*7);
 		    crearNubes(i*7);
 		    crearCuervo(i*1.5f);
-		   
 		    if(Oran.nextInt(11)<5)
 		    {
 		    	crearPlataforma(i*4.1f, 1, true);
@@ -191,7 +190,6 @@ public class WorldGame {
 		    }
 		}
     }
-
 
 	private void crearCuervo(float x) {
 		//float x = WIDTH + 3;
@@ -728,6 +726,7 @@ public class WorldGame {
 	}
 	private void updateCuervo(float delta, Body body) {
 		Cuervo obj = (Cuervo) body.getUserData();
+		
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrCuervo.removeValue(obj, true);
@@ -735,6 +734,7 @@ public class WorldGame {
 			eliminados++;
 			return;
 		}
+				 
 		obj.update(body, delta);
 	}
 
@@ -978,11 +978,12 @@ public class WorldGame {
 			{
 				WorldGameRender.oCam.position.set( body.getPosition().x,Screens.WORLD_HEIGHT/2,0);
 			}
+			//para que la camara siga al gato
 			if(body.getPosition().y>Screens.WORLD_HEIGHT + Screens.WORLD_HEIGHT/2f)//&& body.getPosition().x >posCam)
 			{
 				WorldGameRender.oCam.position.set( body.getPosition().x,Screens.WORLD_HEIGHT + 0.5f + Screens.WORLD_HEIGHT/2,0);
 			}
-			
+			//para que el gato no traspase la altura del segundo mundo
 			if(body.getPosition().y>9.6f )//&& body.getPosition().x >posCam)
 			{
 				body.setTransform(body.getPosition().x, 9.6f, 0);
@@ -998,10 +999,7 @@ public class WorldGame {
 				else
 				body.setLinearVelocity(body.getLinearVelocity().x, body.getLinearVelocity().y);
 			}
-		
-
 		}
-
 	}
 
 	public class Colisiones implements ContactListener {

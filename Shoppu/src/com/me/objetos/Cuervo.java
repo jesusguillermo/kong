@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 public class Cuervo {
 	public enum State
 	{
-		Normal
+		Normal, Ida
 	}
 		public State state;
 		public Vector2 posicion;
@@ -15,7 +15,7 @@ public class Cuervo {
 		public static float VELOCIDAD_X = -2.7f;
 		
 		public Cuervo(float x, float y){
-			posicion = new Vector2(x,y);
+				posicion = new Vector2(x,y);
 		}
 		
 		public void init(float x, float y) {

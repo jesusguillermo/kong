@@ -151,7 +151,7 @@ public class WorldGame {
 		limite_i= limi;
 		for(int i = in ; i<limi ;i++)
 		{
-			crearMonedas(i*3);
+			crearMonedas(i);
 		    CrearPisoTierra(i*8f);
 		    crearJet(i * 10);
 		    crearBooster(i*12);
@@ -399,6 +399,7 @@ public class WorldGame {
 	}
 
 	private void crearPlataforma(float x, float y, boolean estado) {
+		
 		Plataforma oPlata = new Plataforma(x, y, estado);
 		BodyDef bd = new BodyDef();
 		bd.type = BodyType.KinematicBody;
@@ -586,8 +587,8 @@ public class WorldGame {
 	}
 
 	private void crearMonedas(float x) {
-		//float x = Oran.nextFloat() * Screens.WORLD_WIDTH - .3f;
-		float y = 1.5f;
+		float y = Oran.nextFloat() * (2*Screens.WORLD_WIDTH - .3f);
+
 
 		Monedas oMon = new Monedas(x, y);
 
@@ -734,8 +735,9 @@ public class WorldGame {
 			eliminados++;
 			return;
 		}
-				 
+		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		obj.update(body, delta);
+		
 	}
 
 	private void updateJet(float delta, Body body) {
@@ -979,7 +981,7 @@ public class WorldGame {
 				WorldGameRender.oCam.position.set( body.getPosition().x,Screens.WORLD_HEIGHT/2,0);
 			}
 			//para que la camara siga al gato
-			if(body.getPosition().y>Screens.WORLD_HEIGHT + Screens.WORLD_HEIGHT/2f)//&& body.getPosition().x >posCam)
+			if(body.getPosition().y>Screens.WORLD_HEIGHT + Screens.WORLD_HEIGHT/6f)//&& body.getPosition().x >posCam)
 			{
 				WorldGameRender.oCam.position.set( body.getPosition().x,Screens.WORLD_HEIGHT + 0.5f + Screens.WORLD_HEIGHT/2,0);
 			}
@@ -1076,7 +1078,7 @@ public class WorldGame {
 				oGato.hit();
 			}
 			if (Ootracosa instanceof Cuervo) {
-				oGato.hit();
+				//oGato.hit();
 			}
 			if (Ootracosa instanceof CajaCarton) {
 				oGato.hit();

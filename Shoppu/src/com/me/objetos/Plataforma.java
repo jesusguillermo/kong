@@ -12,12 +12,12 @@ public class Plataforma {
 	public float state_time;
 	public Vector2 posicion;
 	public Vector2 velocity;
-
 	public static float VELOCIDAD_X = -2.7f;
 	
 	public Plataforma(float x, float y, Boolean estado)
 	{		
 		posicion = new Vector2(x,y);
+		
 		if(estado)
 		   state= State.normal;
 		else

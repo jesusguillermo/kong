@@ -150,7 +150,7 @@ public class Assets {
 		AtlasRegion mo9 = atlas.findRegion("mon9");
 		AtlasRegion mo10 = atlas.findRegion("mon10");
 		
-		moneda = new Animation(0.20f, mo1,mo2,mo3,mo4,mo5,mo6,mo7,mo8,mo9,mo10);
+		moneda = new Animation(0.05f, mo1,mo2,mo3,mo4,mo5,mo6,mo7,mo8,mo9,mo10);
 		
 		Jet = atlas.findRegion("siguiente");
 

@@ -164,6 +164,10 @@ public class WorldGame {
 		    crearCuervo(i*1.5f);
 		    if(Oran.nextInt(11)<5)
 		    {
+		    	if(Oran.nextInt(11)<5)
+		    	{
+			    	crearPlataforma(i*4.1f, 3, true);
+		    	}
 		    	crearPlataforma(i*4.1f, 1, true);
 		    	if(Oran.nextInt(11)<5)
 			    {
@@ -177,6 +181,10 @@ public class WorldGame {
 		    }
 		    else
 		    {
+		    	if(Oran.nextInt(11)<5)
+		    	{
+			    	crearPlataforma(i*4.1f, 3, true);
+		    	}
 		    	crearPlataforma(i*4.1f, 2, true);
 		    	if(Oran.nextInt(11)<5)
 			    {

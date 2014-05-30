@@ -175,16 +175,7 @@ public class WorldGame {
 			    }
 		    	crearPlataforma(i*4.1f, 1, true,false);
 		    	if(Oran.nextInt(11)<5)
-			    {
-			    	if(Oran.nextInt(11)<5)
-			    	{
-				    	crearPlataforma(i*4.1f, 3, true);
-				    	if(Oran.nextInt(11)<5)
-					    {
-					    crearJet(i*3.9f);
-					    }
-			    	}
-
+		    	{
 		    		if(Oran.nextInt(11)<5)
 				    {
 		    			crearBoteBasura(i*4.1f, 1.5f); 
@@ -195,15 +186,7 @@ public class WorldGame {
 		    }
 		    else
 		    {
-<<<<<<< HEAD
-		    	crearPlataforma(i*4.1f, 2, true);
-		    	
-		    	if(Oran.nextInt(11)<5)
-		    	{
-			    	crearPlataforma(i*4.1f, 3, true);
-		    	}
 
-=======
 		    	if(Oran.nextInt(11)<5)
 			    {
 
@@ -217,7 +200,6 @@ public class WorldGame {
 			    }
 		    	
 		    	crearPlataforma(i*4.1f, 2, true,false);
->>>>>>> 8259d945b5b41f48e73e1c41bdbafe713c2b9742
 		    	if(Oran.nextInt(11)<5)
 			    {
 		    		if(Oran.nextInt(11)<5)
@@ -267,14 +249,8 @@ public class WorldGame {
 				oBody.setUserData(ocue);
 	}
 
-<<<<<<< HEAD
-	private void crearJet(float x) {
-		//float x = WIDTH + 3;
-		float y = 3.5f;
-
-=======
 	private void crearJet(float x,float y) {
->>>>>>> 8259d945b5b41f48e73e1c41bdbafe713c2b9742
+
 		Jet ojet = new Jet(x, y);
 
 		arrJet.add(ojet);

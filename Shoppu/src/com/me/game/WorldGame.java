@@ -167,6 +167,15 @@ public class WorldGame {
 		    	crearPlataforma(i*4.1f, 1, true);
 		    	if(Oran.nextInt(11)<5)
 			    {
+			    	if(Oran.nextInt(11)<5)
+			    	{
+				    	crearPlataforma(i*4.1f, 3, true);
+				    	if(Oran.nextInt(11)<5)
+					    {
+					    crearJet(i*3.9f);
+					    }
+			    	}
+
 		    		if(Oran.nextInt(11)<5)
 				    {
 		    			crearBoteBasura(i*4.1f, 1.5f); 
@@ -178,6 +187,12 @@ public class WorldGame {
 		    else
 		    {
 		    	crearPlataforma(i*4.1f, 2, true);
+		    	
+		    	if(Oran.nextInt(11)<5)
+		    	{
+			    	crearPlataforma(i*4.1f, 3, true);
+		    	}
+
 		    	if(Oran.nextInt(11)<5)
 			    {
 		    		if(Oran.nextInt(11)<5)
@@ -229,7 +244,7 @@ public class WorldGame {
 
 	private void crearJet(float x) {
 		//float x = WIDTH + 3;
-		float y = 1f;
+		float y = 3.5f;
 
 		Jet ojet = new Jet(x, y);
 
@@ -949,7 +964,7 @@ public class WorldGame {
 		}
 		// Gdx.app.log("Arreglo de monedas:",arrGAS.size+"");
 		obj.update(body, delta);
-		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
+		//body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 
 	}
 

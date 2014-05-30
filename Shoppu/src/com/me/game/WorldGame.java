@@ -153,7 +153,6 @@ public class WorldGame {
 		{
 			crearMonedas(i);
 		    CrearPisoTierra(i*8f);
-		    crearJet(i * 10);
 		    crearBooster(i*12);
 		    crearEdficio(i*9);
 		    crearPoste(i*7.9f);
@@ -164,7 +163,17 @@ public class WorldGame {
 		    crearCuervo(i*1.5f);
 		    if(Oran.nextInt(11)<5)
 		    {
-		    	crearPlataforma(i*4.1f, 1, true);
+		    	if(Oran.nextInt(11)<5)
+			    {
+			    	if(Oran.nextInt(11)<5)
+				    {
+
+				    	crearPlataforma(i*4.1f, 3, true,false);	
+				    }
+			    	else
+			    		crearPlataforma(i*4.1f, 3, true,true);
+			    }
+		    	crearPlataforma(i*4.1f, 1, true,false);
 		    	if(Oran.nextInt(11)<5)
 			    {
 			    	if(Oran.nextInt(11)<5)
@@ -186,6 +195,7 @@ public class WorldGame {
 		    }
 		    else
 		    {
+<<<<<<< HEAD
 		    	crearPlataforma(i*4.1f, 2, true);
 		    	
 		    	if(Oran.nextInt(11)<5)
@@ -193,6 +203,21 @@ public class WorldGame {
 			    	crearPlataforma(i*4.1f, 3, true);
 		    	}
 
+=======
+		    	if(Oran.nextInt(11)<5)
+			    {
+
+			    	if(Oran.nextInt(11)<5)
+				    {
+
+				    	crearPlataforma(i*4.1f, 3, true,false);	
+				    }
+			    	else
+			    		crearPlataforma(i*4.1f, 3, true,true);
+			    }
+		    	
+		    	crearPlataforma(i*4.1f, 2, true,false);
+>>>>>>> 8259d945b5b41f48e73e1c41bdbafe713c2b9742
 		    	if(Oran.nextInt(11)<5)
 			    {
 		    		if(Oran.nextInt(11)<5)
@@ -242,10 +267,14 @@ public class WorldGame {
 				oBody.setUserData(ocue);
 	}
 
+<<<<<<< HEAD
 	private void crearJet(float x) {
 		//float x = WIDTH + 3;
 		float y = 3.5f;
 
+=======
+	private void crearJet(float x,float y) {
+>>>>>>> 8259d945b5b41f48e73e1c41bdbafe713c2b9742
 		Jet ojet = new Jet(x, y);
 
 		arrJet.add(ojet);
@@ -413,7 +442,7 @@ public class WorldGame {
 		oBody.setUserData(oBot);
 	}
 
-	private void crearPlataforma(float x, float y, boolean estado) {
+	private void crearPlataforma(float x, float y, boolean estado,boolean jet) {
 		
 		Plataforma oPlata = new Plataforma(x, y, estado);
 		BodyDef bd = new BodyDef();
@@ -434,6 +463,10 @@ public class WorldGame {
 		oBody.createFixture(fixDef);
 		oBody.setUserData(oPlata);
 		arrPlataforma.add(oPlata);
+		if(jet)			
+		{
+			crearJet(x, y+0.5f);
+		}
 	}
 
 	private void crearPiso(float y) {

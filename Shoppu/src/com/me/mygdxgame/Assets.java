@@ -156,7 +156,7 @@ public class Assets {
 
 		volando = atlas.findRegion("volando");
 		
-		posteluz = atlas.findRegion("postemadera");
+		posteluz = atlas.findRegion("postemaderasn");
 		kuro_run = atlas.findRegion("kurofood");
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");
@@ -182,18 +182,18 @@ public class Assets {
 		Barandal = atlas.findRegion("barandal");
 		botebasura = atlas.findRegion("botebasura");
 		cajacarton = atlas.findRegion("cajacarton");
-		edificio1 = atlas.findRegion("edificio2");
-		edificio2 = atlas.findRegion("edificio3");
-		edificio3 = atlas.findRegion("edificio4");
-		edificio4 = atlas.findRegion("edificio5");
-		edificio5 = atlas.findRegion("edificio6");
+		edificio1 = atlas.findRegion("edificio2sn");
+		edificio2 = atlas.findRegion("edificio3sn");
+		edificio3 = atlas.findRegion("edificio4sn");
+		edificio4 = atlas.findRegion("edificio5sn");
+		edificio5 = atlas.findRegion("edificio6sn");
 		
 		lata1 = atlas.findRegion("lata1");
 		lata2 = atlas.findRegion("lata2");
 		lata3 = atlas.findRegion("lata3");
 		lata4 = atlas.findRegion("lata4");
 		pisocemento = atlas.findRegion("pisocemento");
-		pisotierra = atlas.findRegion("pisoparallax");
+		pisotierra = atlas.findRegion("pisoparalax");
 		postecemento = atlas.findRegion("postecemento");
 		
 		//-----------------------------------

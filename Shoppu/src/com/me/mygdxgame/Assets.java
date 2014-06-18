@@ -168,16 +168,8 @@ public class Assets {
 		Rejillas = atlas.findRegion("rejillas");
 		paisaje = atlas.findRegion("paisaje");
 		Plataforma = atlas.findRegion("plataforma1");
-		Cerro = atlas.findRegion("cerros");
 		Fondo = atlas.findRegion("background");
 
-		//-----------------------------------
-		Pasaje = atlas.findRegion("pasaje");
-		Tuberia = atlas.findRegion("tuberia");
-		Tuberialarga = atlas.findRegion("tuberialarga");
-		Rejilla1 = atlas.findRegion("cloaca");
-		Rejilla2 = atlas.findRegion("cloaca2");
-		Foco = atlas.findRegion("foco");
 		//-----------------------------------
 		Barandal = atlas.findRegion("barandal");
 		botebasura = atlas.findRegion("botebasura");

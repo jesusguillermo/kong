@@ -177,18 +177,18 @@ fish2
   orig: 32, 39
   offset: 0, 0
   index: -1
-fondoedificio
-  rotate: false
-  xy: 2, 2
-  size: 1918, 464
-  orig: 1918, 464
-  offset: 0, 0
-  index: -1
-fondoedificio1
+fondoedificioatras
   rotate: false
   xy: 805, 468
   size: 968, 348
   orig: 968, 348
+  offset: 0, 0
+  index: -1
+fondoedificiofrente
+  rotate: false
+  xy: 2, 2
+  size: 1918, 464
+  orig: 1918, 464
   offset: 0, 0
   index: -1
 fondogameover

@@ -87,7 +87,6 @@ public class Gato {
 					statetime = 0;	
 				 }
 				body.setLinearVelocity(10, velocidad.y);
-			   
 			}		
 			
 			if(state == State.saltando)
@@ -152,8 +151,15 @@ public class Gato {
 	{
 		if(state != State.muerto)
 		{
+			if(state == State.boos)
+			{
+				state = State.boos;
+			}
+			else
+			{
 		   state = State.muerto;
 		   statetime = 0;
+			}
 		}
 		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
 	}

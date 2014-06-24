@@ -138,14 +138,14 @@ public class GameScreen extends Screens {
 				btTryAgain.setY(btTryAgain.getY() - 3);
 				return true;
 			}
-		});
-		
+		});		
 	}
 
 	private void drawrunning(float delta) {
 		Assets.Font.draw(batcher, "Monedas: " + oWorld.monedas, 0, oCam.position.y);
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
-
+		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);
+		
 		
 	}
 

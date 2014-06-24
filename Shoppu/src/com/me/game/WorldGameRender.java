@@ -14,25 +14,17 @@ import com.me.objetos.Barandal;
 import com.me.objetos.Boos;
 import com.me.objetos.BoteBasura;
 import com.me.objetos.CajaCarton;
-import com.me.objetos.Cerros;
 import com.me.objetos.Cuervo;
 import com.me.objetos.Edificio;
-import com.me.objetos.Foco;
 import com.me.objetos.Gato;
 import com.me.objetos.Jet;
 import com.me.objetos.Lata;
 import com.me.objetos.Monedas;
 import com.me.objetos.Nubes;
-import com.me.objetos.Paisaje;
 import com.me.objetos.Pandilla;
-import com.me.objetos.Pasaje;
 import com.me.objetos.Piso;
 import com.me.objetos.Plataforma;
 import com.me.objetos.Poste;
-import com.me.objetos.Rejilla;
-import com.me.objetos.Rejillas;
-import com.me.objetos.Tuberia;
-import com.me.objetos.TuberiaLarga;
 import com.me.screens.Screens;
 
 public class WorldGameRender {

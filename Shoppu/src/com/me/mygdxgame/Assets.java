@@ -184,8 +184,8 @@ public class Assets {
 		edificio5 = atlas.findRegion("edificio6sn");
 		
 		//-----------------------------------
-		vida = atlas.findRegion("corazon");
-		vidavacia = atlas.findRegion("corazonvacio");
+		vida = atlas.findRegion("heart");
+		vidavacia = atlas.findRegion("heartvacio");
 		//-----------------------------------
 		lata1 = atlas.findRegion("lata1");
 		lata2 = atlas.findRegion("lata2");

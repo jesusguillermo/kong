@@ -152,16 +152,16 @@ public class GameScreen extends Screens {
 		if(oWorld.OGato.vida == 3)
 		{
 		cor1 = new Image(Assets.vida);
-		cor1.setSize(46, 48);
-		cor1.setPosition(10, SCREEN_HEIGHT - 50f);
+		cor1.setSize(52, 50);
+		cor1.setPosition(15, SCREEN_HEIGHT - 60f);
 		
 		cor2 = new Image(Assets.vida);
-		cor2.setSize(46, 48);
-		cor2.setPosition(60, SCREEN_HEIGHT - 50f);
+		cor2.setSize(52, 50);
+		cor2.setPosition(70, SCREEN_HEIGHT - 60f);
 		
 		cor3 = new Image(Assets.vida);
-		cor3.setSize(46, 48);
-		cor3.setPosition(110, SCREEN_HEIGHT - 50f);
+		cor3.setSize(52, 50);
+		cor3.setPosition(125, SCREEN_HEIGHT - 60f);
 
 		stage.addActor(cor1);
 		stage.addActor(cor2);
@@ -175,16 +175,16 @@ public class GameScreen extends Screens {
 			cor2.remove();
 			
 			cor1 = new Image(Assets.vida);
-			cor1.setSize(46, 48);
-			cor1.setPosition(10, SCREEN_HEIGHT - 50f);
+			cor1.setSize(52, 50);
+			cor1.setPosition(15, SCREEN_HEIGHT - 60f);
 			
 			cor2 = new Image(Assets.vida);
-			cor2.setSize(46, 48);
-			cor2.setPosition(60, SCREEN_HEIGHT - 50f);
+			cor2.setSize(52, 50);
+			cor2.setPosition(70, SCREEN_HEIGHT - 60f);
 			
 			corvacio1 = new Image(Assets.vidavacia);
-			corvacio1.setSize(46, 48);
-			corvacio1.setPosition(110, SCREEN_HEIGHT - 50f);
+			corvacio1.setSize(52, 50);
+			corvacio1.setPosition(125, SCREEN_HEIGHT - 60f);
 
 			stage.addActor(cor1);
 			stage.addActor(cor2);
@@ -198,16 +198,16 @@ public class GameScreen extends Screens {
 			corvacio1.remove();
 		
 			cor1 = new Image(Assets.vida);
-			cor1.setSize(46, 48);
-			cor1.setPosition(10, SCREEN_HEIGHT - 50f);
+			cor1.setSize(52, 50);
+			cor1.setPosition(15, SCREEN_HEIGHT - 60f);
 			
 			corvacio1 = new Image(Assets.vidavacia);
-			corvacio1.setSize(46, 48);
-			corvacio1.setPosition(60, SCREEN_HEIGHT - 50f);
+			corvacio1.setSize(52, 50);
+			corvacio1.setPosition(70, SCREEN_HEIGHT - 60f);
 			
 			corvacio2 = new Image(Assets.vidavacia);
-			corvacio2.setSize(46, 48);
-			corvacio2.setPosition(110, SCREEN_HEIGHT - 50f);				
+			corvacio2.setSize(52, 50);
+			corvacio2.setPosition(125, SCREEN_HEIGHT - 60f);				
 
 			stage.addActor(cor1);
 			stage.addActor(corvacio1);

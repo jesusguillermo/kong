@@ -674,7 +674,7 @@ public class WorldGame {
 		time -= delta;
 		timer +=delta;
 		int lenght = arrBodies.size;
-		Gdx.app.log("Cuerpos", lenght + "");
+		//Gdx.app.log("Cuerpos", lenght + "");
 		
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
@@ -725,11 +725,8 @@ public class WorldGame {
 				updateCuervo(delta, body);
 			}
 
-			 Gdx.app.log("elim",eliminados+"");
 			if(eliminados>180)
 			{
-				Gdx.app.log("agregar", "entre");
-				
 			  ponsincial= ponsincial +14;
 			  limite_i=   limite_i+14;
 			  
@@ -1031,10 +1028,10 @@ public class WorldGame {
 			}
 		distancia = body.getPosition().x;	
 		}
-	/*	Gdx.app.log("vida_gato",OGato.vida+"");
+		Gdx.app.log("vida_gato",OGato.vida+"");
 
-		Gdx.app.log("state",OGato.state+"");
-		*/
+	//	Gdx.app.log("state",OGato.state+"");
+		
 	}
 
 	public class Colisiones implements ContactListener {

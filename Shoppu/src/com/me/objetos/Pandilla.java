@@ -27,12 +27,6 @@ public class Pandilla {
 		//Le damos la velocidad, a la derecha
 		// velociad es mayor que 8
 		// aqui es para que se muevan las plataformas y no se salga de las medidas del mundo
-		if(jump)
-		{
-			jump= false;
-			body.setLinearVelocity(velocidad.x, 5);
-		
-		}
 		
 		body.setLinearVelocity(2.05f,velocidad.y);
 		//body.setLinearVelocity(velocidad);

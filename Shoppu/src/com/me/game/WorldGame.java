@@ -945,7 +945,7 @@ public class WorldGame {
 			}
 //			if(jump)
 //				body.setLinearVelocity(2.3f, 5);
-			body.setTransform(oPan.posicion.x, OGato.position.y, 0);
+			//body.setTransform(oPan.posicion.x, OGato.position.y, 0);
 //			else
 				
 				
@@ -968,7 +968,8 @@ public class WorldGame {
 		}
 
 		// Gdx.app.log("posicion monedas:",obj.posicion.x+"");
-		if (obj.posicion.x <= -2) {
+		if (obj.posicion.x <= -2)		
+		{
 			arrMonedas.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			eliminados++;

@@ -31,6 +31,7 @@ public class GameScreen extends Screens {
 			renderer = new WorldGameRender(batcher,oWorld);
 			state = State.ready;
 			InicializarGameOver();
+			
 	}
 
 	@Override

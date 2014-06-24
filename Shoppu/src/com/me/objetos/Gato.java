@@ -26,6 +26,7 @@ public class Gato {
 	public float statetime;
 	public boolean jump;
 	public int lado;
+	public int vida;
 	public int skin = MathUtils.random(1);
 	float timer;
 	public float angleRad;
@@ -51,6 +52,7 @@ public class Gato {
 		statetime = 0;
 		state = State.cayendo;
 		velocidad = new Vector2();
+		vida = 3;
 
 		
 	}

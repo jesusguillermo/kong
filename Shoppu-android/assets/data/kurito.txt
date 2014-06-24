@@ -95,7 +95,7 @@ chamarra (1)
   index: -1
 cola
   rotate: false
-  xy: 253, 819
+  xy: 253, 920
   size: 32, 33
   orig: 32, 33
   offset: 0, 0
@@ -105,6 +105,20 @@ contenedor
   xy: 1775, 468
   size: 103, 93
   orig: 103, 93
+  offset: 0, 0
+  index: -1
+corazon
+  rotate: false
+  xy: 253, 788
+  size: 46, 48
+  orig: 46, 48
+  offset: 0, 0
+  index: -1
+corazonvacio
+  rotate: false
+  xy: 253, 713
+  size: 47, 49
+  orig: 47, 49
   offset: 0, 0
   index: -1
 d
@@ -123,7 +137,7 @@ e
   index: -1
 eat
   rotate: false
-  xy: 253, 713
+  xy: 253, 764
   size: 47, 22
   orig: 47, 22
   offset: 0, 0
@@ -235,14 +249,14 @@ lata1
   index: -1
 lata2
   rotate: false
-  xy: 253, 798
+  xy: 253, 899
   size: 43, 19
   orig: 43, 19
   offset: 0, 0
   index: -1
 lata3
   rotate: false
-  xy: 253, 777
+  xy: 253, 878
   size: 44, 19
   orig: 44, 19
   offset: 0, 0
@@ -319,7 +333,7 @@ mon7
   index: -1
 mon8
   rotate: false
-  xy: 253, 879
+  xy: 253, 980
   size: 23, 30
   orig: 23, 30
   offset: 0, 0
@@ -347,7 +361,7 @@ nubes
   index: -1
 nyancat
   rotate: false
-  xy: 253, 737
+  xy: 253, 838
   size: 46, 38
   orig: 46, 38
   offset: 0, 0
@@ -396,21 +410,21 @@ piernadelantera2
   index: -1
 piernatrasera
   rotate: false
-  xy: 253, 854
+  xy: 253, 955
   size: 27, 23
   orig: 27, 23
   offset: 0, 0
   index: -1
 piernatrasera2
   rotate: false
-  xy: 278, 879
+  xy: 278, 980
   size: 23, 23
   orig: 23, 23
   offset: 0, 0
   index: -1
 piesito
   rotate: false
-  xy: 282, 854
+  xy: 282, 955
   size: 20, 21
   orig: 20, 21
   offset: 0, 0

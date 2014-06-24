@@ -674,7 +674,7 @@ public class WorldGame {
 		time -= delta;
 		timer +=delta;
 		int lenght = arrBodies.size;
-		//Gdx.app.log("Cuerpos", lenght + "");
+		Gdx.app.log("Cuerpos", lenght + "");
 		
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
@@ -726,7 +726,7 @@ public class WorldGame {
 			}
 
 			 
-			if(eliminados>20)
+			if(eliminados>180)
 			{
 			  ponsincial= ponsincial +14;
 			  limite_i=   limite_i+14;
@@ -739,9 +739,7 @@ public class WorldGame {
 			{
 				state = State.GameOver;
 			}
-
 		}
-
 	}
 	private void updateCuervo(float delta, Body body) {
 		Cuervo obj = (Cuervo) body.getUserData();

@@ -1032,6 +1032,8 @@ public class WorldGame {
 		distancia = body.getPosition().x;	
 		}
 		Gdx.app.log("vida_gato",OGato.vida+"");
+
+		Gdx.app.log("state",OGato.state+"");
 	}
 
 	public class Colisiones implements ContactListener {

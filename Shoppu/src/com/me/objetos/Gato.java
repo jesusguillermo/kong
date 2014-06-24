@@ -166,13 +166,18 @@ public class Gato {
 	*/
 	public void hit()
 	{
-		if(vida  != 0)
+		if( state != State.muerto && vida  != 0)
 		{
+			if(state == State.boos)
+			{
+				state = State.boos;
+			}
 			vida--;
 		}
 		else
 		{
 			state = State.muerto;
+			statetime = 0;
 		}
 		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
 	}

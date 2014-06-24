@@ -64,7 +64,6 @@ public class WorldGameRender {
 		//dibujarPiso(delta);
 		dibujarNubes(delta);
 		// ------------------------
-		dbujarvida(delta);
 		dibujarEdificio(delta);
 		dibujarPoste(delta);
 		dibujarPiso(delta);
@@ -77,6 +76,7 @@ public class WorldGameRender {
 		dibujarMoneda(delta);
 		// ------------------------
 
+		dbujarvida(delta);
 		dibujarPlataforma(delta);
 		dibujarGato(delta);	
 		dibujarPandilla(delta);		
@@ -84,8 +84,12 @@ public class WorldGameRender {
 
 		batcher.end();
 		
-	//renderBox.render(oWorld.oWorldBox, oCam.combined);
+	renderBox.render(oWorld.oWorldBox, oCam.combined);
 
+	}
+
+	private void dbujarvida(float delta) {
+		
 	}
 
 	private void dibujarCuervo(float delta) {

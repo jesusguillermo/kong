@@ -16,7 +16,7 @@ public class Pandilla {
 		velocidad = new Vector2(vel_x,0);
 		state_time = 0;
 	}
-	public void update(Body body, float delta)
+	public void update(Body body, float delta, boolean jump)
 	{
 		//actualizando las posiciones
 		posicion.x = body.getPosition().x;
@@ -27,6 +27,12 @@ public class Pandilla {
 		//Le damos la velocidad, a la derecha
 		// velociad es mayor que 8
 		// aqui es para que se muevan las plataformas y no se salga de las medidas del mundo
+		if(jump)
+		{
+			jump= false;
+			body.setLinearVelocity(velocidad.x, 5);
+		
+		}
 		
 		body.setLinearVelocity(2.05f,velocidad.y);
 		//body.setLinearVelocity(velocidad);

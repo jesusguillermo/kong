@@ -531,7 +531,7 @@ public class WorldGame {
 
 		// haremos una linea
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(.5f, 2f);
+		shape.setAsBox(.5f, .5f);
 		// necestamos una fixture
 		FixtureDef fixture = new FixtureDef();
 		fixture.shape = shape;
@@ -688,7 +688,7 @@ public class WorldGame {
 				updateMonedas(delta, body);
 			}
 			if (body.getUserData() instanceof Pandilla) {
-				updatePandilla(delta, body);
+				updatePandilla(delta, body, jump);
 			}
 			if (body.getUserData() instanceof Poste) {
 				updatePoste(delta, body);
@@ -922,25 +922,34 @@ public class WorldGame {
 	}
 
    
-	private void updatePandilla(float delta, Body body) 
+	private void updatePandilla(float delta, Body body, boolean jump) 
 	{
 		
 //		Gdx.app.log("posicion del gato"+OGato.position.x,"   posicion de la pandilla"+ oPan.posicion.x);	
 		if (OGato.state != Gato.State.muerto)
 		{
-			oPan.update(body, delta);
+			oPan.update(body, delta, jump);
+			
 			if(oPan.posicion.x < WorldGameRender.oCam.position.x-4)
 			{
-				oPan.posicion.x=OGato.position.x - 4;
+				oPan.posicion.x=OGato.position.x - 4;				
 				//Gdx.app.log("ifopan","");
 			}			
 			
 			//Gdx.app.log("timer",""+timer);
-			if (timer >= 1f) 
+			if (timer >= .5f) 
 			{
+				//body.setTransform(oPan.posicion.x, OGato.position.y, 0);
 				timer = 0;
-			    oPan.posicion.y=OGato.position.y;
+			    //oPan.posicion.y=OGato.position.y;
 			}
+//			if(jump)
+//				body.setLinearVelocity(2.3f, 5);
+			body.setTransform(oPan.posicion.x, OGato.position.y, 0);
+//			else
+				
+				
+			
 		}
 	}
 

@@ -201,10 +201,7 @@ public class Assets {
 		
 		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};
 		
-		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));
-
-
-		
+		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));		
 	}
 	
 }

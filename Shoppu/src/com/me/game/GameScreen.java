@@ -18,6 +18,8 @@ public class GameScreen extends Screens {
 
 	Button btTryAgain, btLeaderBoards, btShop;
 	Image background, BoteBasura;
+	Image cor1,cor2,cor3;
+	Image corvacio1,corvacio2;
 	
 	public enum State {ready,running,gameover}
 	WorldGame oWorld;
@@ -147,7 +149,73 @@ public class GameScreen extends Screens {
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);
 		
+		if(oWorld.OGato.vida == 3)
+		{
+			Gdx.app.log("tercero", "entre");
+		cor1 = new Image(Assets.vida);
+		cor1.setSize(46, 48);
+		cor1.setPosition(10, SCREEN_HEIGHT - 50f);
 		
+		cor2 = new Image(Assets.vida);
+		cor2.setSize(46, 48);
+		cor2.setPosition(60, SCREEN_HEIGHT - 50f);
+		
+		cor3 = new Image(Assets.vida);
+		cor3.setSize(46, 48);
+		cor3.setPosition(110, SCREEN_HEIGHT - 50f);
+
+		stage.addActor(cor1);
+		stage.addActor(cor2);
+		stage.addActor(cor3);
+		}
+		else if (oWorld.OGato.vida == 2)
+		{
+
+			Gdx.app.log("segundo", "entre");
+			cor3.remove();
+			cor1.remove();
+			cor2.remove();
+			
+			cor1 = new Image(Assets.vida);
+			cor1.setSize(46, 48);
+			cor1.setPosition(10, SCREEN_HEIGHT - 50f);
+			
+			cor2 = new Image(Assets.vida);
+			cor2.setSize(46, 48);
+			cor2.setPosition(60, SCREEN_HEIGHT - 50f);
+			
+			corvacio1 = new Image(Assets.vidavacia);
+			corvacio1.setSize(46, 48);
+			corvacio1.setPosition(110, SCREEN_HEIGHT - 50f);
+
+			stage.addActor(cor1);
+			stage.addActor(cor2);
+			stage.addActor(corvacio1);
+		}
+		else if (oWorld.OGato.vida == 1)
+		{
+
+			Gdx.app.log("primero", "entre");
+
+			cor1.remove();
+			corvacio1.remove();
+		
+			cor1 = new Image(Assets.vida);
+			cor1.setSize(46, 48);
+			cor1.setPosition(10, SCREEN_HEIGHT - 50f);
+			
+			corvacio1 = new Image(Assets.vidavacia);
+			corvacio1.setSize(46, 48);
+			corvacio1.setPosition(60, SCREEN_HEIGHT - 50f);
+			
+			corvacio2 = new Image(Assets.vidavacia);
+			corvacio2.setSize(46, 48);
+			corvacio2.setPosition(110, SCREEN_HEIGHT - 50f);				
+
+			stage.addActor(cor1);
+			stage.addActor(corvacio1);
+			stage.addActor(corvacio2);
+		}		
 	}
 
 	private void drawready(float delta) {

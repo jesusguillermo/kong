@@ -151,7 +151,6 @@ public class GameScreen extends Screens {
 		
 		if(oWorld.OGato.vida == 3)
 		{
-			Gdx.app.log("tercero", "entre");
 		cor1 = new Image(Assets.vida);
 		cor1.setSize(46, 48);
 		cor1.setPosition(10, SCREEN_HEIGHT - 50f);
@@ -171,7 +170,6 @@ public class GameScreen extends Screens {
 		else if (oWorld.OGato.vida == 2)
 		{
 
-			Gdx.app.log("segundo", "entre");
 			cor3.remove();
 			cor1.remove();
 			cor2.remove();
@@ -195,8 +193,7 @@ public class GameScreen extends Screens {
 		else if (oWorld.OGato.vida == 1)
 		{
 
-			Gdx.app.log("primero", "entre");
-
+		
 			cor1.remove();
 			corvacio1.remove();
 		

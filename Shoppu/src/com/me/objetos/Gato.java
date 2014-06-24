@@ -109,7 +109,7 @@ public class Gato {
 					body.setLinearVelocity(velocidad);
 				}	
 				
-				Gdx.app.log("velidad en y entes del anfgulo"+velocidad.y,"" );
+				//Gdx.app.log("velidad en y entes del anfgulo"+velocidad.y,"" );
 				if (velocidad.y < 0)
 				{					
 					angleRad = velocidad.y * MAX_ANGLE_DEGREES / VELOCIDAD_MIN_Y * -1;

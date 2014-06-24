@@ -1031,6 +1031,7 @@ public class WorldGame {
 			}
 		distancia = body.getPosition().x;	
 		}
+		Gdx.app.log("vida_gato",OGato.vida+"");
 	}
 
 	public class Colisiones implements ContactListener {
@@ -1104,6 +1105,7 @@ public class WorldGame {
 				time++;
 			}
 			if (Ootracosa instanceof BoteBasura) {
+				
 				oGato.hit();
 			}
 			if (Ootracosa instanceof Cuervo) {

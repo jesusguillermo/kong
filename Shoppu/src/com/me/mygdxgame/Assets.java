@@ -73,6 +73,9 @@ public class Assets {
 	public static AtlasRegion Jet;
 	
 	//-----------------------------------
+	public static AtlasRegion vida;
+	public static AtlasRegion vidavacia;
+	//-----------------------------------
 	
 	public static AtlasRegion Fondo;
 	public static AtlasRegion kuro_run;
@@ -180,6 +183,10 @@ public class Assets {
 		edificio4 = atlas.findRegion("edificio5sn");
 		edificio5 = atlas.findRegion("edificio6sn");
 		
+		//-----------------------------------
+		vida = atlas.findRegion("corazon");
+		vidavacia = atlas.findRegion("corazonvacio");
+		//-----------------------------------
 		lata1 = atlas.findRegion("lata1");
 		lata2 = atlas.findRegion("lata2");
 		lata3 = atlas.findRegion("lata3");

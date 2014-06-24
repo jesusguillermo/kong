@@ -53,7 +53,6 @@ public class Gato {
 		state = State.cayendo;
 		velocidad = new Vector2();
 		vida = 3;
-
 		
 	}
 
@@ -65,7 +64,7 @@ public class Gato {
 		velocidad = body.getLinearVelocity();
 		statetime+=delta;
 		
-		if(state != State.muerto)
+		if(state != State.muerto && vida != 0)
 		{
 			body.setLinearVelocity(2,velocidad.y);
 			if (jump && state ==State.standing) 
@@ -134,9 +133,7 @@ public class Gato {
 		{
 			body.setLinearVelocity(0,-5);
 			
-		}
-		
-		
+		}	
 		
 		//body.setLinearVelocity(acelx*5,velocidad.y);
 
@@ -149,6 +146,7 @@ public class Gato {
 			statetime = 0;
 		}
 						}
+	/*
 	public void hit()
 	{
 		if(state != State.muerto)
@@ -162,6 +160,19 @@ public class Gato {
 		   state = State.muerto;
 		   statetime = 0;
 			}
+		}
+		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
+	}
+	*/
+	public void hit()
+	{
+		if(vida  != 0)
+		{
+			vida--;
+		}
+		else
+		{
+			state = State.muerto;
 		}
 		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
 	}

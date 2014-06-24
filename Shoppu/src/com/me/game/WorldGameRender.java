@@ -64,7 +64,7 @@ public class WorldGameRender {
 		//dibujarPiso(delta);
 		dibujarNubes(delta);
 		// ------------------------
-
+		dbujarvida(delta);
 		dibujarEdificio(delta);
 		dibujarPoste(delta);
 		dibujarPiso(delta);

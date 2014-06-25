@@ -72,7 +72,7 @@ public class WorldGame {
 	// ----------------------------
 
 	Random Oran;
-	int monedas,boos;
+	int monedas,boos, control;
 	public boolean creacion;
 	public int distancia;
 	public float time = 60;
@@ -142,7 +142,6 @@ public class WorldGame {
 	
 	private void  agregarPlataformas(int in ,int limi)
 	{
-		
 		for(int i = in ; i<limi ;i++)
 		{
 			crearMonedas(i);
@@ -725,8 +724,9 @@ public class WorldGame {
 				updateCuervo(delta, body);
 			}
 
-			if(creacion)
+			if(creacion && control == 1)
 			{
+				Gdx.app.log("entre","");
 			  ponsincial= distancia;
 			  limite_i=   distancia + 20;
 			  
@@ -1030,13 +1030,14 @@ public class WorldGame {
 		if(distancia % 20 == 0)
 		{
 			creacion = true;
+			control++;
 		}
 		}
 		//Gdx.app.log("vida_gato",OGato.vida+"");
-
-		Gdx.app.log("dis",distancia % 20 +"");
+		Gdx.app.log("controles",control+"");
+	//	Gdx.app.log("dis",distancia % 20 +"");
 		Gdx.app.log("tray",distancia +"");
-		Gdx.app.log("band",creacion +"");
+	//	Gdx.app.log("band",creacion +"");
 		
 	}
 

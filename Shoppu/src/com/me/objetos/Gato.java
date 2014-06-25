@@ -52,7 +52,7 @@ public class Gato {
 		statetime = 0;
 		state = State.cayendo;
 		velocidad = new Vector2();
-		vida = 3;
+		vida = 4;
 		
 	}
 
@@ -166,19 +166,12 @@ public class Gato {
 	*/
 	public void hit()
 	{
-		if( state != State.muerto && vida  != 0)
-		{
-			if(state == State.boos)
-			{
-				state = State.boos;
-			}
-			vida--;
-		}
-		else
+		if(state != State.muerto)
 		{
 			state = State.muerto;
 			statetime = 0;
 		}
+	
 		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
 	}
 	public void Booster()

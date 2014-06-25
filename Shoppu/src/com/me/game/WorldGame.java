@@ -1104,15 +1104,42 @@ public class WorldGame {
 				monedas++;
 				time++;
 			}
-			if (Ootracosa instanceof BoteBasura) {
+			if (Ootracosa instanceof BoteBasura) 
+			{
+				if(oGato.vida <= 1)
+				{
+					oGato.hit();
+				}
+				else
+				{
+					oGato.vida--;
+					otracosa.setSensor(true);
+				}
 				
-				oGato.hit();
+				
 			}
 			if (Ootracosa instanceof Cuervo) {
-				oGato.hit();
+				if(oGato.vida <= 1)
+				{
+					oGato.hit();
+				}
+				else
+				{
+					oGato.vida--;
+					otracosa.setSensor(true);
+				}
 			}
 			if (Ootracosa instanceof CajaCarton) {
-				oGato.hit();
+				
+				if(oGato.vida <= 1)
+				{
+					oGato.hit();
+				}
+				else
+				{
+					oGato.vida--;
+					otracosa.setSensor(true);
+				}
 			}
 			if (Ootracosa instanceof Boos) {
 				Boos obj = (Boos) Ootracosa;

@@ -19,7 +19,7 @@ public class GameScreen extends Screens {
 	Button btTryAgain, btLeaderBoards, btShop;
 	Image background, BoteBasura;
 	Image cor1,cor2,cor3;
-	Image corvacio1,corvacio2;
+	Image corvacio1,corvacio2,corvacio3;
 	
 	public enum State {ready,running,gameover}
 	WorldGame oWorld;
@@ -149,27 +149,26 @@ public class GameScreen extends Screens {
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);
 		
-		if(oWorld.OGato.vida == 3)
+		if(oWorld.OGato.vida == 4)
 		{
-		cor1 = new Image(Assets.vida);
-		cor1.setSize(52, 50);
-		cor1.setPosition(15, SCREEN_HEIGHT - 60f);
-		
-		cor2 = new Image(Assets.vida);
-		cor2.setSize(52, 50);
-		cor2.setPosition(70, SCREEN_HEIGHT - 60f);
-		
-		cor3 = new Image(Assets.vida);
-		cor3.setSize(52, 50);
-		cor3.setPosition(125, SCREEN_HEIGHT - 60f);
-
-		stage.addActor(cor1);
-		stage.addActor(cor2);
-		stage.addActor(cor3);
+			cor1 = new Image(Assets.vida);
+			cor1.setSize(52, 50);
+			cor1.setPosition(15, SCREEN_HEIGHT - 60f);
+			
+			cor2 = new Image(Assets.vida);
+			cor2.setSize(52, 50);
+			cor2.setPosition(70, SCREEN_HEIGHT - 60f);
+			
+			cor3 = new Image(Assets.vida);
+			cor3.setSize(52, 50);
+			cor3.setPosition(125, SCREEN_HEIGHT - 60f);
+			
+			stage.addActor(cor1);
+			stage.addActor(cor2);
+			stage.addActor(cor3);
 		}
-		else if (oWorld.OGato.vida == 2)
+		else if (oWorld.OGato.vida == 3)
 		{
-
 			cor3.remove();
 			cor1.remove();
 			cor2.remove();
@@ -190,7 +189,7 @@ public class GameScreen extends Screens {
 			stage.addActor(cor2);
 			stage.addActor(corvacio1);
 		}
-		else if (oWorld.OGato.vida == 1)
+		else if (oWorld.OGato.vida == 2)
 		{
 
 		
@@ -212,7 +211,34 @@ public class GameScreen extends Screens {
 			stage.addActor(cor1);
 			stage.addActor(corvacio1);
 			stage.addActor(corvacio2);
-		}		
+		}
+		else if (oWorld.OGato.vida == 1)
+		{
+
+		
+			cor1.remove();
+			corvacio1.remove();
+			corvacio2.remove();
+		
+			corvacio1 = new Image(Assets.vidavacia);
+			corvacio1.setSize(52, 50);
+			corvacio1.setPosition(70, SCREEN_HEIGHT - 60f);
+			
+			corvacio2 = new Image(Assets.vidavacia);
+			corvacio2.setSize(52, 50);
+			corvacio2.setPosition(125, SCREEN_HEIGHT - 60f);
+			
+
+			corvacio3 = new Image(Assets.vidavacia);
+			corvacio3.setSize(52, 50);
+			corvacio3.setPosition(15, SCREEN_HEIGHT - 60f);
+			
+
+			//stage.addActor(cor1);
+			stage.addActor(corvacio1);
+			stage.addActor(corvacio2);
+			stage.addActor(corvacio3);
+		}	
 	}
 
 	private void drawready(float delta) {

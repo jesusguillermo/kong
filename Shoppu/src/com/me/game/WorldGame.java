@@ -47,6 +47,7 @@ public class WorldGame {
 		Running, GameOver
 	}
 
+	
 	State state;
 	Gato OGato;
 	Pandilla oPan;
@@ -72,8 +73,8 @@ public class WorldGame {
 
 	Random Oran;
 	int monedas,boos;
-
-	public float distancia;
+	public boolean creacion;
+	public int distancia;
 	public float time = 60;
 	public float timer ;
 	public float plata_eliminadas=0;
@@ -107,7 +108,7 @@ public class WorldGame {
 		crearTecho(10);
 		CrearPisoTierra(3);
 		crearPandilla();
-		agregarPlataformas(0, 15);
+		agregarPlataformas(0, 20);
 
 	}	
 	
@@ -141,8 +142,7 @@ public class WorldGame {
 	
 	private void  agregarPlataformas(int in ,int limi)
 	{
-		ponsincial = in;
-		limite_i= limi;
+		
 		for(int i = in ; i<limi ;i++)
 		{
 			crearMonedas(i);
@@ -674,7 +674,7 @@ public class WorldGame {
 		time -= delta;
 		timer +=delta;
 		int lenght = arrBodies.size;
-		//Gdx.app.log("Cuerpos", lenght + "");
+		Gdx.app.log("Cuerpos", lenght + "");
 		
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
@@ -725,13 +725,13 @@ public class WorldGame {
 				updateCuervo(delta, body);
 			}
 
-			if(eliminados>180)
+			if(creacion)
 			{
-			  ponsincial= ponsincial +14;
-			  limite_i=   limite_i+14;
+			  ponsincial= distancia;
+			  limite_i=   distancia + 20;
 			  
-			  agregarPlataformas(ponsincial, limite_i);
-			  eliminados=0;
+			 agregarPlataformas(ponsincial, limite_i);
+			 creacion = false;
 			}
 			// -------------------------------------
 			if (OGato.state == Gato.State.muerto && OGato.statetime >= Gato.TIEMPO_MUERTO)
@@ -965,7 +965,7 @@ public class WorldGame {
 		}
 
 		// Gdx.app.log("posicion monedas:",obj.posicion.x+"");
-		if (obj.posicion.x <= -2)		
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)		
 		{
 			arrMonedas.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -980,7 +980,7 @@ public class WorldGame {
 
 	private void updateNubes(float delta, Body body) {
 		Nubes obj = (Nubes) body.getUserData();
-		if (obj.posicion.x <= -10) {
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-10) {
 			arrNubes.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			eliminados++;
@@ -1026,11 +1026,17 @@ public class WorldGame {
 				else
 				body.setLinearVelocity(body.getLinearVelocity().x, body.getLinearVelocity().y);
 			}
-		distancia = body.getPosition().x;	
+		distancia = (int) body.getPosition().x;	
+		if(distancia % 20 == 0)
+		{
+			creacion = true;
 		}
-		Gdx.app.log("vida_gato",OGato.vida+"");
+		}
+		//Gdx.app.log("vida_gato",OGato.vida+"");
 
-	//	Gdx.app.log("state",OGato.state+"");
+		Gdx.app.log("dis",distancia % 20 +"");
+		Gdx.app.log("tray",distancia +"");
+		Gdx.app.log("band",creacion +"");
 		
 	}
 

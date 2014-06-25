@@ -243,6 +243,7 @@ public class GameScreen extends Screens {
 
 	private void drawready(float delta) {
 		Assets.Font.draw(batcher, "Toca para iniciar", 0, 200); 
+		
 	}
 
 }

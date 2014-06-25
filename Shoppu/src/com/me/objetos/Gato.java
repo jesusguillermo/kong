@@ -58,7 +58,6 @@ public class Gato {
 
 	public void update(float delta, Body body, boolean jump,float time) {
 		
-		
 		position.x = body.getPosition().x;
 		position.y = body.getPosition().y;
 		velocidad = body.getLinearVelocity();

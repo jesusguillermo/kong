@@ -701,6 +701,7 @@ public class WorldGame {
 		timer +=delta;
 		int lenght = arrBodies.size;
 		Gdx.app.log("Cuerpos", lenght + "");
+		Gdx.app.log("Eliminados", eliminados + "");
 
 		timeToSpawnPiso += delta;
 		timeToSpawnMoneda +=delta;
@@ -712,6 +713,7 @@ public class WorldGame {
 		timeToSpawnBNube += delta;
 		timeToSpawnPLata +=delta;
 		timeToSpawnPoste += delta;
+		timeToSpawnBoteCaja += delta;
 		
 		if (timeToSpawnPiso >= TIME_TO_SPAWN_PISO) {
 			timeToSpawnPiso -= TIME_TO_SPAWN_PISO;
@@ -873,6 +875,7 @@ public class WorldGame {
 		
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
+			
 			arrCuervo.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			eliminados++;
@@ -1159,8 +1162,8 @@ public class WorldGame {
 			}
 		}
 
-		Gdx.app.log("disx", WorldGameRender.oCam.position.x + "");
-		Gdx.app.log("d i s  y", WorldGameRender.oCam.position.y + "");
+		//Gdx.app.log("disx", WorldGameRender.oCam.position.x + "");
+		//Gdx.app.log("d i s  y", WorldGameRender.oCam.position.y + "");
 		
 	}
 

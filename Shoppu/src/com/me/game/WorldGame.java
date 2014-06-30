@@ -46,7 +46,35 @@ public class WorldGame {
 	public enum State {
 		Running, GameOver
 	}
+	final float TIME_TO_SPAWN_PISO = .3f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnPiso;
+	
+	final float TIME_TO_SPAWN_CUERVO = .3f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnCuervo;
 
+	final float TIME_TO_SPAWN_MONEDA = .3f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnMoneda;
+	
+	final float TIME_TO_SPAWN_BOSTER = 2f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnBoster;
+	
+	final float TIME_TO_SPAWN_PLATAFORMA = .4f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnPlataforma;
+	
+	final float TIME_TO_SPAWN_EDIFICIO = .6f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnEdificio;
+
+	final float TIME_TO_SPAWN_POSTE = 1.5f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnPoste;
+	
+	final float TIME_TO_SPAWN_NUBE = .2f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnBNube;
+	
+	final float TIME_TO_SPAWN_Lata = .7f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnPLata;
+	
+	final float TIME_TO_SPAWN_BOTECAJA = 1f;// Tiempo en segundos para que aparezcan 
+	float timeToSpawnBoteCaja;
 	
 	State state;
 	Gato OGato;
@@ -72,7 +100,7 @@ public class WorldGame {
 	// ----------------------------
 
 	Random Oran;
-	int monedas,boos, control;
+	int monedas,boos, control, pis;
 	public boolean creacion;
 	public int distancia;
 	public float time = 60;
@@ -105,10 +133,10 @@ public class WorldGame {
 		// /
 
 		crearGato();
-		crearTecho(10);
-		CrearPisoTierra(3);
+		//crearTecho(10);
+		//crearPiso(1f);
 		crearPandilla();
-		agregarPlataformas(0, 20);
+	//	agregarPlataformas(0, 20);
 
 	}	
 	
@@ -145,7 +173,6 @@ public class WorldGame {
 		for(int i = in ; i<limi ;i++)
 		{
 			crearMonedas(i);
-		    CrearPisoTierra(i*8f);
 		    crearBooster(i*12);
 		    crearEdficio(i*9);
 		    crearPoste(i*7.9f);
@@ -674,6 +701,115 @@ public class WorldGame {
 		timer +=delta;
 		int lenght = arrBodies.size;
 		Gdx.app.log("Cuerpos", lenght + "");
+
+		timeToSpawnPiso += delta;
+		timeToSpawnMoneda +=delta;
+		timeToSpawnBoster += delta;
+		timeToSpawnPlataforma +=delta;
+		timeToSpawnCuervo += delta;
+
+		timeToSpawnEdificio +=delta;
+		timeToSpawnBNube += delta;
+		timeToSpawnPLata +=delta;
+		timeToSpawnPoste += delta;
+		
+		if (timeToSpawnPiso >= TIME_TO_SPAWN_PISO) {
+			timeToSpawnPiso -= TIME_TO_SPAWN_PISO;
+			CrearPisoTierra(pis * 8);	
+			pis++;			
+		}
+		if (timeToSpawnMoneda >= TIME_TO_SPAWN_MONEDA) {
+			timeToSpawnMoneda -= TIME_TO_SPAWN_MONEDA;
+			crearMonedas(pis * 3);					
+		}
+		if (timeToSpawnBoster >= TIME_TO_SPAWN_BOSTER) {
+			timeToSpawnBoster -= TIME_TO_SPAWN_BOSTER;
+			crearBooster(pis * 3);				
+		}
+		if (timeToSpawnCuervo >= TIME_TO_SPAWN_CUERVO) {
+			timeToSpawnCuervo -= TIME_TO_SPAWN_CUERVO;
+			crearCuervo(pis * 3);			
+		}
+		if (timeToSpawnPlataforma >= TIME_TO_SPAWN_PLATAFORMA) {
+			timeToSpawnPlataforma -= TIME_TO_SPAWN_PLATAFORMA;
+		    if(Oran.nextInt(11)<5)
+		    {
+		    	if(Oran.nextInt(11)<5)
+			    {
+			    	if(Oran.nextInt(11)<5)
+				    {
+
+				    	crearPlataforma(pis*4.1f, 3, true,false);	
+				    }
+			    	else
+			    		crearPlataforma(pis*4.1f, 3, true,true);
+			    }
+		    	crearPlataforma(pis*4.1f, 1, true,false);
+		    	if(Oran.nextInt(11)<5)
+		    	{
+		    		if(Oran.nextInt(11)<5)
+				    {
+		    			crearBoteBasura(pis*4.1f, 1.5f); 
+				    }
+		    		else
+		    		   crearCajaCarton(pis*4.1f,1.4f);
+			    }
+		    }
+		    else
+		    {
+
+		    	if(Oran.nextInt(11)<5)
+			    {
+
+			    	if(Oran.nextInt(11)<5)
+				    {
+
+				    	crearPlataforma(pis*4.1f, 3, true,false);	
+				    }
+			    	else
+			    		crearPlataforma(pis*4.1f, 3, true,true);
+			    }
+		    	
+		    	crearPlataforma(pis*4.1f, 2, true,false);
+		    	if(Oran.nextInt(11)<5)
+			    {
+		    		if(Oran.nextInt(11)<5)
+		    		{
+		    	       crearBoteBasura(pis*4.1f, 2.5f); 
+		    		}
+		    		else
+		    		   crearCajaCarton(pis*4.1f,2.4f);
+			    }
+		    }
+		}
+		if (timeToSpawnEdificio >= TIME_TO_SPAWN_EDIFICIO) {
+			timeToSpawnEdificio -= TIME_TO_SPAWN_EDIFICIO;
+			crearEdficio(pis * 8);	
+				
+		}
+		if (timeToSpawnBNube >= TIME_TO_SPAWN_NUBE) {
+			timeToSpawnBNube -= TIME_TO_SPAWN_NUBE;
+			crearNubes(pis * 3);					
+		}
+		if (timeToSpawnPoste >= TIME_TO_SPAWN_POSTE) {
+			timeToSpawnPoste -= TIME_TO_SPAWN_POSTE;
+			crearPoste(pis * 3);				
+		}
+		if (timeToSpawnPLata >= TIME_TO_SPAWN_Lata) {
+			timeToSpawnPLata -= TIME_TO_SPAWN_Lata;
+			crearLata(pis * 3);			
+		}	
+		if (timeToSpawnBoteCaja >= TIME_TO_SPAWN_BOTECAJA) {
+			timeToSpawnBoteCaja -= TIME_TO_SPAWN_BOTECAJA;
+			if(Oran.nextInt(11)<5)
+		    {
+			    crearBoteBasura(pis*9, .6f);
+		    }
+			else
+		    {
+			    crearCajaCarton(pis*10, .42f);
+		    }
+		}	
 		
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
@@ -724,15 +860,7 @@ public class WorldGame {
 				updateCuervo(delta, body);
 			}
 
-			if(creacion && control == 1)
-			{
-				Gdx.app.log("entre","");
-			  ponsincial= distancia;
-			  limite_i=   distancia + 20;
-			  
-			 agregarPlataformas(ponsincial, limite_i);
-			 creacion = false;
-			}
+			
 			// -------------------------------------
 			if (OGato.state == Gato.State.muerto && OGato.statetime >= Gato.TIEMPO_MUERTO)
 			{
@@ -750,7 +878,6 @@ public class WorldGame {
 			eliminados++;
 			return;
 		}
-		body.setLinearVelocity(obj.VELOCIDAD_X, 0);
 		obj.update(body, delta);
 		
 	}
@@ -827,7 +954,10 @@ public class WorldGame {
 			eliminados++;
 			return;
 		}
+
+		body.setLinearVelocity(-2.7f, 0);
 		obj.update(body, delta);
+		
 	}
 
 	private void updateEdificio(float delta, Body body) {
@@ -1026,18 +1156,10 @@ public class WorldGame {
 				else
 				body.setLinearVelocity(body.getLinearVelocity().x, body.getLinearVelocity().y);
 			}
-		distancia = (int) body.getPosition().x;	
-		if(distancia % 20 == 0)
-		{
-			creacion = true;
-			control++;
 		}
-		}
-		//Gdx.app.log("vida_gato",OGato.vida+"");
-		Gdx.app.log("controles",control+"");
-	//	Gdx.app.log("dis",distancia % 20 +"");
-		Gdx.app.log("tray",distancia +"");
-	//	Gdx.app.log("band",creacion +"");
+
+		Gdx.app.log("disx", WorldGameRender.oCam.position.x + "");
+		Gdx.app.log("d i s  y", WorldGameRender.oCam.position.y + "");
 		
 	}
 

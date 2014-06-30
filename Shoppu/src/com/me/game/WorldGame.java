@@ -878,6 +878,7 @@ public class WorldGame {
 			eliminados++;
 			return;
 		}
+		body.setLinearVelocity(-2.7f, 0);
 		obj.update(body, delta);
 		
 	}

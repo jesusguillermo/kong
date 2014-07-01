@@ -133,6 +133,7 @@ public class WorldGame {
 		// /
 
 		crearGato();
+		CrearPisoTierra(0);
 		//crearTecho(10);
 		//crearPiso(1f);
 		crearPandilla();
@@ -701,8 +702,8 @@ public class WorldGame {
 		timer +=delta;
 		int lenght = arrBodies.size;
 		Gdx.app.log("Cuerpos", lenght + "");
-		Gdx.app.log("Eliminados", eliminados + "");
-
+		Gdx.app.log("Elimiindos", eliminados + "");
+		
 		timeToSpawnPiso += delta;
 		timeToSpawnMoneda +=delta;
 		timeToSpawnBoster += delta;
@@ -717,20 +718,21 @@ public class WorldGame {
 		
 		if (timeToSpawnPiso >= TIME_TO_SPAWN_PISO) {
 			timeToSpawnPiso -= TIME_TO_SPAWN_PISO;
-			CrearPisoTierra(pis * 8);	
+			Gdx.app.log("hola que hace", pis* .8f+"");
+			CrearPisoTierra(pis * .8f);	
 			pis++;			
 		}
 		if (timeToSpawnMoneda >= TIME_TO_SPAWN_MONEDA) {
 			timeToSpawnMoneda -= TIME_TO_SPAWN_MONEDA;
-			crearMonedas(pis * 3);					
+			crearMonedas(pis * .3f);					
 		}
 		if (timeToSpawnBoster >= TIME_TO_SPAWN_BOSTER) {
 			timeToSpawnBoster -= TIME_TO_SPAWN_BOSTER;
-			crearBooster(pis * 3);				
+			crearBooster(pis * .3f);				
 		}
 		if (timeToSpawnCuervo >= TIME_TO_SPAWN_CUERVO) {
 			timeToSpawnCuervo -= TIME_TO_SPAWN_CUERVO;
-			crearCuervo(pis * 3);			
+			crearCuervo(pis * .3f);			
 		}
 		if (timeToSpawnPlataforma >= TIME_TO_SPAWN_PLATAFORMA) {
 			timeToSpawnPlataforma -= TIME_TO_SPAWN_PLATAFORMA;
@@ -741,20 +743,20 @@ public class WorldGame {
 			    	if(Oran.nextInt(11)<5)
 				    {
 
-				    	crearPlataforma(pis*4.1f, 3, true,false);	
+				    	crearPlataforma(pis*.41f, 3, true,false);	
 				    }
 			    	else
-			    		crearPlataforma(pis*4.1f, 3, true,true);
+			    		crearPlataforma(pis*.41f, 3, true,true);
 			    }
-		    	crearPlataforma(pis*4.1f, 1, true,false);
+		    	crearPlataforma(pis*.41f, 1, true,false);
 		    	if(Oran.nextInt(11)<5)
 		    	{
 		    		if(Oran.nextInt(11)<5)
 				    {
-		    			crearBoteBasura(pis*4.1f, 1.5f); 
+		    			crearBoteBasura(pis*.41f, 1.5f); 
 				    }
 		    		else
-		    		   crearCajaCarton(pis*4.1f,1.4f);
+		    		   crearCajaCarton(pis*.41f,1.4f);
 			    }
 		    }
 		    else
@@ -766,50 +768,50 @@ public class WorldGame {
 			    	if(Oran.nextInt(11)<5)
 				    {
 
-				    	crearPlataforma(pis*4.1f, 3, true,false);	
+				    	crearPlataforma(pis*.41f, 3, true,false);	
 				    }
 			    	else
-			    		crearPlataforma(pis*4.1f, 3, true,true);
+			    		crearPlataforma(pis*.41f, 3, true,true);
 			    }
 		    	
-		    	crearPlataforma(pis*4.1f, 2, true,false);
+		    	crearPlataforma(pis*.41f, 2, true,false);
 		    	if(Oran.nextInt(11)<5)
 			    {
 		    		if(Oran.nextInt(11)<5)
 		    		{
-		    	       crearBoteBasura(pis*4.1f, 2.5f); 
+		    	       crearBoteBasura(pis*.41f, 2.5f); 
 		    		}
 		    		else
-		    		   crearCajaCarton(pis*4.1f,2.4f);
+		    		   crearCajaCarton(pis*.41f,2.4f);
 			    }
 		    }
 		}
 		if (timeToSpawnEdificio >= TIME_TO_SPAWN_EDIFICIO) {
 			timeToSpawnEdificio -= TIME_TO_SPAWN_EDIFICIO;
-			crearEdficio(pis * 8);	
+			crearEdficio(pis * .8f);	
 				
 		}
 		if (timeToSpawnBNube >= TIME_TO_SPAWN_NUBE) {
 			timeToSpawnBNube -= TIME_TO_SPAWN_NUBE;
-			crearNubes(pis * 3);					
+			crearNubes(pis * .3f);					
 		}
 		if (timeToSpawnPoste >= TIME_TO_SPAWN_POSTE) {
 			timeToSpawnPoste -= TIME_TO_SPAWN_POSTE;
-			crearPoste(pis * 3);				
+			crearPoste(pis * .3f);				
 		}
 		if (timeToSpawnPLata >= TIME_TO_SPAWN_Lata) {
 			timeToSpawnPLata -= TIME_TO_SPAWN_Lata;
-			crearLata(pis * 3);			
+			crearLata(pis * .3f);			
 		}	
 		if (timeToSpawnBoteCaja >= TIME_TO_SPAWN_BOTECAJA) {
 			timeToSpawnBoteCaja -= TIME_TO_SPAWN_BOTECAJA;
 			if(Oran.nextInt(11)<5)
 		    {
-			    crearBoteBasura(pis*9, .6f);
+			    crearBoteBasura(pis*.9f, .6f);
 		    }
 			else
 		    {
-			    crearCajaCarton(pis*10, .42f);
+			    crearCajaCarton(pis*1, .42f);
 		    }
 		}	
 		
@@ -1162,7 +1164,7 @@ public class WorldGame {
 			}
 		}
 
-		//Gdx.app.log("disx", WorldGameRender.oCam.position.x + "");
+		Gdx.app.log("disx", WorldGameRender.oCam.position.x + "");
 		//Gdx.app.log("d i s  y", WorldGameRender.oCam.position.y + "");
 		
 	}

@@ -11,7 +11,6 @@ import com.me.mygdxgame.Assets;
 import com.me.mygdxgame.MainShoppu;
 import com.me.objetos.Gato;
 import com.me.objetos.Pandilla;
-import com.sun.javafx.font.PGFont;
 
 public class MainMenu extends Screens{
 
@@ -53,8 +52,7 @@ public class MainMenu extends Screens{
 	
 	private void renderbackground(float delta) 
 	{
-		Assets.parallaxMPFondo.render(delta);	
-		
+		Assets.parallaxMPFondo.render(delta);			
 	}
 
 	@Override

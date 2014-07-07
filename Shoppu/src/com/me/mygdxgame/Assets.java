@@ -88,8 +88,7 @@ public class Assets {
 	public static Animation sergio;
 
 	public static ParallaxBackground parallaxFondo;
-	public static ParallaxBackground parallaxEdifNegro;
-	public static ParallaxBackground parallaxEdifGris;
+	public static ParallaxBackground parallaxMPFondo;
 	
 	public static void Cargar()
 	{
@@ -201,7 +200,17 @@ public class Assets {
 		
 		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};
 		
-		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));		
+		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));	
+		
+		//--------------------------------Menu Principal
+		ParallaxLayer edifazul = new ParallaxLayer(atlas.findRegion("fondoedificioazulmar"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 968, 348);
+		ParallaxLayer edifazulmar = new ParallaxLayer(atlas.findRegion("fondoedificioazul"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 1918, 464);
+		ParallaxLayer pisoparallax = new ParallaxLayer(atlas.findRegion("pisoparalax"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 801, 218);
+		
+		ParallaxLayer mp[] = new ParallaxLayer[] {edifazul,edifazulmar,pisoparallax};
+		
+		parallaxMPFondo = new ParallaxBackground(mp,800, 480, new Vector2(10, 0));	
+		
 	}
 	
 }

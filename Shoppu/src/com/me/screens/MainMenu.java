@@ -1,18 +1,27 @@
 package com.me.screens;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.esotericsoftware.spine.SkeletonRenderer;
 import com.me.game.GameScreen;
 import com.me.mygdxgame.Assets;
 import com.me.mygdxgame.MainShoppu;
+import com.me.objetos.Gato;
+import com.me.objetos.Pandilla;
+import com.sun.javafx.font.PGFont;
 
 public class MainMenu extends Screens{
 
+	Gato oGato;
 	ImageButton btnEmpezar;
+	
 	public MainMenu(final MainShoppu game) {
 		super(game);
+		oGato = new Gato(SCREEN_WIDTH/5f, SCREEN_HEIGHT/2f);
+		
 		btnEmpezar = new ImageButton(new TextureRegionDrawable(Assets.btnEmpezar));
 		btnEmpezar.setPosition(SCREEN_WIDTH / 2f  - btnEmpezar.getWidth() /2f, SCREEN_HEIGHT / 2f - btnEmpezar.getHeight()/2f);
 		btnEmpezar.addListener(new InputListener(){
@@ -41,6 +50,12 @@ public class MainMenu extends Screens{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	private void renderbackground(float delta) 
+	{
+		Assets.parallaxMPFondo.render(delta);	
+		
+	}
 
 	@Override
 	public void draw(float delta) {
@@ -48,6 +63,10 @@ public class MainMenu extends Screens{
 		batcher.begin();
 		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
 		batcher.end();
+		renderbackground(delta);
+
 	}
+
+	
 
 }

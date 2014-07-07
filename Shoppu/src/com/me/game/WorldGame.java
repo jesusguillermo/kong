@@ -46,7 +46,7 @@ public class WorldGame {
 	public enum State {
 		Running, GameOver
 	}
-	final float TIME_TO_SPAWN_PISO = .8f;// Tiempo en segundos para que aparezcan 
+	final float TIME_TO_SPAWN_PISO = 1.6f;// Tiempo en segundos para que aparezcan 
 	float timeToSpawnPiso;
 	
 	final float TIME_TO_SPAWN_CUERVO = .3f;// Tiempo en segundos para que aparezcan 
@@ -718,8 +718,8 @@ public class WorldGame {
 		
 		if (timeToSpawnPiso >= TIME_TO_SPAWN_PISO) {
 			timeToSpawnPiso -= TIME_TO_SPAWN_PISO;
-			Gdx.app.log("hola que hace", pis* 1.2f+"");
-			CrearPisoTierra(pis * 1.2f);	
+			Gdx.app.log("hola que hace", pis* 8f+"");
+			CrearPisoTierra(pis * 8f);	
 			pis++;			
 		}
 		if (timeToSpawnMoneda >= TIME_TO_SPAWN_MONEDA) {

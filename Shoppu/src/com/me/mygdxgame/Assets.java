@@ -30,7 +30,6 @@ public class Assets {
 	public static AtlasRegion fondogameover;
 	public static AtlasRegion botegameover;
 	public static AtlasRegion Nubes;
-	public static AtlasRegion Poste;
 	public static AtlasRegion Rejillas;
 	public static AtlasRegion paisaje;
 	public static AtlasRegion Plataforma;
@@ -70,6 +69,9 @@ public class Assets {
 	public static AtlasRegion pisotierra;
 	public static AtlasRegion postecemento;
 	public static AtlasRegion posteluz;
+	public static AtlasRegion postecat;
+	public static AtlasRegion postecatgrumpy;
+	public static AtlasRegion postecuervo;
 	public static AtlasRegion Jet;
 	
 	//-----------------------------------
@@ -158,7 +160,10 @@ public class Assets {
 
 		volando = atlas.findRegion("volando");
 		
-		posteluz = atlas.findRegion("postemaderasn");
+		posteluz = atlas.findRegion("postemaderasolo");
+		postecat = atlas.findRegion("postemadera");
+		postecatgrumpy = atlas.findRegion("postemaderagrump");
+		postecuervo = atlas.findRegion("postemaderacuervo");
 		kuro_run = atlas.findRegion("kurofood");
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");
@@ -166,7 +171,6 @@ public class Assets {
 		fondogameover = atlas.findRegion("fondogameover");
 		botegameover = atlas.findRegion("botebasuragameover");
 		Nubes = atlas.findRegion("nubes");
-		Poste = atlas.findRegion("poste");
 		Rejillas = atlas.findRegion("rejillas");
 		paisaje = atlas.findRegion("paisaje");
 		Plataforma = atlas.findRegion("plataforma1");

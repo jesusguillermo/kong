@@ -1,5 +1,6 @@
 package com.me.objetos;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
@@ -8,6 +9,8 @@ public class Poste {
 	{
 		Normal
 	}
+
+		public int tipo = MathUtils.random(4);
 		public State state;
 		public Vector2 posicion;
 		public Vector2 velocidad;

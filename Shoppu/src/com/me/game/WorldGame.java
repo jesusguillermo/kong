@@ -46,6 +46,7 @@ public class WorldGame {
 	public enum State {
 		Running, GameOver
 	}
+	/*
 	final float TIME_TO_SPAWN_PISO = 1.6f;// Tiempo en segundos para que aparezcan 
 	float timeToSpawnPiso;
 	
@@ -75,7 +76,7 @@ public class WorldGame {
 	
 	final float TIME_TO_SPAWN_BOTECAJA = 1f;// Tiempo en segundos para que aparezcan 
 	float timeToSpawnBoteCaja;
-	
+	*/
 	State state;
 	Gato OGato;
 	Pandilla oPan;
@@ -134,10 +135,10 @@ public class WorldGame {
 
 		crearGato();
 		CrearPisoTierra(4);
-		//crearTecho(10);
-		//crearPiso(1f);
+		crearTecho(10);
+		crearPiso(1f);
 		crearPandilla();
-	//	agregarPlataformas(0, 20);
+	agregarPlataformas(0, 20);
 
 	}	
 	
@@ -703,7 +704,7 @@ public class WorldGame {
 		int lenght = arrBodies.size;
 		//Gdx.app.log("Cuerpos", lenght + "");
 	//	Gdx.app.log("Elimiindos", eliminados + "");
-		
+		/*
 		timeToSpawnPiso += delta;
 		timeToSpawnMoneda +=delta;
 		timeToSpawnBoster += delta;
@@ -814,7 +815,7 @@ public class WorldGame {
 			    crearCajaCarton(pis*1, .42f);
 		    }
 		}	
-		
+		*/
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
 			if (body.getUserData() instanceof Gato) {

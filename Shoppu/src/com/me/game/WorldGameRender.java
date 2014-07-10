@@ -324,10 +324,26 @@ public class WorldGameRender {
 			Poste oPos = oWorld.arrPoste.get(i);
 			TextureRegion keyframe;
 
-			// true es que la aniimacion se repeteria muchas veces
-			keyframe = Assets.posteluz;
+			if(oPos.tipo == 0)
+			{
+				keyframe = Assets.posteluz;
+			}
+			else if (oPos.tipo == 1) 
+			{
+				keyframe = Assets.postecat;
+			}
+			else if (oPos.tipo == 2) 
+			{
+				keyframe = Assets.postecuervo;
+			}
+			else if (oPos.tipo == 3) 
+			{
+				keyframe = Assets.postecatgrumpy;
+			}
+			else 
+				keyframe = Assets.postecat;
 
-			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y -1.7f, 1.05f, 3.46f);
+			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y -1.7f, 1.05f, 4.50f);
 			
 		}
 	}

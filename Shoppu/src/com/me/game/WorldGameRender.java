@@ -34,6 +34,7 @@ public class WorldGameRender {
 	Box2DDebugRenderer renderBox;
 	WorldGame oWorld;
 	SkeletonRenderer skelRenderer;
+	boolean a ;
 
 	public WorldGameRender(SpriteBatch batcher, WorldGame oWorld) {
 		oCam = new OrthographicCamera(Screens.WORLD_WIDTH, Screens.WORLD_HEIGHT);
@@ -43,6 +44,7 @@ public class WorldGameRender {
 		this.oWorld = oWorld;
 		renderBox = new Box2DDebugRenderer();
 		skelRenderer = new SkeletonRenderer();
+		 a =true ;
 	}
 
 	public void render(float delta) {
@@ -282,8 +284,15 @@ public class WorldGameRender {
 		} 
 		else if (obj.state == Gato.State.muerto)
 		{
+			
 			Anikeyframe = Assets.anicrash;
 			loop = false;
+			if(a)
+			{
+				a=false;
+				Gdx.input.vibrate(100);
+				
+			}
 		} 
 		else if (obj.state == Gato.State.boos) 
 		{

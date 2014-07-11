@@ -56,13 +56,16 @@ public class GameScreen extends Screens {
 
 		stage.addActor(btTryAgain);
 		stage.addActor(BoteBasura);
+		
 	}
 
 	private void updaterunning(float delta) {
 		if (Gdx.input.isTouched() || Gdx.input.isKeyPressed(Keys.SPACE))
+		{
 			jump = true;
+			//Gdx.input.vibrate(1000);
+		}
 		 
-		
 		oWorld.update(delta,jump);
 		if(oWorld.state == WorldGame.State.GameOver)
 		{
@@ -127,6 +130,7 @@ public class GameScreen extends Screens {
 
 		btTryAgain.addListener(new InputListener()
 		{
+			
 			@Override
 			public void touchUp(InputEvent event, float x, float y,
 					int pointer, int button) {

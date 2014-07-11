@@ -271,7 +271,11 @@ public class WorldGameRender {
 			//loop = true;
 		}
 		
-		
+		if (obj.state == Gato.State.corriendo)
+		{
+			Anikeyframe = Assets.aniRun;
+			loop = true;
+		} 
 		if (obj.state == Gato.State.saltando)
 		{
 			Anikeyframe = Assets.aniJump;
@@ -302,7 +306,7 @@ public class WorldGameRender {
 		else
 		{
 			Anikeyframe = Assets.aniRun;
-			loop = true;
+			loop = false;
 		}
 		
 		Anikeyframe.apply(obj.skel, oWorld.OGato.statetime, oWorld.OGato.statetime, loop, null);

@@ -14,7 +14,7 @@ public class Gato {
 	//---------------jason
 	
 	public enum State {
-		standing,saltando, cayendo, muerto,boos, fly
+		standing,saltando, cayendo, muerto,boos, fly,corriendo
 	}
 
 	public static float ACELERACION_Y = 55f;
@@ -24,7 +24,6 @@ public class Gato {
 
 	public State state;
 	public float statetime;
-	public boolean jump;
 	public int lado;
 	public int vida;
 	public int skin = MathUtils.random(1);
@@ -56,32 +55,47 @@ public class Gato {
 		
 	}
 
-	public void update(float delta, Body body, boolean jump,float time) {
+	public void update(float delta, Body body, boolean primer,boolean segundo,float time) {
 		
 		position.x = body.getPosition().x;
 		position.y = body.getPosition().y;
 		velocidad = body.getLinearVelocity();
 		statetime+=delta;
 		
+		Gdx.app.log("primer", primer+"");
+		Gdx.app.log("segundo", segundo+"");
+		
 		if(state != State.muerto && vida != 0)
 		{
-			body.setLinearVelocity(2,velocidad.y);
-			if (jump && state ==State.standing) 
+			body.setLinearVelocity(velocidad.x,velocidad.y);
+			if(primer == false && segundo == false && state !=State.fly)
 			{
-				jump = false;	
-				state = State.saltando;
+				state = State.standing;
+			}
+			if (primer) 
+			{
+				primer = false;	
+				state = State.corriendo;
 				statetime = 0;
 				//para que sale mas		
-				body.setLinearVelocity(velocidad.x, 5);
+				body.setLinearVelocity(2, velocidad.y);
+				if(segundo)
+				{
+				segundo = false;
+				state = State.saltando;
+				statetime = 0;
+				body.setLinearVelocity(2, 5);
+				}
 			}
 			
-			if(state == State.boos  )
+			
+			if(primer && state == State.boos  )
 			{
 				timer+= delta;
 				if (timer >= .5f) 
 				{
-					if(jump)
-					body.setLinearVelocity(10, velocidad.y);
+					if(segundo)
+					body.setLinearVelocity(10, 5);
 					timer-= 3;	 
 					state = State.standing;
 					statetime = 0;	
@@ -139,30 +153,13 @@ public class Gato {
 	}
 
 	public void jump() {
-		if (state == State.cayendo || state == State.fly) 
+		if (state == State.cayendo || state == State.fly ) 
 		{				
 			state = State.standing;	
 			statetime = 0;
 		}
 						}
-	/*
-	public void hit()
-	{
-		if(state != State.muerto)
-		{
-			if(state == State.boos)
-			{
-				state = State.boos;
-			}
-			else
-			{
-		   state = State.muerto;
-		   statetime = 0;
-			}
-		}
-		//siempre que cambiamos de un estado a otro reiniciamos el tiempo 
-	}
-	*/
+
 	public void hit()
 	{
 		if(state != State.muerto)

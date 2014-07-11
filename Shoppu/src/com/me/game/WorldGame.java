@@ -666,7 +666,7 @@ public class WorldGame {
 		oBody.setUserData(oNube);
 	}
     int eliminados;
-	public void update(float delta, boolean jump) {
+	public void update(float delta, boolean jump,boolean primer,boolean segundo) {
 		oWorldBox.step(delta, 4, 8);		
 		// -----------------------------------------------------------------
 		oWorldBox.getBodies(arrBodies);
@@ -678,7 +678,7 @@ public class WorldGame {
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
 			if (body.getUserData() instanceof Gato) {
-				updateGato(delta, body, jump);
+				updateGato(delta, body,primer,segundo);
 			}
 			if (body.getUserData() instanceof Nubes) {
 				updateNubes(delta, body);
@@ -990,9 +990,9 @@ public class WorldGame {
 		
 	}
 
-	private void updateGato(float delta, Body body, boolean jump) {
+	private void updateGato(float delta, Body body, boolean primer,boolean segundo) {
 		
-			OGato.update(delta, body, jump, time);
+			OGato.update(delta, body, primer,segundo, time);
 			//actualizar camara para q siga al gato
 		if (OGato.state != Gato.State.muerto)
 		{
@@ -1015,7 +1015,7 @@ public class WorldGame {
 			{
 				body.setTransform(body.getPosition().x, 9.6f, 0);
 			}
-			if (jump && OGato.state == Gato.State.fly)
+			if (primer && OGato.state == Gato.State.fly)
 			{
 				body.applyForceToCenter(0, Gato.ACELERACION_Y, true);
 				if (body.getLinearVelocity().y < Gato.VELOCIDAD_MIN_Y)
@@ -1033,10 +1033,11 @@ public class WorldGame {
 			control++;
 		}
 		}
+		Gdx.app.log("state",OGato.state +"");
 		//Gdx.app.log("vida_gato",OGato.vida+"");
-		Gdx.app.log("controles",control+"");
+		//Gdx.app.log("controles",control+"");
 	//	Gdx.app.log("dis",distancia % 20 +"");
-		Gdx.app.log("tray",distancia +"");
+		//Gdx.app.log("tray",distancia +"");
 	//	Gdx.app.log("band",creacion +"");
 		
 	}

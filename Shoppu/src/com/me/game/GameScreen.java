@@ -25,7 +25,7 @@ public class GameScreen extends Screens {
 	WorldGame oWorld;
 	WorldGameRender renderer;
 	public State state;
-	boolean jump;	
+	boolean jump,primer,segundo;	
 	
 	public GameScreen(MainShoppu game) {
 		super(game);
@@ -60,18 +60,24 @@ public class GameScreen extends Screens {
 	}
 
 	private void updaterunning(float delta) {
-		if (Gdx.input.isTouched() || Gdx.input.isKeyPressed(Keys.SPACE))
+		if(Gdx.input.isTouched(0) )
 		{
-			jump = true;
-			//Gdx.input.vibrate(1000);
+			primer = true;
+			jump = true;			
 		}
-		 
-		oWorld.update(delta,jump);
+		if(Gdx.input.isTouched(1) || Gdx.input.isKeyPressed(Keys.SPACE))
+		{
+			segundo = true;
+		}
+		
+		oWorld.update(delta,jump,primer,segundo);
 		if(oWorld.state == WorldGame.State.GameOver)
 		{
 		//	state = State.gameover;
 			setGameOver();
 		}	
+		primer = false;
+		segundo = false;
 		jump = false;
 	}
 

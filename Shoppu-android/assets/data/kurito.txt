@@ -394,6 +394,13 @@ peleas3
   orig: 104, 93
   offset: 0, 0
   index: -1
+pelusa
+  rotate: false
+  xy: 312, 1566
+  size: 22, 67
+  orig: 22, 67
+  offset: 0, 0
+  index: -1
 piernadelantera
   rotate: false
   xy: 768, 1155

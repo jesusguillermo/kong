@@ -25,6 +25,7 @@ public class Assets {
 	
 	public static AtlasRegion volando;
 
+	public static AtlasRegion pelusa;
 	public static AtlasRegion btnEmpezar;
 	public static AtlasRegion btntyagain;
 	public static AtlasRegion fondogameover;
@@ -160,6 +161,7 @@ public class Assets {
 
 		volando = atlas.findRegion("volando");
 		
+		pelusa = atlas.findRegion("pelusa");
 		posteluz = atlas.findRegion("postemaderasolo");
 		postecat = atlas.findRegion("postemadera");
 		postecatgrumpy = atlas.findRegion("postemaderagrump");

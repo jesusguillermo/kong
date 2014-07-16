@@ -666,19 +666,19 @@ public class WorldGame {
 		oBody.setUserData(oNube);
 	}
     int eliminados;
-	public void update(float delta, boolean jump,boolean primer,boolean segundo) {
+	public void update(float delta,boolean primer,boolean segundo) {
 		oWorldBox.step(delta, 4, 8);		
 		// -----------------------------------------------------------------
 		oWorldBox.getBodies(arrBodies);
 		time -= delta;
 		timer +=delta;
 		int lenght = arrBodies.size;
-		Gdx.app.log("Cuerpos", lenght + "");
+	//	Gdx.app.log("Cuerpos", lenght + "");
 		
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
 			if (body.getUserData() instanceof Gato) {
-				updateGato(delta, body,primer,segundo);
+				updateGato(delta,body,primer,segundo);
 			}
 			if (body.getUserData() instanceof Nubes) {
 				updateNubes(delta, body);
@@ -687,7 +687,7 @@ public class WorldGame {
 				updateMonedas(delta, body);
 			}
 			if (body.getUserData() instanceof Pandilla) {
-				updatePandilla(delta, body, jump);
+				updatePandilla(delta, body, primer);
 			}
 			if (body.getUserData() instanceof Poste) {
 				updatePoste(delta, body);

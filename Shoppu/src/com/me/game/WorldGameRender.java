@@ -192,28 +192,41 @@ public class WorldGameRender {
 			{
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.edificio1;
+			batcher.draw(keyframe, oEdi.posicion.x - 1.54f,
+					oEdi.posicion.y - 2.68f, 3.08f, 5.36f);
+			return;
 			}
 			else if(oEdi.num == 1)
 			{
 	// true es que la aniimacion se repeteria muchas veces
 				keyframe = Assets.edificio2;
+				batcher.draw(keyframe, oEdi.posicion.x - 1.775f,
+						oEdi.posicion.y - 2.35f, 3.55f, 4.70f);
+				return;
 			}else if(oEdi.num == 2)
 			{
 	// true es que la aniimacion se repeteria muchas veces
 				keyframe = Assets.edificio3;
+				batcher.draw(keyframe, oEdi.posicion.x - 1.98f,
+						oEdi.posicion.y - 2.35f, 3.96f, 4.7f);
+				return;
 			}else if(oEdi.num == 3)
 			{
 	// true es que la aniimacion se repeteria muchas veces
 				keyframe = Assets.edificio4;
+				batcher.draw(keyframe, oEdi.posicion.x - 0.815f,
+						oEdi.posicion.y - 2f, 1.63f, 4.00f);
+				return;
 			}
 			else 
 			{
 	// true es que la aniimacion se repeteria muchas veces
 				keyframe = Assets.edificio5;
+				batcher.draw(keyframe, oEdi.posicion.x - 1.245f,
+						oEdi.posicion.y - 2.74f, 2.49f, 5.48f);
+				return;
 			}
-
-			batcher.draw(keyframe, oEdi.posicion.x - 1.4f,
-					oEdi.posicion.y - 2.245f, 3.04f, 5.49f);
+			
 		}
 	}
 
@@ -340,23 +353,38 @@ public class WorldGameRender {
 			if(oPos.tipo == 0)
 			{
 				keyframe = Assets.posteluz;
+				batcher.draw(keyframe, oPos.posicion.x - .33f,
+						oPos.posicion.y - 2.245f, .66f, 4.49f);
+				return;
 			}
 			else if (oPos.tipo == 1) 
 			{
 				keyframe = Assets.postecat;
+				batcher.draw(keyframe, oPos.posicion.x - 0.56f,
+						oPos.posicion.y - 2.435f, 1.12f, 4.87f);
+				return;
 			}
 			else if (oPos.tipo == 2) 
 			{
 				keyframe = Assets.postecuervo;
+				batcher.draw(keyframe, oPos.posicion.x - 0.515f,
+						oPos.posicion.y - 2.39f, 1.03f, 4.78f);
+				return;
 			}
 			else if (oPos.tipo == 3) 
 			{
 				keyframe = Assets.postecatgrumpy;
+				batcher.draw(keyframe, oPos.posicion.x - .5f,
+						oPos.posicion.y - 2.43f, 1f, 4.86f);
+				return;
 			}
 			else 
+			{
 				keyframe = Assets.postecat;
-
-			batcher.draw(keyframe, oPos.posicion.x - .41f,oPos.posicion.y -1.7f, 1.05f, 4.50f);
+				batcher.draw(keyframe, oPos.posicion.x - .56f,
+					oPos.posicion.y -2.435f, 1.12f, 4.87f);
+				return;
+			}
 			
 		}
 	}

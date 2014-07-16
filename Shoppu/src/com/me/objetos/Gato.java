@@ -60,58 +60,63 @@ public class Gato {
 		position.x = body.getPosition().x;
 		position.y = body.getPosition().y;
 		velocidad = body.getLinearVelocity();
-		statetime+=delta;
-		
-		Gdx.app.log("primer", primer+"");
-		Gdx.app.log("segundo", segundo+"");
+		statetime+=delta;		
 		
 		if(state != State.muerto && vida != 0)
 		{
 			body.setLinearVelocity(velocidad.x,velocidad.y);
-			if(primer == false && segundo == false && state !=State.fly)
+			Gdx.app.log("VElcidad X", velocidad.x + "");
+			Gdx.app.log("VELOCIDAD Y", velocidad.y + "");
+			Gdx.app.log("bolean primer", primer + "");
+			Gdx.app.log("bolean segundo", segundo + "");
+			if(state == State.boos  )
 			{
-				state = State.standing;
-			}
-			if (primer) 
+				primer = false;
+				Gdx.app.log("state == boos",  "");
+				timer+= delta;
+				if (timer >= .5f) 
+				{
+					timer-= 3;	 
+					state = State.standing;
+					statetime = 0;	
+				}
+				if(segundo)
+				{
+					Gdx.app.log("state == boos , segundo",  "");
+					body.setLinearVelocity(10, 5);
+				}
+				else
+				body.setLinearVelocity(10, velocidad.y);
+			}	
+				if (primer && state != State.fly) 
 			{
-				primer = false;	
+				Gdx.app.log("primer",  "");
 				state = State.corriendo;
 				statetime = 0;
 				//para que sale mas		
 				body.setLinearVelocity(2, velocidad.y);
-				if(segundo)
+				if(segundo )
 				{
-				segundo = false;
+					Gdx.app.log("segundo",  "");
 				state = State.saltando;
 				statetime = 0;
 				body.setLinearVelocity(2, 5);
 				}
-			}
+			}						
 			
-			
-			if(primer && state == State.boos  )
+			 if(state == State.saltando )
 			{
-				timer+= delta;
-				if (timer >= .5f) 
-				{
-					if(segundo)
-					body.setLinearVelocity(10, 5);
-					timer-= 3;	 
-					state = State.standing;
-					statetime = 0;	
-				 }
-				body.setLinearVelocity(10, velocidad.y);
-			}		
-			
-			if(state == State.saltando)
+				Gdx.app.log("state == State.staltando",  "");
 				if (velocidad.y < 0 && state != State.cayendo)
 				{
+					Gdx.app.log("velocidad.y < 0 && state != State.cayendo",  "");
 					state = State.cayendo;
 					statetime = 0;
 				}
-			
-			if(state == State.fly)
+			}
+			 if(state == State.fly)
 			{				
+				Gdx.app.log("state == State.fly",  "");
 				if (velocidad.y > 3) {
 					velocidad.y = 3;
 					body.setLinearVelocity(velocidad);
@@ -145,20 +150,18 @@ public class Gato {
 		else
 		{
 			body.setLinearVelocity(0,-5);
-			
-		}	
-		
+		}		
 		//body.setLinearVelocity(acelx*5,velocidad.y);
-
-	}
+}
 
 	public void jump() {
-		if (state == State.cayendo || state == State.fly ) 
+		if (state == State.cayendo || state == State.fly || state == State.corriendo) 
 		{				
+			Gdx.app.log("Metodo Jump()",  "");
 			state = State.standing;	
 			statetime = 0;
 		}
-						}
+					   }
 
 	public void hit()
 	{

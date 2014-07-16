@@ -18,9 +18,9 @@ public class GameScreen extends Screens {
 
 	Button btTryAgain, btLeaderBoards, btShop;
 	Image background, BoteBasura;
-	Image cor1,cor2,cor3;
+	Image cor1,cor2,cor3, pel;
 	Image corvacio1,corvacio2,corvacio3;
-	
+	int firstX, firstY;
 	public enum State {ready,running,gameover}
 	WorldGame oWorld;
 	WorldGameRender renderer;
@@ -64,11 +64,14 @@ public class GameScreen extends Screens {
 		{
 			primer = true;		
 		}
+		 firstX = Gdx.input.getX();
+		 firstY = Gdx.input.getY();
 		if(Gdx.input.isTouched(1) || Gdx.input.isKeyPressed(Keys.SPACE))
 		{
 			segundo = true;
 		}
-		
+		Gdx.app.log("firstX",firstX+ "");
+		Gdx.app.log("firstY",firstY+ "");
 		oWorld.update(delta,primer,segundo);
 		if(oWorld.state == WorldGame.State.GameOver)
 		{
@@ -156,6 +159,10 @@ public class GameScreen extends Screens {
 		Assets.Font.draw(batcher, "Monedas: " + oWorld.monedas, 0, oCam.position.y);
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);
+		
+		pel = new Image(Assets.lata1);
+		pel.setSize(54,23);
+		pel.setPosition(firstX, firstY);
 		
 		if(oWorld.OGato.vida == 4)
 		{
@@ -247,6 +254,7 @@ public class GameScreen extends Screens {
 			stage.addActor(corvacio2);
 			stage.addActor(corvacio3);
 		}	
+		stage.addActor(pel);
 	}
 
 	private void drawready(float delta) {

@@ -319,7 +319,7 @@ public class WorldGameRender {
 		else
 		{
 			Anikeyframe = Assets.aniRun;
-			loop = false;
+			loop = true;
 		}
 		
 		Anikeyframe.apply(obj.skel, oWorld.OGato.statetime, oWorld.OGato.statetime, loop, null);

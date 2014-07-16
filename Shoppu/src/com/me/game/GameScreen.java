@@ -162,8 +162,7 @@ public class GameScreen extends Screens {
 		
 		pel = new Image(Assets.pelusa);
 		pel.setSize(22,67);
-		pel.setPosition(firstX, firstY);
-		
+		pel.setPosition(firstX, firstY);		
 		
 		if(oWorld.OGato.vida == 4)
 		{
@@ -206,9 +205,7 @@ public class GameScreen extends Screens {
 			stage.addActor(corvacio1);
 		}
 		else if (oWorld.OGato.vida == 2)
-		{
-
-		
+		{		
 			cor1.remove();
 			corvacio1.remove();
 		
@@ -229,9 +226,7 @@ public class GameScreen extends Screens {
 			stage.addActor(corvacio2);
 		}
 		else if (oWorld.OGato.vida == 1)
-		{
-
-		
+		{		
 			cor1.remove();
 			corvacio1.remove();
 			corvacio2.remove();

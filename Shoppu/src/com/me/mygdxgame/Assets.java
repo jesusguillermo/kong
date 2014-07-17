@@ -98,7 +98,10 @@ public class Assets {
 		Font = new BitmapFont();
 		
 		TextureAtlas atlas = new TextureAtlas(
-				Gdx.files.internal("data/kurito.txt"));	
+				Gdx.files.internal("data/kurito.txt"));
+		
+		TextureAtlas atlas2 = new TextureAtlas(
+				Gdx.files.internal("data/kurito2.txt"));	
 		
 		
 		 SkeletonJson jason = new SkeletonJson(atlas);
@@ -176,7 +179,7 @@ public class Assets {
 		Rejillas = atlas.findRegion("rejillas");
 		paisaje = atlas.findRegion("paisaje");
 		Plataforma = atlas.findRegion("plataforma1");
-		Fondo = atlas.findRegion("background");
+		Fondo = atlas2.findRegion("fondo");
 
 		//-----------------------------------
 		Barandal = atlas.findRegion("barandal");
@@ -201,10 +204,11 @@ public class Assets {
 		postecemento = atlas.findRegion("postecemento");
 		
 		//-----------------------------------
+		ParallaxLayer fondoparalax = new ParallaxLayer(atlas2.findRegion("fondo"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 801, 480);
 		ParallaxLayer edifBlanco = new ParallaxLayer(atlas.findRegion("fondoedificioazulmar"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 968, 348);
 		ParallaxLayer edifNegro = new ParallaxLayer(atlas.findRegion("fondoedificioazul"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 1918, 464);
 		
-		ParallaxLayer as[] = new ParallaxLayer[] { edifBlanco,edifNegro};
+		ParallaxLayer as[] = new ParallaxLayer[] {fondoparalax,edifBlanco,edifNegro};
 		
 		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));	
 		
@@ -213,7 +217,7 @@ public class Assets {
 		ParallaxLayer edifazulmar = new ParallaxLayer(atlas.findRegion("fondoedificioazul"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 1918, 464);
 		ParallaxLayer pisoparallax = new ParallaxLayer(atlas.findRegion("pisoparalax"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 801, 218);
 		
-		ParallaxLayer mp[] = new ParallaxLayer[] {edifazul,edifazulmar,pisoparallax};
+		ParallaxLayer mp[] = new ParallaxLayer[] {fondoparalax,edifazul,edifazulmar,pisoparallax};
 		
 		parallaxMPFondo = new ParallaxBackground(mp,800, 480, new Vector2(10, 0));	
 		

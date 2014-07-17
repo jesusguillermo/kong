@@ -1,0 +1,18 @@
+kurito2.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+edificio1
+  rotate: true
+  xy: 804, 2
+  size: 210, 515
+  orig: 210, 515
+  offset: 0, 0
+  index: -1
+fondo
+  rotate: false
+  xy: 2, 2
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1

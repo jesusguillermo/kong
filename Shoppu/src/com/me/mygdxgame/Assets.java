@@ -138,7 +138,7 @@ public class Assets {
 		Peleando = new Animation(0.10f, B1,B2,B3,B4);
 		
 		AtlasRegion F1 = atlas.findRegion("fish");
-		AtlasRegion F2 = atlas.findRegion("fish2");
+		AtlasRegion F2 = atlas.findRegion("1fish");
 		
 		Pescadito = new Animation(0.30f, F1,F2);
 		

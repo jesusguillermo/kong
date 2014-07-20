@@ -97,11 +97,13 @@ public class GameScreen extends Screens {
 
 	@Override
 	public void draw(float delta) {
+		batcher.begin();
+		batcher.draw(Assets.Fondo, 0, 0, 800, 480);
+		batcher.end();
 		renderer.render(delta);
 		oCam.update();
 		batcher.setProjectionMatrix(oCam.combined);
 		batcher.begin();
-		
 		switch (state) {
 		case ready:
 			drawready(delta);
@@ -115,6 +117,7 @@ public class GameScreen extends Screens {
 			break;
 		}
 		batcher.end();
+		
 	}
 
 	private void drawgameover(float delta) {
@@ -161,7 +164,8 @@ public class GameScreen extends Screens {
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);
 		
-				
+		
+		
 		pel = new Image(Assets.pelusa);
 		pel.setSize(22,67);
 		pel.setPosition(firstX, firstY);		

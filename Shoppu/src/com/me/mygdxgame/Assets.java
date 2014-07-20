@@ -227,7 +227,7 @@ public class Assets {
 		ParallaxLayer edifBlanco = new ParallaxLayer(atlas.findRegion("fondoedificioazulmar"), new Vector2(3, 0), new Vector2(0, 100), new Vector2(-1, 700), 968, 348);
 		ParallaxLayer edifNegro = new ParallaxLayer(atlas.findRegion("fondoedificioazul"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 1918, 464);
 		
-		ParallaxLayer as[] = new ParallaxLayer[] {fondoparalax,edifBlanco,edifNegro};
+		ParallaxLayer as[] = new ParallaxLayer[] {edifBlanco,edifNegro};
 		
 		parallaxFondo = new ParallaxBackground(as,800, 480, new Vector2(10, 0));	
 		
@@ -236,7 +236,7 @@ public class Assets {
 		ParallaxLayer edifazulmar = new ParallaxLayer(atlas.findRegion("fondoedificioazul"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 1918, 464);
 		ParallaxLayer pisoparallax = new ParallaxLayer(atlas.findRegion("pisoparalax"), new Vector2(4, 0), new Vector2(0, 0), new Vector2(-3, 700), 801, 218);
 		
-		ParallaxLayer mp[] = new ParallaxLayer[] {fondoparalax,edifazul,edifazulmar,pisoparallax};
+		ParallaxLayer mp[] = new ParallaxLayer[] {edifazul,edifazulmar,pisoparallax};
 		
 		parallaxMPFondo = new ParallaxBackground(mp,800, 480, new Vector2(10, 0));	
 		

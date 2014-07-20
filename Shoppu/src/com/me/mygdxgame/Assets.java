@@ -1,6 +1,8 @@
 package com.me.mygdxgame;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -93,6 +95,23 @@ public class Assets {
 	public static ParallaxBackground parallaxFondo;
 	public static ParallaxBackground parallaxMPFondo;
 	
+	//-------------------------------Sonidos
+	
+	public static Sound sSaltar;
+	public static Sound fFly;
+	public static Sound oMoneda;
+	public static Sound oGato;
+	public static Sound oClick;
+	public static Sound oCuervo;
+	public static Sound oCaja;
+	public static Sound oBote;
+	public static Sound oPium;
+	//Para la musica
+	
+	public static Music Musica;
+	public static Music MusicaTime;
+	
+	//--------------------------------------
 	public static void Cargar()
 	{
 		Font = new BitmapFont();
@@ -220,6 +239,22 @@ public class Assets {
 		ParallaxLayer mp[] = new ParallaxLayer[] {fondoparalax,edifazul,edifazulmar,pisoparallax};
 		
 		parallaxMPFondo = new ParallaxBackground(mp,800, 480, new Vector2(10, 0));	
+		
+		sSaltar = Gdx.audio.newSound(Gdx.files.internal( "data/Sonidos/jump.mp3"));
+		oMoneda = Gdx.audio.newSound(Gdx.files.internal( "data/Sonidos/coin.mp3"));
+		oGato = Gdx.audio.newSound(Gdx.files.internal( "data/Sonidos/meow.mp3"));
+		fFly = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/volar.wav"));
+		oClick = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/boton.mp3"));
+		oCuervo = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/cuervo.mp3"));
+		oCaja = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/golpecarton.mp3"));
+		oBote = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/golpebote.mp3"));
+		oPium = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/piumpium.mp3"));
+		
+		Musica = Gdx.audio.newMusic(Gdx.files.internal("data/Sonidos/GameOn.mp3"));
+		MusicaTime = Gdx.audio.newMusic(Gdx.files.internal("data/Sonidos/NoReturn.mp3"));
+		MusicaTime.setLooping(true);
+		Musica.setLooping(true);
+		Musica.play();
 		
 	}
 	

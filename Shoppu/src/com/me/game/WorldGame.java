@@ -18,6 +18,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.Array;
+import com.me.mygdxgame.Assets;
 import com.me.objetos.Barandal;
 import com.me.objetos.Boos;
 import com.me.objetos.BoteBasura;
@@ -675,6 +676,7 @@ public class WorldGame {
 		int lenght = arrBodies.size;
 	//	Gdx.app.log("Cuerpos", lenght + "");
 		
+		
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
 			if (body.getUserData() instanceof Gato) {
@@ -1090,6 +1092,7 @@ public class WorldGame {
 			}
 			if (Ootracosa instanceof BoteBasura) {
 				oGato.jump();
+				
 			}
 			if (Ootracosa instanceof CajaCarton) {
 				oGato.jump();
@@ -1109,6 +1112,7 @@ public class WorldGame {
 			if (Ootracosa instanceof Monedas) {
 				Monedas obj = (Monedas) Ootracosa;
 				obj.Hit();
+				Assets.oMoneda.play();
 				monedas++;
 				time++;
 			}
@@ -1117,11 +1121,13 @@ public class WorldGame {
 				if(oGato.vida <= 1)
 				{
 					oGato.hit();
+					Assets.oBote.play();
 				}
 				else
 				{
 					oGato.vida--;
 					otracosa.setSensor(true);
+					Assets.oBote.play();
 				}
 				
 				
@@ -1130,11 +1136,13 @@ public class WorldGame {
 				if(oGato.vida <= 1)
 				{
 					oGato.hit();
+					Assets.oCuervo.play();
 				}
 				else
 				{
 					oGato.vida--;
 					otracosa.setSensor(true);
+					Assets.oCuervo.play();
 				}
 			}
 			if (Ootracosa instanceof CajaCarton) {
@@ -1142,17 +1150,20 @@ public class WorldGame {
 				if(oGato.vida <= 1)
 				{
 					oGato.hit();
+					Assets.oCaja.play();
 				}
 				else
 				{
 					oGato.vida--;
 					otracosa.setSensor(true);
+					Assets.oCaja.play();
 				}
 			}
 			if (Ootracosa instanceof Boos) {
 				Boos obj = (Boos) Ootracosa;
 				boos++;
 				obj.Hit();
+				Assets.oGato.play();
 				if(boos==1)
 				{
 					oGato.Booster();
@@ -1162,6 +1173,7 @@ public class WorldGame {
 			if (Ootracosa instanceof Jet) {
 				Jet obj = (Jet) Ootracosa;
 				obj.Hit();
+				Assets.oGato.play();
 				oGato.Fly();
 			}
 		}

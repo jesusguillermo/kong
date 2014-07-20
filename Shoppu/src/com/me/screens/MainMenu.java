@@ -37,6 +37,7 @@ public class MainMenu extends Screens{
 				// TODO Auto-generated method stub
 				btnEmpezar.setY(btnEmpezar.getY() + 3);
 				game.setScreen(new GameScreen(game));
+				Assets.oClick.play();
 			}
 		});
 		

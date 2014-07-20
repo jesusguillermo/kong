@@ -150,6 +150,7 @@ public class GameScreen extends Screens {
 					int pointer, int button) {
 				// TODO Auto-generated method stub
 				btTryAgain.setY(btTryAgain.getY() - 3);
+				Assets.oClick.play();
 				return true;
 			}
 		});		
@@ -160,6 +161,7 @@ public class GameScreen extends Screens {
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);
 		
+				
 		pel = new Image(Assets.pelusa);
 		pel.setSize(22,67);
 		pel.setPosition(firstX, firstY);		

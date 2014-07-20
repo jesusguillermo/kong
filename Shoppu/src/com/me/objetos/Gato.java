@@ -92,11 +92,13 @@ public class Gato {
 				body.setLinearVelocity(2, velocidad.y);
 				
 			}						
-				if(segundo && state != State.saltando && primer || segundo && state != State.cayendo && primer)
+				if(segundo && state != State.saltando && primer)
 				{
-				state = State.saltando;
-				statetime = 0;
-				body.setLinearVelocity(2, 5);
+					
+						state = State.saltando;
+						statetime = 0;
+						body.setLinearVelocity(2, 5);
+					Assets.sSaltar.play();
 				}
 			 if(state == State.saltando )
 			{
@@ -157,6 +159,7 @@ public class Gato {
 	{
 		if(state != State.muerto)
 		{
+			Assets.oPium.play();
 			state = State.muerto;
 			statetime = 0;
 		}

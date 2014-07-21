@@ -109,6 +109,7 @@ public class WorldGame {
 		crearTecho(10);
 		CrearPisoTierra(4);
 		CrearPisoTierra(12);
+		CrearPisoTierra(20);
 		crearPandilla();
 		agregarPlataformas(0, 20);
 
@@ -805,10 +806,10 @@ public class WorldGame {
 		{
 			arrPiso.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
+			Gdx.app.log("","piso creadoss "+arrPiso.size);
 			eliminados++;
 
-			CrearPisoTierra(WorldGameRender.oCam.position.x+7);
-			
+			CrearPisoTierra(WorldGameRender.oCam.position.x+15);
 			return;
 		}
 		obj.update(body, delta);

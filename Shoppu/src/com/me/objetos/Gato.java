@@ -65,8 +65,6 @@ public class Gato {
 		if(state != State.muerto && vida != 0)
 		{
 			body.setLinearVelocity(velocidad.x,velocidad.y);
-			Gdx.app.log("bolean primer", primer + "");
-			Gdx.app.log("bolean segundo", segundo + "");
 			if(state == State.boos  )
 			{
 				primer = false;

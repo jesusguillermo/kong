@@ -56,6 +56,7 @@ public class GameScreen extends Screens {
 
 		stage.addActor(btTryAgain);
 		stage.addActor(BoteBasura);
+		stage.addActor(btLeaderBoards);
 		
 	}
 
@@ -157,6 +158,25 @@ public class GameScreen extends Screens {
 				return true;
 			}
 		});		
+		
+		btLeaderBoards = new Button(new TextureRegionDrawable(Assets.btnLeaderBoard));
+		btLeaderBoards.setSize(206, 74);
+		btLeaderBoards.setPosition( 13, 325);
+
+		btLeaderBoards.addListener(new InputListener(){
+			@Override
+			public void touchUp(InputEvent event, float x, float y,
+					int pointer, int button) {
+				btLeaderBoards.setY(btLeaderBoards.getY() + 3);
+			}
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y,
+					int pointer, int button) {
+				btLeaderBoards.setY(btLeaderBoards.getY() -3);
+				Assets.oClick.play();
+				return true;
+			}
+		});
 	}
 
 	private void drawrunning(float delta) {

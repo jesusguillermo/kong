@@ -28,6 +28,7 @@ public class Assets {
 	public static AtlasRegion volando;
 
 	public static AtlasRegion pelusa;
+	public static AtlasRegion btnLeaderBoard;
 	public static AtlasRegion btnEmpezar;
 	public static AtlasRegion btntyagain;
 	public static AtlasRegion fondogameover;
@@ -191,6 +192,7 @@ public class Assets {
 		kuro_run = atlas.findRegion("kurofood");
 		PisoAlcantarilla = atlas.findRegion("pisoalcantarilla");
 		btnEmpezar = atlas.findRegion("btnEmpezar");
+		btnLeaderBoard = atlas.findRegion("botonleaderboard");
 		btntyagain = atlas.findRegion("botonbote");
 		fondogameover = atlas.findRegion("fondogameover");
 		botegameover = atlas.findRegion("botebasuragameover");

@@ -233,14 +233,15 @@ public class WorldGameRender {
 	private void dibujarPiso(float delta) {
 		int length = oWorld.arrPiso.size;
 
-		for (int i = 0; i < length; i++) {
+	    for (int i = 0; i < length; i++) 
+		{
 			Piso oPais = oWorld.arrPiso.get(i);
 			TextureRegion keyframe;
 
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.pisotierra;
 
-			batcher.draw(keyframe, oPais.posicion.x,oPais.posicion.y-.2f, 8.03f, 2.21f);
+			batcher.draw(keyframe, oPais.posicion.x-4f,oPais.posicion.y-.2f, 8.03f, 2.21f);
 		}
 	}
 

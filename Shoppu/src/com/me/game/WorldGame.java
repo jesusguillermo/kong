@@ -107,7 +107,8 @@ public class WorldGame {
 
 		crearGato();
 		crearTecho(10);
-		CrearPisoTierra(3);
+		CrearPisoTierra(4);
+		CrearPisoTierra(12);
 		crearPandilla();
 		agregarPlataformas(0, 20);
 
@@ -146,7 +147,7 @@ public class WorldGame {
 		for(int i = in ; i<limi ;i++)
 		{
 			crearMonedas(i);
-		    CrearPisoTierra(i*8f);
+		   
 		    crearBooster(i*12);
 		    crearEdficio(i*9);
 		    crearPoste(i*7.9f);
@@ -274,7 +275,8 @@ public class WorldGame {
 	}
 
 
-	private void CrearPisoTierra(float x) {
+	private void CrearPisoTierra(float x) 
+	{
 		//float x = WIDTH + 4.5f;
 		float y = 0.2f;
 
@@ -439,30 +441,6 @@ public class WorldGame {
 		}
 	}
 
-	private void crearPiso(float y) {
-		BodyDef bd = new BodyDef();
-		bd.position.x = 0;
-		bd.position.y = y;
-
-		bd.type = BodyType.StaticBody;
-		Body oBody = oWorldBox.createBody(bd);
-
-		EdgeShape shape = new EdgeShape();
-		shape.set(0, 0, WIDTH, 0);
-
-		FixtureDef fixture = new FixtureDef();
-		fixture.shape = shape;
-		fixture.density = 0f;
-		fixture.restitution = 0f;
-		fixture.friction = 0f;
-
-		oBody.createFixture(fixture);
-
-		oBody.setFixedRotation(true);
-
-		oBody.setUserData("pared");
-		shape.dispose();
-	}
 
 	private void crearGato() 
 	{
@@ -821,12 +799,16 @@ public class WorldGame {
 	}
 
 	private void updatePiso(float delta, Body body) {
+		
 		Piso obj = (Piso) body.getUserData();
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-30)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)
 		{
 			arrPiso.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			eliminados++;
+
+			CrearPisoTierra(WorldGameRender.oCam.position.x+7);
+			
 			return;
 		}
 		obj.update(body, delta);
@@ -1035,12 +1017,6 @@ public class WorldGame {
 			control++;
 		}
 		}
-		Gdx.app.log("state",OGato.state +"");
-		//Gdx.app.log("vida_gato",OGato.vida+"");
-		//Gdx.app.log("controles",control+"");
-	//	Gdx.app.log("dis",distancia % 20 +"");
-		//Gdx.app.log("tray",distancia +"");
-	//	Gdx.app.log("band",creacion +"");
 		
 	}
 

@@ -3,6 +3,7 @@ package com.me.screens;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.esotericsoftware.spine.SkeletonRenderer;
@@ -16,10 +17,15 @@ public class MainMenu extends Screens{
 
 	Gato oGato;
 	ImageButton btnEmpezar;
+	Image titulo;
 	
 	public MainMenu(final MainShoppu game) {
 		super(game);
 		oGato = new Gato(SCREEN_WIDTH/5f, SCREEN_HEIGHT/2f);
+		
+		titulo = new Image(Assets.Titulo);
+		titulo.setSize(789, 169);
+		titulo.setPosition(5,SCREEN_HEIGHT / 2 );
 		
 		btnEmpezar = new ImageButton(new TextureRegionDrawable(Assets.btnEmpezar));
 		btnEmpezar.setPosition(SCREEN_WIDTH / 2f  - btnEmpezar.getWidth() /2f, SCREEN_HEIGHT / 2f - btnEmpezar.getHeight()/2f);
@@ -40,7 +46,8 @@ public class MainMenu extends Screens{
 				Assets.oClick.play();
 			}
 		});
-		
+
+		stage.addActor(titulo);
 		stage.addActor(btnEmpezar);
 		
 	}

@@ -46,7 +46,7 @@ background
   index: -1
 botebasura
   rotate: false
-  xy: 1284, 1893
+  xy: 1190, 1948
   size: 107, 88
   orig: 107, 88
   offset: 0, 0
@@ -88,7 +88,7 @@ c
   index: -1
 cabeza
   rotate: false
-  xy: 1393, 1893
+  xy: 1299, 1893
   size: 65, 73
   orig: 65, 73
   offset: 0, 0
@@ -282,6 +282,13 @@ lata4
   orig: 54, 23
   offset: 0, 0
   index: -1
+listen
+  rotate: false
+  xy: 636, 1740
+  size: 25, 22
+  orig: 25, 22
+  offset: 0, 0
+  index: -1
 mangadelantera
   rotate: false
   xy: 93, 1196
@@ -410,7 +417,7 @@ peleas3
   index: -1
 pelusa
   rotate: false
-  xy: 1393, 1968
+  xy: 1299, 1968
   size: 22, 67
   orig: 22, 67
   offset: 0, 0
@@ -490,13 +497,6 @@ postemaderasolo
   xy: 1288, 1235
   size: 66, 449
   orig: 66, 449
-  offset: 0, 0
-  index: -1
-siguiente
-  rotate: false
-  xy: 1190, 1948
-  size: 92, 91
-  orig: 92, 91
   offset: 0, 0
   index: -1
 torzo

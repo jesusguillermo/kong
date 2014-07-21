@@ -118,8 +118,11 @@ public class WorldGameRender {
 			// true es que la aniimacion se repeteria muchas veces
 			keyframe = Assets.Jet;
 
-			batcher.draw(keyframe, objJet.posicion.x - .15f,
+			batcher.draw(keyframe, objJet.posicion.x - .13f,
+					objJet.posicion.y - .11f, .25f, .22f);
+		/*	batcher.draw(keyframe, objJet.posicion.x - .15f,
 					objJet.posicion.y - .18f, .32f, .39f);
+					*/
 		}
 	}
 

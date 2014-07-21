@@ -28,6 +28,7 @@ public class Assets {
 	public static AtlasRegion volando;
 
 	public static AtlasRegion pelusa;
+	public static AtlasRegion Titulo;
 	public static AtlasRegion btnLeaderBoard;
 	public static AtlasRegion btnEmpezar;
 	public static AtlasRegion btntyagain;
@@ -180,10 +181,11 @@ public class Assets {
 		
 		moneda = new Animation(0.05f, mo1,mo2,mo3,mo4,mo5,mo6,mo7,mo8,mo9,mo10);
 		
-		Jet = atlas.findRegion("siguiente");
+		Jet = atlas.findRegion("listen");
 
 		volando = atlas.findRegion("volando");
 		
+		Titulo = atlas2.findRegion("titulo");
 		pelusa = atlas.findRegion("pelusa");
 		posteluz = atlas.findRegion("postemaderasolo");
 		postecat = atlas.findRegion("postemadera");

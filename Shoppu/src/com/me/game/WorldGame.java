@@ -1151,6 +1151,7 @@ public class WorldGame {
 				Jet obj = (Jet) Ootracosa;
 				obj.Hit();
 				Assets.oGato.play();
+				Assets.oListen.play();
 				oGato.Fly();
 			}
 		}

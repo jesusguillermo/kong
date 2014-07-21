@@ -108,6 +108,7 @@ public class Assets {
 	public static Sound oCaja;
 	public static Sound oBote;
 	public static Sound oPium;
+	public static Sound oListen;
 	//Para la musica
 	
 	public static Music Musica;
@@ -253,6 +254,7 @@ public class Assets {
 		oCaja = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/golpecarton.mp3"));
 		oBote = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/golpebote.mp3"));
 		oPium = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/piumpium.mp3"));
+		oListen = Gdx.audio.newSound(Gdx.files.internal("data/Sonidos/listen.mp3"));
 		
 		Musica = Gdx.audio.newMusic(Gdx.files.internal("data/Sonidos/GameOn.mp3"));
 		MusicaTime = Gdx.audio.newMusic(Gdx.files.internal("data/Sonidos/NoReturn.mp3"));

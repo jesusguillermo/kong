@@ -20,7 +20,7 @@ public class GameScreen extends Screens {
 	Image background, BoteBasura;
 	Image cor1,cor2,cor3, pel;
 	Image corvacio1,corvacio2,corvacio3;
-	int firstX, firstY;
+	int firstX, firstY, contfirstX = 0,contfirstY = 0;
 	public enum State {ready,running,gameover}
 	WorldGame oWorld;
 	WorldGameRender renderer;
@@ -64,9 +64,9 @@ public class GameScreen extends Screens {
 		if(Gdx.input.isTouched(0) )
 		{
 			primer = true;		
+			 firstX = Gdx.input.getX();
+			 firstY = Gdx.input.getY();
 		}
-		 firstX = Gdx.input.getX();
-		 firstY = Gdx.input.getY();
 		if(Gdx.input.isTouched(1) || Gdx.input.isKeyPressed(Keys.SPACE))
 		{
 			segundo = true;
@@ -182,9 +182,7 @@ public class GameScreen extends Screens {
 	private void drawrunning(float delta) {
 		Assets.Font.draw(batcher, "Monedas: " + oWorld.monedas, 0, oCam.position.y);
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
-		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);
-		
-		
+		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);		
 		
 		pel = new Image(Assets.pelusa);
 		pel.setSize(22,67);

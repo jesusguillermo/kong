@@ -288,12 +288,12 @@ public class WorldGameRender {
 			//loop = true;
 		}
 		
-		if (obj.state == Gato.State.corriendo)
+		else if (obj.state == Gato.State.corriendo)
 		{
 			Anikeyframe = Assets.aniRun;
 			loop = true;
-		} 
-		if (obj.state == Gato.State.saltando)
+		}
+		else if (obj.state == Gato.State.saltando)
 		{
 			Anikeyframe = Assets.aniJump;
 			loop = false;

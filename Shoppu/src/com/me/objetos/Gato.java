@@ -78,6 +78,7 @@ public class Gato {
 
 				else
 					body.setLinearVelocity(10, velocidad.y);
+				return;
 			}
 
 			if (primer && state != State.fly && state != State.cayendo && state != State.saltando) 
@@ -86,6 +87,7 @@ public class Gato {
 				statetime = 0;
 				// para que sale mas
 				body.setLinearVelocity(2, velocidad.y);
+				
 
 			}
 			if (segundo && state != State.saltando && primer && state != State.fly && state != State.cayendo) {

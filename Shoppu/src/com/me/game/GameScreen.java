@@ -63,6 +63,7 @@ public class GameScreen extends Screens {
 	private void updaterunning(float delta) {
 		if(Gdx.input.isTouched(0) )
 		{
+<<<<<<< HEAD
 			primer = true;		
 			 firstX = Gdx.input.getX();
 			 firstY = Gdx.input.getY();
@@ -71,6 +72,17 @@ public class GameScreen extends Screens {
 		{
 			segundo = true;
 		}
+=======
+			primer = true;
+			if(Gdx.input.isTouched(1) || Gdx.input.isKeyPressed(Keys.SPACE))
+			{
+				segundo = true;
+			}
+		}
+		 firstX = Gdx.input.getX();
+		 firstY = Gdx.input.getY();
+		
+>>>>>>> origin/master
 		Gdx.app.log("firstX",firstX+ "");
 		Gdx.app.log("firstY",firstY+ "");
 		oWorld.update(delta,primer,segundo);
@@ -182,7 +194,12 @@ public class GameScreen extends Screens {
 	private void drawrunning(float delta) {
 		Assets.Font.draw(batcher, "Monedas: " + oWorld.monedas, 0, oCam.position.y);
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
+<<<<<<< HEAD
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);		
+=======
+		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);	
+		
+>>>>>>> origin/master
 		
 		pel = new Image(Assets.pelusa);
 		pel.setSize(22,67);

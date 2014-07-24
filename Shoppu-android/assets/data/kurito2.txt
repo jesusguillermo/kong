@@ -2,24 +2,101 @@ kurito2.png
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+cero
+  rotate: false
+  xy: 139, 518
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
+cinco
+  rotate: false
+  xy: 105, 518
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
+cuatro
+  rotate: false
+  xy: 104, 565
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
+dos
+  rotate: false
+  xy: 2, 518
+  size: 33, 45
+  orig: 33, 45
+  offset: 0, 0
+  index: -1
 edificio1sn
-  rotate: true
-  xy: 804, 173
+  rotate: false
+  xy: 2, 2
   size: 207, 514
   orig: 207, 514
   offset: 0, 0
   index: -1
 fondo
   rotate: false
-  xy: 2, 2
+  xy: 211, 2
   size: 800, 480
   orig: 800, 480
   offset: 0, 0
   index: -1
+m
+  rotate: false
+  xy: 2, 612
+  size: 32, 25
+  orig: 32, 25
+  offset: 0, 0
+  index: -1
+nueve
+  rotate: false
+  xy: 71, 518
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
+ocho
+  rotate: false
+  xy: 70, 565
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
+seis
+  rotate: false
+  xy: 37, 518
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
+siete
+  rotate: false
+  xy: 36, 565
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
 titulo
   rotate: false
-  xy: 804, 2
+  xy: 211, 484
   size: 789, 169
   orig: 789, 169
+  offset: 0, 0
+  index: -1
+tres
+  rotate: false
+  xy: 2, 565
+  size: 32, 45
+  orig: 32, 45
+  offset: 0, 0
+  index: -1
+uno
+  rotate: false
+  xy: 173, 518
+  size: 24, 45
+  orig: 24, 45
   offset: 0, 0
   index: -1

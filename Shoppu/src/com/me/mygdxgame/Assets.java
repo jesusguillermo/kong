@@ -25,6 +25,19 @@ public class Assets {
 	
 	public static BitmapFont Font;
 	
+	//----------------------Numeros
+	public static AtlasRegion cero;
+	public static AtlasRegion uno;
+	public static AtlasRegion dos;
+	public static AtlasRegion tres;
+	public static AtlasRegion cuatro;
+	public static AtlasRegion cinco;
+	public static AtlasRegion seis;
+	public static AtlasRegion siete;
+	public static AtlasRegion ocho;
+	public static AtlasRegion nueve;
+	public static AtlasRegion m;
+	//----------------------Numeros
 	public static AtlasRegion volando;
 
 	public static AtlasRegion pelusa;
@@ -183,6 +196,20 @@ public class Assets {
 		moneda = new Animation(0.05f, mo1,mo2,mo3,mo4,mo5,mo6,mo7,mo8,mo9,mo10);
 		
 		Jet = atlas.findRegion("listen");
+		
+
+		cero = atlas2.findRegion("cero");
+		uno = atlas2.findRegion("uno");
+		dos = atlas2.findRegion("dos");
+		tres = atlas2.findRegion("tres");
+		cuatro = atlas2.findRegion("cuatro");
+		cinco = atlas2.findRegion("cinco");
+		seis = atlas2.findRegion("seis");
+		siete = atlas2.findRegion("siete");
+		ocho = atlas2.findRegion("ocho");
+		nueve = atlas2.findRegion("nueve");	
+		m = atlas2.findRegion("m");
+		
 
 		volando = atlas.findRegion("volando");
 		

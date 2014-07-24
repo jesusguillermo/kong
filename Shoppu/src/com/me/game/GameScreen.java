@@ -63,26 +63,16 @@ public class GameScreen extends Screens {
 	private void updaterunning(float delta) {
 		if(Gdx.input.isTouched(0) )
 		{
-<<<<<<< HEAD
+
 			primer = true;		
 			 firstX = Gdx.input.getX();
 			 firstY = Gdx.input.getY();
-		}
+		
 		if(Gdx.input.isTouched(1) || Gdx.input.isKeyPressed(Keys.SPACE))
 		{
 			segundo = true;
 		}
-=======
-			primer = true;
-			if(Gdx.input.isTouched(1) || Gdx.input.isKeyPressed(Keys.SPACE))
-			{
-				segundo = true;
-			}
-		}
-		 firstX = Gdx.input.getX();
-		 firstY = Gdx.input.getY();
-		
->>>>>>> origin/master
+	}
 		Gdx.app.log("firstX",firstX+ "");
 		Gdx.app.log("firstY",firstY+ "");
 		oWorld.update(delta,primer,segundo);
@@ -129,7 +119,12 @@ public class GameScreen extends Screens {
 			drawgameover(delta);
 			break;
 		}
+		
+		if (state != State.gameover )
+			drawText(20, SCREEN_HEIGHT / 2f + 100, (int) oWorld.OGato.position.x + "m");
 		batcher.end();
+		
+
 		
 	}
 
@@ -194,12 +189,9 @@ public class GameScreen extends Screens {
 	private void drawrunning(float delta) {
 		Assets.Font.draw(batcher, "Monedas: " + oWorld.monedas, 0, oCam.position.y);
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
-<<<<<<< HEAD
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);		
-=======
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);	
-		
->>>>>>> origin/master
+
 		
 		pel = new Image(Assets.pelusa);
 		pel.setSize(22,67);
@@ -292,11 +284,75 @@ public class GameScreen extends Screens {
 			stage.addActor(corvacio3);
 		}	
 		stage.addActor(pel);
+		
+
 	}
+	
 
 	private void drawready(float delta) {
 		Assets.Font.draw(batcher, "Toca para iniciar", 0, 200); 
 		
 	}
+	
+	private void drawText(float x, float y, String text) {
+
+		int len = text.length();
+		float textWidth = 0;
+		for (int i = 0; i < len; i++) {
+			AtlasRegion keyFrame;
+
+			char character = text.charAt(i);
+			float charWidth;
+			if (character == '0') {
+				keyFrame = Assets.cero;
+				charWidth = 32;
+			}
+			else if (character == '1') {
+				keyFrame = Assets.uno;
+				charWidth = 24;
+			}
+			else if (character == '2') {
+				keyFrame = Assets.dos;
+				charWidth = 32;
+			}
+			else if (character == '3') {
+				keyFrame = Assets.tres;
+				charWidth = 30;
+			}
+			else if (character == '4') {
+				keyFrame = Assets.cuatro;
+				charWidth = 30;
+			}
+			else if (character == '5') {
+				keyFrame = Assets.cinco;
+				charWidth = 29;
+			}
+			else if (character == '6') {
+				keyFrame = Assets.seis;
+				charWidth = 30;
+			}
+			else if (character == '7') {
+				keyFrame = Assets.siete;
+				charWidth = 29;
+			}
+			else if (character == '8') {
+				keyFrame = Assets.ocho;
+				charWidth = 33;
+			}
+			else if (character == '9') {
+				keyFrame = Assets.nueve;
+				charWidth = 33;
+			}
+			else {// M
+				keyFrame = Assets.m;
+				charWidth = 39;
+			}
+
+			batcher.draw(keyFrame, x + textWidth, y, charWidth, 41);
+			textWidth += charWidth;
+		}
+
+	}
+
 
 }

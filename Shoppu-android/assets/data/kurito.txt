@@ -11,42 +11,42 @@ repeat: none
   index: -1
 a
   rotate: false
-  xy: 1220, 1707
+  xy: 477, 1196
   size: 323, 184
   orig: 323, 184
   offset: 0, 0
   index: -1
 ave
   rotate: false
-  xy: 826, 1715
+  xy: 385, 1984
   size: 89, 43
   orig: 89, 43
   offset: 0, 0
   index: -1
 ave1
   rotate: false
-  xy: 917, 1715
+  xy: 476, 1976
   size: 89, 42
   orig: 89, 42
   offset: 0, 0
   index: -1
 b
   rotate: false
-  xy: 1356, 952
+  xy: 1659, 1235
   size: 320, 168
   orig: 320, 168
   offset: 0, 0
   index: -1
 background
   rotate: false
-  xy: 722, 1196
+  xy: 302, 1984
   size: 81, 49
   orig: 81, 49
   offset: 0, 0
   index: -1
 botebasura
   rotate: false
-  xy: 1190, 1948
+  xy: 312, 1227
   size: 107, 88
   orig: 107, 88
   offset: 0, 0
@@ -67,28 +67,28 @@ botonbote
   index: -1
 botonleaderboard
   rotate: false
-  xy: 425, 1967
+  xy: 882, 1963
   size: 206, 74
   orig: 206, 74
   offset: 0, 0
   index: -1
 btnEmpezar
   rotate: false
-  xy: 312, 1645
+  xy: 590, 1382
   size: 200, 95
   orig: 200, 95
   offset: 0, 0
   index: -1
 c
   rotate: false
-  xy: 905, 1760
+  xy: 1276, 952
   size: 313, 186
   orig: 313, 186
   offset: 0, 0
   index: -1
 cabeza
   rotate: false
-  xy: 1299, 1893
+  xy: 418, 1421
   size: 65, 73
   orig: 65, 73
   offset: 0, 0
@@ -102,7 +102,7 @@ cajacarton
   index: -1
 chamarra (1)
   rotate: false
-  xy: 1163, 1707
+  xy: 418, 1329
   size: 55, 38
   orig: 55, 38
   offset: 0, 0
@@ -116,28 +116,28 @@ cola
   index: -1
 contenedor
   rotate: false
-  xy: 983, 1948
+  xy: 802, 1235
   size: 103, 93
   orig: 103, 93
   offset: 0, 0
   index: -1
 d
   rotate: false
-  xy: 599, 1765
+  xy: 970, 952
   size: 304, 192
   orig: 304, 192
   offset: 0, 0
   index: -1
 e
   rotate: false
-  xy: 278, 1773
+  xy: 998, 1235
   size: 319, 192
   orig: 319, 192
   offset: 0, 0
   index: -1
 eat
   rotate: false
-  xy: 587, 1741
+  xy: 541, 1382
   size: 47, 22
   orig: 47, 22
   offset: 0, 0
@@ -151,14 +151,14 @@ edificio2sn
   index: -1
 edificio3sn
   rotate: false
-  xy: 931, 1235
+  xy: 917, 1467
   size: 355, 470
   orig: 355, 470
   offset: 0, 0
   index: -1
 edificio4sn
   rotate: false
-  xy: 324, 1173
+  xy: 519, 1491
   size: 396, 470
   orig: 396, 470
   offset: 0, 0
@@ -214,49 +214,49 @@ fondogameover
   index: -1
 fondonoche
   rotate: false
-  xy: 377, 1742
+  xy: 472, 1382
   size: 42, 24
   orig: 42, 24
   offset: 0, 0
   index: -1
 gorro
   rotate: false
-  xy: 815, 1959
+  xy: 567, 1963
   size: 74, 81
   orig: 74, 81
   offset: 0, 0
   index: -1
 gorronyan
   rotate: false
-  xy: 739, 1959
+  xy: 485, 1408
   size: 74, 81
   orig: 74, 81
   offset: 0, 0
   index: -1
 heart
   rotate: false
-  xy: 1008, 1707
+  xy: 418, 1369
   size: 52, 50
   orig: 52, 50
   offset: 0, 0
   index: -1
 heartvacio
   rotate: false
-  xy: 270, 1173
+  xy: 421, 1277
   size: 52, 50
   orig: 52, 50
   offset: 0, 0
   index: -1
 kuro
   rotate: false
-  xy: 633, 1959
+  xy: 312, 1412
   size: 104, 82
   orig: 104, 82
   offset: 0, 0
   index: -1
 lata1
   rotate: false
-  xy: 477, 1742
+  xy: 421, 1252
   size: 54, 23
   orig: 54, 23
   offset: 0, 0
@@ -277,14 +277,14 @@ lata3
   index: -1
 lata4
   rotate: false
-  xy: 421, 1742
+  xy: 421, 1227
   size: 54, 23
   orig: 54, 23
   offset: 0, 0
   index: -1
 listen
   rotate: false
-  xy: 636, 1740
+  xy: 278, 1918
   size: 25, 22
   orig: 25, 22
   offset: 0, 0
@@ -298,7 +298,7 @@ mangadelantera
   index: -1
 mon1
   rotate: false
-  xy: 216, 1196
+  xy: 278, 1862
   size: 27, 29
   orig: 27, 29
   offset: 0, 0
@@ -312,7 +312,7 @@ mon10
   index: -1
 mon2
   rotate: false
-  xy: 245, 1196
+  xy: 278, 1942
   size: 23, 29
   orig: 23, 29
   offset: 0, 0
@@ -361,14 +361,14 @@ mon8
   index: -1
 mon9
   rotate: false
-  xy: 187, 1196
+  xy: 278, 1831
   size: 27, 29
   orig: 27, 29
   offset: 0, 0
   index: -1
 muslito
   rotate: false
-  xy: 1125, 1707
+  xy: 865, 1330
   size: 36, 41
   orig: 36, 41
   offset: 0, 0
@@ -382,70 +382,70 @@ nubes
   index: -1
 nyancat
   rotate: false
-  xy: 1220, 1893
+  xy: 903, 1330
   size: 46, 38
   orig: 46, 38
   offset: 0, 0
   index: -1
 peleas
   rotate: false
-  xy: 1088, 1948
+  xy: 896, 1373
   size: 100, 92
   orig: 100, 92
   offset: 0, 0
   index: -1
 peleas1
   rotate: false
-  xy: 514, 1645
+  xy: 792, 1382
   size: 102, 94
   orig: 102, 94
   offset: 0, 0
   index: -1
 peleas2
   rotate: false
-  xy: 891, 1959
+  xy: 643, 1963
   size: 90, 80
   orig: 90, 80
   offset: 0, 0
   index: -1
 peleas3
   rotate: false
-  xy: 618, 1645
+  xy: 312, 1317
   size: 104, 93
   orig: 104, 93
   offset: 0, 0
   index: -1
 pelusa
   rotate: false
-  xy: 1299, 1968
+  xy: 278, 1973
   size: 22, 67
   orig: 22, 67
   offset: 0, 0
   index: -1
 piernadelantera
   rotate: false
-  xy: 312, 1742
+  xy: 278, 1773
   size: 32, 27
   orig: 32, 27
   offset: 0, 0
   index: -1
 piernadelantera2
   rotate: false
-  xy: 346, 1742
+  xy: 278, 1802
   size: 29, 27
   orig: 29, 27
   offset: 0, 0
   index: -1
 piernatrasera
   rotate: false
-  xy: 533, 1741
+  xy: 278, 1893
   size: 27, 23
   orig: 27, 23
   offset: 0, 0
   index: -1
 piernatrasera2
   rotate: false
-  xy: 562, 1741
+  xy: 516, 1382
   size: 23, 23
   orig: 23, 23
   offset: 0, 0
@@ -471,6 +471,13 @@ plataforma1
   orig: 264, 53
   offset: 0, 0
   index: -1
+plataformanube
+  rotate: false
+  xy: 187, 1173
+  size: 288, 52
+  orig: 288, 52
+  offset: 0, 0
+  index: -1
 postemadera
   rotate: false
   xy: 1922, 2
@@ -480,42 +487,42 @@ postemadera
   index: -1
 postemaderacuervo
   rotate: false
-  xy: 826, 1235
+  xy: 414, 1496
   size: 103, 478
   orig: 103, 478
   offset: 0, 0
   index: -1
 postemaderagrump
   rotate: false
-  xy: 724, 1247
+  xy: 312, 1496
   size: 100, 486
   orig: 100, 486
   offset: 0, 0
   index: -1
 postemaderasolo
   rotate: false
-  xy: 1288, 1235
+  xy: 1591, 952
   size: 66, 449
   orig: 66, 449
   offset: 0, 0
   index: -1
 torzo
   rotate: false
-  xy: 1062, 1707
+  xy: 802, 1330
   size: 61, 42
   orig: 61, 42
   offset: 0, 0
   index: -1
 volando
   rotate: false
-  xy: 352, 1967
+  xy: 809, 1963
   size: 71, 79
   orig: 71, 79
   offset: 0, 0
   index: -1
 volando1
   rotate: false
-  xy: 278, 1967
+  xy: 735, 1963
   size: 72, 79
   orig: 72, 79
   offset: 0, 0

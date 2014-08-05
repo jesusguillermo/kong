@@ -33,8 +33,7 @@ public class GameScreen extends Screens {
 			oWorld = new WorldGame();
 			renderer = new WorldGameRender(batcher,oWorld);
 			state = State.ready;
-			InicializarGameOver();
-			
+			InicializarGameOver();			
 	}
 
 	@Override
@@ -76,11 +75,12 @@ public class GameScreen extends Screens {
 	}
 		contfirstX = firstX;
 		contfirstY = firstY;
-				
+		/*		
 		Gdx.app.log("firstX",firstX+ "");
 		Gdx.app.log("firstY",firstY+ "");
 		Gdx.app.log("contfirstX",contfirstX+ "");
 		Gdx.app.log("contfirstY",contfirstY+ "");
+		*/
 		oWorld.update(delta,primer,segundo);
 		if(oWorld.state == WorldGame.State.GameOver)
 		{

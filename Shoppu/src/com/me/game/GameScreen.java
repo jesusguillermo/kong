@@ -35,6 +35,9 @@ public class GameScreen extends Screens {
 			state = State.ready;
 			InicializarGameOver();
 			
+			pel = new Image(Assets.pelusa);
+			pel.setSize(22, 67);
+			
 	}
 
 	@Override
@@ -196,9 +199,7 @@ public class GameScreen extends Screens {
 		Assets.Font.draw(batcher, "Monedas: " + oWorld.monedas, 0, oCam.position.y);
 		Assets.Font.draw(batcher, "TIME  :  " + (int)oWorld.time, oCam.position.x-30, oCam.position.y*2);
 		Assets.Font.draw(batcher, "Distancia  :  " + (int)oWorld.distancia, 0, oCam.position.y-10);		
-
-		pel = new Image(Assets.pelusa);
-		pel.setSize(22,67);
+		
 		pel.setPosition(firstX, firstY);		
 		
 		if(oWorld.OGato.vida == 4)

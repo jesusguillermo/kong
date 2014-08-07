@@ -105,11 +105,26 @@ public class WorldGame {
 		oWorldBox.setContactListener(new Colisiones());
 		// /
 
+		for(int i=0 ; i<10;i++)
+		{
+			boolean edo = false;
+			int n =Oran.nextInt(5);
+			if(n==0)
+				n++;
+			if(n==4)
+				edo = true;
+			else
+				edo = false;
+			crearCuervo(i*2);
+			CrearPisoTierra(i*8);
+			//agregarPlataformas(i*6,n,true, edo);
+		}
+		
 		crearGato();
 		crearTecho(10);
-		CrearPisoTierra(4);
-		CrearPisoTierra(12);
-		CrearPisoTierra(20);
+		//CrearPisoTierra(4);
+		//CrearPisoTierra(12);
+		//CrearPisoTierra(20);
 		crearPandilla();
 		agregarPlataformas(0, 20);
 
@@ -711,7 +726,7 @@ public class WorldGame {
 			  ponsincial= distancia;
 			  limite_i=   distancia + 20;
 			  
-			 agregarPlataformas(ponsincial, limite_i);
+			 //agregarPlataformas(ponsincial, limite_i);
 			 creacion = false;
 			}
 			// -------------------------------------
@@ -723,8 +738,11 @@ public class WorldGame {
 	}
 	private void updateCuervo(float delta, Body body) {
 		Cuervo obj = (Cuervo) body.getUserData();
-		
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		if(obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		{
+		body.setTransform(WorldGameRender.oCam.position.x+4,body.getPosition().y,0);
+		}
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-6)
 		{
 			arrCuervo.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -802,6 +820,10 @@ public class WorldGame {
 	private void updatePiso(float delta, Body body) {
 		
 		Piso obj = (Piso) body.getUserData();
+		if(obj.posicion.x <= WorldGameRender.oCam.position.x-8)
+		{
+			body.setTransform(WorldGameRender.oCam.position.x +72,body.getPosition().y, 0);
+		}
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)
 		{
 			arrPiso.removeValue(obj, true);
@@ -876,7 +898,18 @@ public class WorldGame {
 	private void updatePlataforma(float delta, Body body) 
 	{
 		Plataforma obj = (Plataforma) body.getUserData();
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		if(obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		{
+			int n = 	Oran.nextInt(10);
+			if(n < 5)
+			{
+				n = 5;
+			}
+			body.setTransform(WorldGameRender.oCam.position.x + 4,n, 0);
+			Gdx.app.log("PosCuervo ",obj.posicion.x+"");
+		}
+	//	if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)	
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-6)
 		{
 			arrPlataforma.removeValue(obj, true);
 			oWorldBox.destroyBody(body);

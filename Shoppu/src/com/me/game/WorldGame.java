@@ -47,6 +47,7 @@ public class WorldGame {
 	public enum State {
 		Running, GameOver
 	}
+
 	
 	State state;
 	Gato OGato;
@@ -103,35 +104,14 @@ public class WorldGame {
 		// //
 		oWorldBox.setContactListener(new Colisiones());
 		// /
-		for(int i = 0;i < 10;i++)
-		{
-			boolean edo = false;
-			int n = Oran.nextInt(5);
-			
-			if(n == 0)
-			{
-				n++;
-			}
-			if(n == 4)
-			{
-				edo = true;
-			}
-			else
-			{
-				edo = false;
-			}
-			
-		crearCuervo(i*2);
-		CrearPisoTierra(i*8);			
-		crearPlataforma(i*6,n , true, edo);
-		}
+
 		crearGato();
 		crearTecho(10);
-		//CrearPisoTierra(4);
-		//CrearPisoTierra(12);
-		//CrearPisoTierra(20);
+		CrearPisoTierra(4);
+		CrearPisoTierra(12);
+		CrearPisoTierra(20);
 		crearPandilla();
-		//agregarPlataformas(0, 20);
+		agregarPlataformas(0, 20);
 
 	}	
 	
@@ -176,7 +156,7 @@ public class WorldGame {
 		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
 		    crearNubes(i*7);
-		   // crearCuervo(i*1.5f);
+		    crearCuervo(i*1.5f);
 		    if(Oran.nextInt(11)<5)
 		    {
 		    	if(Oran.nextInt(11)<5)
@@ -673,7 +653,7 @@ public class WorldGame {
 		time -= delta;
 		timer +=delta;
 		int lenght = arrBodies.size;
-		Gdx.app.log("Cuerpos", lenght + "");
+	//	Gdx.app.log("Cuerpos", lenght + "");
 		
 		
 		for (int i = 0; i < lenght; i++) {
@@ -725,7 +705,15 @@ public class WorldGame {
 				updateCuervo(delta, body);
 			}
 
-			
+			if(creacion && control == 1)
+			{
+				Gdx.app.log("entre","");
+			  ponsincial= distancia;
+			  limite_i=   distancia + 20;
+			  
+			 agregarPlataformas(ponsincial, limite_i);
+			 creacion = false;
+			}
 			// -------------------------------------
 			if (OGato.state == Gato.State.muerto && OGato.statetime >= Gato.TIEMPO_MUERTO)
 			{
@@ -736,18 +724,7 @@ public class WorldGame {
 	private void updateCuervo(float delta, Body body) {
 		Cuervo obj = (Cuervo) body.getUserData();
 		
-		if(obj.posicion.x <= WorldGameRender.oCam.position.x-4)
-		{
-			int n = 	Oran.nextInt(10);
-			if(n < 5)
-			{
-				n = 5;
-			}
-			body.setTransform(WorldGameRender.oCam.position.x + 4,n, 0);
-			Gdx.app.log("PosCuervo ",obj.posicion.x+"");
-		}
-	//	if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)	
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-6)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrCuervo.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -825,16 +802,14 @@ public class WorldGame {
 	private void updatePiso(float delta, Body body) {
 		
 		Piso obj = (Piso) body.getUserData();
-		if(obj.posicion.x <= WorldGameRender.oCam.position.x-8)
-		{
-			body.setTransform(WorldGameRender.oCam.position.x +72,body.getPosition().y, 0);
-		}
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)
 		{
 			arrPiso.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
 			Gdx.app.log("","piso creadoss "+arrPiso.size);
 			eliminados++;
+
+			CrearPisoTierra(WorldGameRender.oCam.position.x+15);
 			return;
 		}
 		obj.update(body, delta);
@@ -901,12 +876,7 @@ public class WorldGame {
 	private void updatePlataforma(float delta, Body body) 
 	{
 		Plataforma obj = (Plataforma) body.getUserData();
-		if(obj.posicion.x <= WorldGameRender.oCam.position.x-4)
-		{
-		body.setTransform(WorldGameRender.oCam.position.x+4,body.getPosition().y,0);
-		}
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-6)
-		//if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrPlataforma.removeValue(obj, true);
 			oWorldBox.destroyBody(body);

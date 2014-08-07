@@ -171,7 +171,7 @@ public class WorldGame {
 		    crearCajaCarton(i*10, .42f);
 		    crearLata(i*7);
 		    crearNubes(i*7);
-		    crearCuervo(i*1.5f);
+		    //crearCuervo(i*1.5f);
 		    if(Oran.nextInt(11)<5)
 		    {
 		    	if(Oran.nextInt(11)<5)
@@ -831,7 +831,6 @@ public class WorldGame {
 			Gdx.app.log("","piso creadoss "+arrPiso.size);
 			eliminados++;
 
-			CrearPisoTierra(WorldGameRender.oCam.position.x+15);
 			return;
 		}
 		obj.update(body, delta);

@@ -75,24 +75,27 @@ public class GameScreen extends Screens {
 		if(Gdx.input.isTouched(1) || Gdx.input.isKeyPressed(Keys.SPACE))
 		{
 			segundo = true;
-		}		
+		}
+		else
+		{
+			segundo = false;
+		}
 	}
+		else
+		{
+			primer = false;			
+		}
 		contfirstX = firstX;
 		contfirstY = firstY;
 				
-		Gdx.app.log("firstX",firstX+ "");
-		Gdx.app.log("firstY",firstY+ "");
-		Gdx.app.log("contfirstX",contfirstX+ "");
-		Gdx.app.log("contfirstY",contfirstY+ "");
 		oWorld.update(delta,primer,segundo);
 		if(oWorld.state == WorldGame.State.GameOver)
 		{
 		//	state = State.gameover;
 			setGameOver();
 		}	
-
-		primer = false;
-		segundo = false;
+		Gdx.app.log("Primer",primer+"");
+		Gdx.app.log("Segundo",segundo+"");
 	}
 
 	private void setGameOver() 
@@ -288,8 +291,15 @@ public class GameScreen extends Screens {
 			stage.addActor(corvacio2);
 			stage.addActor(corvacio3);
 		}
-		stage.addActor(pel);	
-
+		if(primer)
+		{
+			stage.addActor(pel);
+		}
+		else
+		{
+			pel.remove();
+		}
+	
 	}
 	
 

@@ -12,11 +12,12 @@ public class Monedas {
 		public Vector2 posicion;
 		public Vector2 velocidad;
 		public float state_time;
-
+        public int tipo;
 		public static float VELOCIDAD_X = -2.7f;
 		
-		public Monedas(float x, float y){
+		public Monedas(float x, float y,int tipo){
 			posicion = new Vector2(x,y);
+			this.tipo = tipo;
 			/*
 			velocidad = new Vector2(x,y);
 			state = State.Normal;

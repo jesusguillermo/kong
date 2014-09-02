@@ -56,7 +56,7 @@ public class Gato {
 
 	public void update(float delta, Body body, boolean primer, boolean segundo,
 			float time) {
-		Gdx.app.log("Estado",state+"");
+		//Gdx.app.log("Estado",state+"");
 		position.x = body.getPosition().x;
 		position.y = body.getPosition().y;
 		velocidad = body.getLinearVelocity();

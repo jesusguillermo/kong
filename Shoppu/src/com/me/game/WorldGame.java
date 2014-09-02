@@ -79,6 +79,10 @@ public class WorldGame {
 	public float time = 60;
 	public float timer ;
 	public float plata_eliminadas=0;
+	public float displataforma;
+	
+	final float TIME_TO_SPAWN_POSTE = 3f;// Tiempo en segundos para que aparezcan las tuberias
+	float timeToSpawnPOSTE;
 
 	public WorldGame() {
 		state = State.Running;
@@ -105,31 +109,92 @@ public class WorldGame {
 		oWorldBox.setContactListener(new Colisiones());
 		// /
 
-		for(int i=0 ; i<10;i++)
+		for(int i=0 ; i<3;i++)
 		{
-			boolean edo = false;
-			int n =Oran.nextInt(5);
-			if(n==0)
-				n++;
-			if(n==4)
-				edo = true;
-			else
-				edo = false;
+			
 			crearCuervo(i*2);
+			crearMonedas(i+6,  Oran.nextFloat() * (2*Screens.WORLD_WIDTH - .3f),1);
 			CrearPisoTierra(i*8);
+			int n = Oran.nextInt(3);
+			Gdx.app.log("n",n+"");
+			if(n == 0)
+			{
+				crearPlataforma(i*4, 1.0f, true, true,true,false,false);	
+			}
+			else if (n == 1)
+			{
+				crearPlataforma(i*4, 1.0f, true, true,false,true,false);	
+			}
+			else
+			{
+				crearPlataforma(i*4, 1.0f, true, true,false,false,true);				
+			}
 			//agregarPlataformas(i*6,n,true, edo);
 		}
-		
+		//crearHola();
 		crearGato();
-		crearTecho(10);
+		//crearTecho(10);
 		//CrearPisoTierra(4);
 		//CrearPisoTierra(12);
 		//CrearPisoTierra(20);
 		crearPandilla();
-		agregarPlataformas(0, 20);
+		//agregarPlataformas(0, 20);
 
 	}	
 	
+	private void crearHola()
+	{
+		//Palo H izquierda
+		crearMonedas(2,3.5f,2);
+		crearMonedas(2,3.3f,2);
+		crearMonedas(2,3.1f,2);
+		crearMonedas(2,2.9f,2);
+		crearMonedas(2,2.7f,2);
+		//Palo H derecha
+		crearMonedas(3,3.5f,2);
+		crearMonedas(3,3.3f,2);
+		crearMonedas(3,3.1f,2);
+		crearMonedas(3,2.9f,2);
+		crearMonedas(3,2.7f,2);
+		//Palo H Union
+		crearMonedas(2.25f,3.1f,2);
+		crearMonedas(2.5f,3.1f,2);
+		crearMonedas(2.75f,3.1f,2);
+		//O izquierda
+		crearMonedas(3.8f,3.5f,2);
+		crearMonedas(3.6f,3.3f,2);
+		crearMonedas(3.4f,3.1f,2);
+		crearMonedas(3.6f,2.9f,2);
+		crearMonedas(3.8f,2.7f,2);
+		// O derecha
+		crearMonedas(4f,3.3f,2);
+		crearMonedas(4.2f,3.1f,2);
+		crearMonedas(4f,2.9f,2);
+		//L parado
+		crearMonedas(4.4f,3.5f,2);
+		crearMonedas(4.4f,3.3f,2);
+		crearMonedas(4.4f,3.1f,2);
+		crearMonedas(4.4f,2.9f,2);
+		crearMonedas(4.4f,2.7f,2);
+		//L acostada
+		crearMonedas(4.6f,2.7f,2);
+		crearMonedas(4.8f,2.7f,2);
+		crearMonedas(5f,2.7f,2);
+		// A palo izquierdo
+		crearMonedas(6.2f,3.5f,2);
+		crearMonedas(6f,3.3f,2);
+		crearMonedas(5.8f,3.1f,2);
+		crearMonedas(5.6f,2.9f,2);
+		crearMonedas(5.4f,2.7f,2);
+		//A palo Derecho
+		crearMonedas(6.4f,3.3f,2);
+		crearMonedas(6.6f,3.1f,2);
+		crearMonedas(6.8f,2.9f,2);
+		crearMonedas(7f,2.7f,2);
+		//A palo en medio
+		crearMonedas(6.2f,3.1f,2);
+
+		}
 	private void crearTecho(float x) {
 
 		BodyDef tec = new BodyDef();
@@ -158,6 +223,7 @@ public class WorldGame {
 	public int ponsincial ;
 	public int limite_i;
 	
+	/*
 	private void  agregarPlataformas(int in ,int limi)
 	{
 		for(int i = in ; i<limi ;i++)
@@ -223,7 +289,7 @@ public class WorldGame {
 		    }
 		}
     }
-
+*/
 	private void crearCuervo(float x) {
 		//float x = WIDTH + 3;
 		float alt = Oran.nextInt(10);
@@ -231,6 +297,7 @@ public class WorldGame {
 		{
 			alt = 5;
 		}
+		
 				float y = Oran.nextFloat() + alt;
 
 				Cuervo ocue = new Cuervo(x, y);
@@ -318,9 +385,9 @@ public class WorldGame {
 		oBody.setUserData(oPis);
 	}
 
-	private void crearLata(float x) {
+	private void crearLata(float x,float y) {
 		//float x = WIDTH + 1f;
-		float y = .3f;
+		
 
 		Lata oLat = new Lata(x, y);
 
@@ -430,7 +497,7 @@ public class WorldGame {
 		oBody.setUserData(oBot);
 	}
 
-	private void crearPlataforma(float x, float y, boolean estado,boolean jet) {
+	private void crearPlataforma(float x, float y, boolean estado,boolean jet,boolean bote,boolean caja,boolean lata) {
 		
 		Plataforma oPlata = new Plataforma(x, y, estado);
 		BodyDef bd = new BodyDef();
@@ -454,6 +521,21 @@ public class WorldGame {
 		if(jet)			
 		{
 			crearJet(x, y+0.5f);
+		}
+		if(bote)
+		{
+			float rec = Oran.nextFloat();
+			crearBoteBasura(x+rec, y+0.47f);
+		}
+		if(caja)
+		{
+			float rec = Oran.nextFloat();
+			crearCajaCarton(x+rec, y+0.37f);
+		}
+		if(lata)
+		{
+			float rec = Oran.nextFloat();
+			crearLata(x+rec, y+0.27f);
 		}
 	}
 
@@ -598,11 +680,10 @@ public class WorldGame {
 		oBody.setUserData(oPos);
 	}
 
-	private void crearMonedas(float x) {
-		float y = Oran.nextFloat() * (2*Screens.WORLD_WIDTH - .3f);
+	private void crearMonedas(float x,float y,int tipo) {
+		//float y = Oran.nextFloat() * (2*Screens.WORLD_WIDTH - .3f);
 
-
-		Monedas oMon = new Monedas(x, y);
+		Monedas oMon = new Monedas(x, y,tipo);
 
 		arrMonedas.add(oMon);
 
@@ -667,9 +748,13 @@ public class WorldGame {
 		oWorldBox.getBodies(arrBodies);
 		time -= delta;
 		timer +=delta;
+		timeToSpawnPOSTE+=delta;
 		int lenght = arrBodies.size;
 	//	Gdx.app.log("Cuerpos", lenght + "");
-		
+		if (timeToSpawnPOSTE >= TIME_TO_SPAWN_POSTE) {
+			timeToSpawnPOSTE -= TIME_TO_SPAWN_POSTE;
+			crearPoste(WorldGameRender.oCam.position.x + 10f);
+		}
 		
 		for (int i = 0; i < lenght; i++) {
 			Body body = arrBodies.get(i);
@@ -720,15 +805,6 @@ public class WorldGame {
 				updateCuervo(delta, body);
 			}
 
-			if(creacion && control == 1)
-			{
-				Gdx.app.log("entre","");
-			  ponsincial= distancia;
-			  limite_i=   distancia + 20;
-			  
-			 //agregarPlataformas(ponsincial, limite_i);
-			 creacion = false;
-			}
 			// -------------------------------------
 			if (OGato.state == Gato.State.muerto && OGato.statetime >= Gato.TIEMPO_MUERTO)
 			{
@@ -736,11 +812,24 @@ public class WorldGame {
 			}
 		}
 	}
+	
 	private void updateCuervo(float delta, Body body) {
 		Cuervo obj = (Cuervo) body.getUserData();
 		if(obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
-		body.setTransform(WorldGameRender.oCam.position.x+4,body.getPosition().y,0);
+			int n = Oran.nextInt(15);
+			if(n < 5)
+			{
+				n = 6;
+			}
+			float alt = Oran.nextInt(10);
+			if(alt < 5)
+			{
+				alt = 5;
+			}			
+			float y = Oran.nextFloat() + alt;
+			
+		body.setTransform(WorldGameRender.oCam.position.x+n,y,0);
 		}
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-6)
 		{
@@ -799,13 +888,15 @@ public class WorldGame {
 			return;
 		}
 		obj.update(body, delta);
-		
-
 	}
 
 	private void updateLata(float delta, Body body) {
 		Lata obj = (Lata) body.getUserData();
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		{			
+			body.setTransform(displataforma + Oran.nextFloat(), obj.posicion.y, 0);
+		}
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)
 		{
 			arrLata.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -817,14 +908,16 @@ public class WorldGame {
 
 	}
 
+	//piso agregado creo
 	private void updatePiso(float delta, Body body) {
 		
 		Piso obj = (Piso) body.getUserData();
+
 		if(obj.posicion.x <= WorldGameRender.oCam.position.x-8)
 		{
-			body.setTransform(WorldGameRender.oCam.position.x +72,body.getPosition().y, 0);
+			body.setTransform(WorldGameRender.oCam.position.x +15.07f,body.getPosition().y, 0);
 		}
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-16)
 		{
 			arrPiso.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -854,6 +947,10 @@ public class WorldGame {
 	{
 		CajaCarton obj = (CajaCarton) body.getUserData();
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		{			
+			body.setTransform(displataforma + Oran.nextFloat(), obj.posicion.y, 0);
+		}
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)
 		{
 			arrCajacarton.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -869,6 +966,11 @@ public class WorldGame {
 	{
 		BoteBasura obj = (BoteBasura) body.getUserData();
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		{
+			
+			body.setTransform(displataforma + Oran.nextFloat(), obj.posicion.y, 0);
+		}
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)
 		{
 			arrBoteBasura.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -897,18 +999,21 @@ public class WorldGame {
 	private void updatePlataforma(float delta, Body body) 
 	{
 		Plataforma obj = (Plataforma) body.getUserData();
-		if(obj.posicion.x <= WorldGameRender.oCam.position.x-4)
+		if(obj.posicion.x <= WorldGameRender.oCam.position.x-5)
 		{
-			int n = 	Oran.nextInt(10);
-			if(n < 5)
+			/*
+			int n = Oran.nextInt(16);
+			if(n < 12 )
 			{
-				n = 5;
-			}
-			body.setTransform(WorldGameRender.oCam.position.x + 4,n, 0);
-			Gdx.app.log("PosCuervo ",obj.posicion.x+"");
+				n = 12;
+			}		
+			*/	
+			body.setTransform( WorldGameRender.oCam.position.x + 4,obj.posicion.y, 0);
+			displataforma = WorldGameRender.oCam.position.x + 4;
+			Gdx.app.log("plataf", displataforma +"");
 		}
 	//	if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)	
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-6)
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-9)
 		{
 			arrPlataforma.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -923,6 +1028,7 @@ public class WorldGame {
 	private void updatePoste(float delta, Body body) 
 	{
 		Poste obj = (Poste) body.getUserData();
+		
 		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)
 		{
 			arrPoste.removeValue(obj, true);
@@ -970,10 +1076,35 @@ public class WorldGame {
 	private void updateMonedas(float delta, Body body) {
 		Monedas obj = (Monedas) body.getUserData();
 		// el .3 es por el tiempo qeu dura la animacion
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4  && obj.tipo == 1)		
+		{
+			Gdx.app.log("bodytransformer","");
+			int x = Oran.nextInt(15);
+			int y = Oran.nextInt(15);
+			if(x < 5)
+			{
+				x = 5;
+			}
+			if(y <= 2)
+			{
+				y = 2;
+			}				
+			body.setTransform( WorldGameRender.oCam.position.x + x,y, 0);
+			
+		}
 		if (obj.state == Monedas.State.Agarrada) {
+		float x = Oran.nextInt(15);
+		if(x < 5)
+		{
+			x = 5;
+		}
 			// destruye el cuerpo
+		if(obj.tipo == 1)
+		{
+			Gdx.app.log("moneda tipo 1","");
+		crearMonedas(WorldGameRender.oCam.position.x+x, Oran.nextInt(9),1);
+		}
 			oWorldBox.destroyBody(body);
-
 			// quita el obejto del arreglo
 			arrMonedas.removeValue(obj, true);
 			eliminados++;
@@ -982,7 +1113,7 @@ public class WorldGame {
 		}
 
 		// Gdx.app.log("posicion monedas:",obj.posicion.x+"");
-		if (obj.posicion.x <= WorldGameRender.oCam.position.x-4)		
+		if (obj.posicion.x <= WorldGameRender.oCam.position.x-8)		
 		{
 			arrMonedas.removeValue(obj, true);
 			oWorldBox.destroyBody(body);
@@ -1044,11 +1175,7 @@ public class WorldGame {
 				body.setLinearVelocity(body.getLinearVelocity().x, body.getLinearVelocity().y);
 			}
 		distancia = (int) body.getPosition().x;	
-		if(distancia % 20 == 0)
-		{
-			creacion = true;
-			control++;
-		}
+		
 		}
 		
 	}
